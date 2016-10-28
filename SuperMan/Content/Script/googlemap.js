@@ -26,19 +26,9 @@ function showPosition() {
         { latitude: 24.139321, longitude: 120.584154 },
         { latitude: 24.186072, longitude: 120.661487 },
         { latitude: 24.152009, longitude: 120.682258 },
-        { latitude: 24.178299, longitude: 120.617125 },
     ];
 
     var markers = [];
-
-    var icon_halo = {
-        //url: "http://wfarm1.dataknet.com/static/resources/icons/set105/7ce3e2c.png", // url
-        url: "image/halo_bk.png",
-        size: new google.maps.Size(44, 48),
-        scaledSize: new google.maps.Size(44, 48), // scaled size
-        origin: new google.maps.Point(0, 0), // origin
-        anchor: new google.maps.Point(4, 6) // anchor
-    };
 
     var icon = {
         //url: "http://wfarm1.dataknet.com/static/resources/icons/set105/7ce3e2c.png", // url
@@ -105,14 +95,6 @@ function showPosition() {
             });
         }
 
-        if (i == (data.length - 1)) {
-            var marker_halo = new google.maps.Marker({
-                position: latLng,
-                icon: icon_halo,
-            });
-            markers.push(marker_halo);
-        }
-
         markers.push(marker);
 
         google.maps.event.addListener(marker, "click", function () {
@@ -126,9 +108,9 @@ function showPosition() {
         });
 
     }
-    var markerCluster = new MarkerClusterer(map, markers, { imagePath: 'https://googlemaps.github.io/js-marker-clusterer/images/m', maxZoom: 15, });
+    var markerCluster = new MarkerClusterer(map, markers, { imagePath: 'https://googlemaps.github.io/js-marker-clusterer/images/m' });
 
-    // user location
+    // user location 
     //console.log(position.coords.latitude + "," + position.coords.longitude);
     google.maps.event.addListener(marker, "click", function () {
         infowindow.setContent('Super Man');
@@ -192,7 +174,7 @@ function showUserClickPanel() {
                     infowindow.open(map, marker);
 
                     $("#missionAddress").val(results[1].formatted_address)
-                    $("#missionZipCode").val(results[0].formatted_address.substr(0, 3))
+                    $("#missionZipCode").val(results[0].formatted_address.substr(0,3))
                 }
             } else {
                 alert("Reverse Geocoding failed because: " + status);
@@ -201,7 +183,7 @@ function showUserClickPanel() {
     });
 };
 
-// A function to create the marker and set up the event window function
+// A function to create the marker and set up the event window function 
 function createMarker(latlng, name) {
     //var contentString = html;
 
@@ -224,7 +206,7 @@ function createMarker(latlng, name) {
     google.maps.event.addListener(marker, 'click', function () {
         $("#missionlat").val(marker.position.lat());
         $("#missionlng").val(marker.position.lng());
-        //infowindow.setContent(contentString);
+        //infowindow.setContent(contentString); 
         //infowindow.open(map,marker);
     });
     google.maps.event.trigger(marker, 'click');

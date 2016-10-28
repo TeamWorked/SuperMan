@@ -59,7 +59,7 @@ var cm = new Vue({
                 "Latitude": this.lat,
                 "Longitude": this.lng,
                 "ZipCode": this.zipCode,
-                "Star": this.start,
+                "Star": this.star,
                 "Contact": this.contact,
                 "PropIds": JSON.stringify(this.propIDs),
             }))
@@ -72,7 +72,7 @@ var cm = new Vue({
                 "Latitude": this.lat,
                 "Longitude": this.lng,
                 "ZipCode": this.zipCode,
-                "Star": this.start,
+                "Star": this.star,
                 "Contact": this.contact,
                 "PropIds": JSON.stringify(this.propIDs),
             }, function (result) {
@@ -95,7 +95,7 @@ var cm = new Vue({
                 this.propIDs.push(id);
         }
     },
-    computed: {}
+    computed: {} 
 })
 
 
@@ -105,9 +105,7 @@ $("#filterbtn").hover(
   }, function () {
       //$('#collapseExample').collapse('hide');
   }
-);
-
-$("#filterbtn").click(
+).click(
   function () {
       if ($('#collapseExample').is(":visible")) {
           $('#collapseExample').collapse('hide');
@@ -278,18 +276,6 @@ $(".propsbtn").click(function (e) {
 });
 // END
 
-// mission detail submit
-$(".propsbtn").click(function (e) {
-    if ($(this).hasClass("btn-default")) {
-        $(this).removeClass("btn-default").addClass("btn-super");
-    }
-    else {
-        $(this).removeClass("btn-super").addClass("btn-default");
-    }
-    console.log($(this).attr("class"));
-});
-// END
-
 // profile page
 $(".btn-pref .btn").click(function () {
     $(".btn-pref .btn").removeClass("btn-super").addClass("btn-super-low");
@@ -298,68 +284,6 @@ $(".btn-pref .btn").click(function () {
 });
 // END
 
-// END
-
-
-// for select user own position
-function showUserClickPanel() {
-    var center = new google.maps.LatLng(24.1981, 120.6267);
-
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
-        center: center,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        mapTypeControl: false
-    });
-
-    var marker = null;
-
-    var icon = {
-        url: "http://wfarm1.dataknet.com/static/resources/icons/set105/7ce3e2c.png", // url
-        //url: "image/FamilyWork.png",
-        size: new google.maps.Size(36, 48),
-        scaledSize: new google.maps.Size(36, 48), // scaled size
-        origin: new google.maps.Point(0, 0), // origin
-        anchor: new google.maps.Point(0, 0) // anchor
-    };
-
-    google.maps.event.addListener(map, 'click', function (event) {
-        //call function to create marker
-        if (marker) {
-            marker.setMap(null);
-            marker = null;
-        }
-
-        marker = createMarker(event.latLng, "name", "<b>Location</b><br>" + event.latLng);
-
-        var markerPosition = marker.getPosition();
-        // map to center
-        //map.setCenter(markerPosition);
-
-        var infowindow = new google.maps.InfoWindow({});
-        var geocoder = new google.maps.Geocoder();
-
-        geocoder.geocode({
-            'latLng': markerPosition
-        }, function (results, status) {
-            if (status === google.maps.GeocoderStatus.OK) {
-                if (results) {
-                    // 將取得的資訊傳入 marker infowindow.
-                    infowindow.setContent(results[1].formatted_address);
-                    infowindow.open(map, marker);
-                }
-            }
-        })
-    })
-}
-
-// profile page
-$(".btn-pref .btn").click(function () {
-    $(".btn-pref .btn").removeClass("btn-super").addClass("btn-super-low");
-    // $(".tab").addClass("active"); // instead of this do the below 
-    $(this).removeClass("btn-super-low").addClass("btn-super");
-});
-// END
 
 //$.getJSON("http://52.198.189.19:2453/api/shop/effect", function (r) {
 //    cm.props = r;

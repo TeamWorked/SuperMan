@@ -194,7 +194,7 @@
                                                         </p>
                                                     </div>*@
                                                 <div class="col-lg-6" v-for="(prop,index) in props">
-                                                    <img class="image-egg img-rounded pull-left" src="'../Content/Image/'+prop.Image">
+                                                    <img class="image-egg img-rounded pull-left" v-bind:src="'../Content/Image/'+prop.Image">
                                                     <h4><strong v-text="prop.Name"></strong> <span class="label label-danger" v-text="' x '+prop.Cost"> x 0</span></h4>
                                                     <strong>使用後於任務列表高亮置頂  </strong><span class="label label-success" v-text="prop.Minute/60+'H'">1H</span>
                                                     <a class="btn btn-default btn-circle btn-xl pull-right propsbtn" v-on:click="chgPropID(prop.Id)"><span class="glyphicon glyphicon-ok"></a>
