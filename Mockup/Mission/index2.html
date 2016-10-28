@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>2 Col Portfolio - Start Bootstrap Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/2-col-portfolio.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/Custom.css" rel="stylesheet" />
+
+    <!-- google map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd8CIfC7a5QepYroYyRMwYxPSRx1sd9yA"></script>
+    <script src="js/googlemap.js"></script>
+    <script src="js/markerclusterer.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" data-toggle="tooltip" data-placement="bottom" title="全國最大的~"> <i class="fa fa-globe" aria-hidden="true"></i> Help me & Give a hand</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="任務+"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="訊息"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i> 3</a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="帳號"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="well">
+                    <button id="Area" class="btn btn-super" type="button">
+                        Area
+                    </button>
+                    <button id="Type1" class="btn btn-super" type="button">
+                        Type1
+                    </button>
+                    <button id="Type2" class="btn btn-super" type="button">
+                        Type2
+                    </button>
+                    <button id="Type3" class="btn btn-super" type="button">
+                        Type3
+                    </button>
+                    <button id="Type4" class="btn btn-super" type="button">
+                        Type4
+                    </button>
+                    <button id="Other" class="btn btn-super" type="button">
+                        Other
+                    </button>
+                </div>
+                <div id="fackData" style="display:none">
+                    <div id="Area-content" style="display:none">
+                        <button class="btn btn-xs btn-super" type="button">
+                            台北 
+                        </button>
+                        <button class="btn btn-xs btn-super" type="button">
+                            台中 
+                        </button>
+                    </div>
+                    <div id="Type1-content" style="display:none">
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type1-1 
+                        </button>
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type1-2
+                        </button>
+                    </div>
+                    <div id="Type2-content" style="display:none">
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type2-1 
+                        </button>
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type2-2 
+                        </button>
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type2-3 
+                        </button>
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type2-4 
+                        </button>
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type2-5 
+                        </button>
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type2-6 
+                        </button>
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type2-7 
+                        </button>
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type2-8 
+                        </button>
+                    </div>
+                    <div id="Type3-content" style="display:none">
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type3-1 
+                        </button>
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type3-2 
+                        </button>
+                    </div>
+                    <div id="Type4-content" style="display:none">
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type4-1
+                        </button>
+                        <button class="btn btn-xs btn-super" type="button">
+                            Type4-2 
+                        </button>
+                    </div>
+                    <div id="Other-content" style="display:none">
+                        <button class="btn btn-xs btn-super" type="button">
+                            Other-1 
+                        </button>
+                        <button class="btn btn-xs btn-super" type="button">
+                            Other-2
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default" style="display:none">
+                    <div id="search-filter" class="panel-body">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-12 portfolio-item">
+                <div id="map"></div>
+            </div>
+        </div>
+        <!-- /.row -->
+        <hr>
+        <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li>
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 20141</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/Custom.js"></script>
+    <script>
+        google.maps.event.addDomListener(window, 'load', showPosition);
+        
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+</body>
+</html>

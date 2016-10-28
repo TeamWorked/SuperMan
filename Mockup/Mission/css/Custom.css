@@ -1,0 +1,24 @@
+﻿.popover-content .btn{
+    margin-top:5px;
+}
+.popover-title span {
+    float:right;
+}
+
+#search-filter {
+    border: 1px solid #BBD2EF;
+	border-radius: 3px;
+}
+.tag-filter {
+    float: left;
+    /*margin:5px;*/
+    margin-right:8px;
+    margin-bottom:6px;
+	padding: 3px 9px;
+	background: #E6EFF6;
+	border: 1px solid #BBD2EF;
+	border-radius: 3px;
+}
+    .tag-filter a {
+        margin-left:3px;
+    }
