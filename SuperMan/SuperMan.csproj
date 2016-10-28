@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -157,11 +158,51 @@
     <Content Include="Content\Image\Google_Maps_Icon.png" />
     <Content Include="Content\Image\halo_bk.png" />
     <Content Include="Content\Image\logo.png" />
+    <Content Include="Content\Image\marker-house-highlight.svg" />
+    <Content Include="Content\Image\marker-house.svg" />
     <Content Include="Content\Image\marker-houst.png" />
+    <Content Include="Content\Image\marker-maintain-highlight.svg" />
     <Content Include="Content\Image\marker-maintain.png" />
+    <Content Include="Content\Image\marker-maintain.svg" />
+    <Content Include="Content\Image\marker-service-highlight.svg" />
     <Content Include="Content\Image\marker-service.png" />
+    <Content Include="Content\Image\marker-service.svg" />
+    <Content Include="Content\Image\marker-together-highlight.svg" />
     <Content Include="Content\Image\marker-together.png" />
+    <Content Include="Content\Image\marker-together.svg" />
+    <Content Include="Content\Image\marker-transport-highlight.svg" />
     <Content Include="Content\Image\marker-transport.png" />
+    <Content Include="Content\Image\marker-transport.svg" />
+    <Content Include="Content\Image\medail-copper-house-small.svg" />
+    <Content Include="Content\Image\medail-copper-house.svg" />
+    <Content Include="Content\Image\medail-copper-maintain-small.svg" />
+    <Content Include="Content\Image\medail-copper-maintain.svg" />
+    <Content Include="Content\Image\medail-copper-service-small.svg" />
+    <Content Include="Content\Image\medail-copper-service.svg" />
+    <Content Include="Content\Image\medail-copper-together-small.svg" />
+    <Content Include="Content\Image\medail-copper-together.svg" />
+    <Content Include="Content\Image\medail-copper-transport-small.svg" />
+    <Content Include="Content\Image\medail-copper-transport.svg" />
+    <Content Include="Content\Image\medail-gold-house-small.svg" />
+    <Content Include="Content\Image\medail-gold-house.svg" />
+    <Content Include="Content\Image\medail-gold-maintain-small.svg" />
+    <Content Include="Content\Image\medail-gold-maintain.svg" />
+    <Content Include="Content\Image\medail-gold-service-small.svg" />
+    <Content Include="Content\Image\medail-gold-service.svg" />
+    <Content Include="Content\Image\medail-gold-together-small.svg" />
+    <Content Include="Content\Image\medail-gold-together.svg" />
+    <Content Include="Content\Image\medail-gold-transport-small.svg" />
+    <Content Include="Content\Image\medail-gold-transport.svg" />
+    <Content Include="Content\Image\medail-silver-house-small.svg" />
+    <Content Include="Content\Image\medail-silver-house.svg" />
+    <Content Include="Content\Image\medail-silver-service-small.svg" />
+    <Content Include="Content\Image\medail-silver-service.svg" />
+    <Content Include="Content\Image\medail-silver-together-small.svg" />
+    <Content Include="Content\Image\medail-silver-together.svg" />
+    <Content Include="Content\Image\medail-silver-transport-small.svg" />
+    <Content Include="Content\Image\medail-silver-transport.svg" />
+    <Content Include="Content\Image\medail-sliver-maintain-small.svg" />
+    <Content Include="Content\Image\medail-sliver-maintain.svg" />
     <Content Include="Content\Image\medal-house.png" />
     <Content Include="Content\Image\medal-house2.png" />
     <Content Include="Content\Image\medal-maintain.png" />
@@ -170,7 +211,12 @@
     <Content Include="Content\Image\medal-together2.png" />
     <Content Include="Content\Image\medal-transport.png" />
     <Content Include="Content\Image\medal-transport2.png" />
+    <Content Include="Content\Image\padlock.svg" />
     <Content Include="Content\Image\point.png" />
+    <Content Include="Content\Image\prop-cloak.svg" />
+    <Content Include="Content\Image\prop-telephone.svg" />
+    <Content Include="Content\Image\prop-underwear.svg" />
+    <Content Include="Content\Image\prop-watch.svg" />
     <Content Include="Content\Image\tag-house.png" />
     <Content Include="Content\Image\tag-house.svg" />
     <Content Include="Content\Image\tag-maintain.png" />
@@ -244,9 +290,6 @@
     <Content Include="Views\Mission\Help.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\MemberProfile.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Content\Fonts\FontAwesome - Copy.otf" />
     <Content Include="Content\Fonts\fontawesome-webfont - Copy.eot" />
     <Content Include="Content\Fonts\fontawesome-webfont - Copy.ttf" />
@@ -259,6 +302,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\CreateMission.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Member\Profile.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

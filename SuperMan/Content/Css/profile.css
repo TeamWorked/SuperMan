@@ -94,7 +94,15 @@
  */
 
  .profile-list {
-  margin-bottom: 0.5cm;
+    margin-bottom: 0.5cm;
+    top: 0px;
+    margin:0px;  
+    padding: 10px 5px 10px 3px;    
+    border-width: 2px;
+    border-bottom-width:2px;
+    border-bottom-color:#D8D8D8;
+    border-bottom-style: solid;
+    width: 100%;
  }
 
  .profile-content-detail > a {

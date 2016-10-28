@@ -11,7 +11,7 @@ namespace SuperMan.Controllers
         //
         // GET: /Member/
 
-        public ActionResult Index()
+        public ActionResult Profile()
         {
             return View();
         }

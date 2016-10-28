@@ -5,6 +5,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@Page.Title</title>
+    <link rel='icon' href=@Html.ImageUrl("logo.png") />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -13,7 +14,7 @@
     <script src="@Html.ScriptUrl("markerclusterer.js")"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.min.js"></script>
     @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">*@
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="@Html.CssUrl("bootstrap.min.css")" />
     <link rel="stylesheet" href="@Html.CssUrl("2-col-portfolio.css")" />
     <link rel="stylesheet" href="@Html.CssUrl("stepbar.css")" />
@@ -40,8 +41,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#" data-toggle="tooltip" data-placement="bottom" title="全國最大的~">
-                    <i class="fa fa-globe" aria-hidden="true"></i>
+                <a class="navbar-brand pull-left" href=@Url.Action("Index", "Home") data-toggle="tooltip" data-placement="bottom" title="全國最大的~">
+                    <img src="~/Content/Image/logo.png" />
                     Help me & Give a hand
                 </a>
             </div>
@@ -49,13 +50,13 @@
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="任務+"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a>
+                        <a href=@Url.Action("Profile", "Member", new { tab = "medals-tab" }) data-toggle="tooltip" data-placement="bottom" title="Me"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="訊息"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
+                        <a href=@Url.Action("Profile", "Member", new { tab = "help-tab" }) data-toggle="tooltip" data-placement="bottom" title="Help"><i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="帳號"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
+                        <a href=@Url.Action("Profile", "Member", new { tab = "give-tab" }) data-toggle="tooltip" data-placement="bottom" title="Give"><i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i></a>
                     </li>
                 </ul>
             </div>
@@ -70,7 +71,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 20141</p>
+                    <p>Copyright &copy; Help me & Give a hand </p>
                 </div>
             </div>
         </footer>

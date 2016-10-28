@@ -16,6 +16,10 @@ footer {
     margin: 50px 0;
 }
 
+.navbar-brand > img{
+    width: 36px;
+    display: inline-table;
+}
 /*
  *
  * Common
