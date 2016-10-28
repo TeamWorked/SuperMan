@@ -1,0 +1,70 @@
+﻿@using SuperMan.Common;
+
+<link rel="stylesheet" href="@Html.CssUrl("custom.css")" />
+
+<div class="container">
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="well">
+                <button id="Area" class="btn btn-super" type="button">
+                    Area
+                </button>
+                <button id="Type1" class="btn btn-super" type="button">
+                    Type1
+                </button>
+                <button id="Type2" class="btn btn-super" type="button">
+                    Type2
+                </button>
+                <button id="Type3" class="btn btn-super" type="button">
+                    Type3
+                </button>
+                <button id="Type4" class="btn btn-super" type="button">
+                    Type4
+                </button>
+                <button id="Other" class="btn btn-super" type="button">
+                    Other
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="mission-content">
+                <div class="show-mission"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></div>
+                @*<div id="mission-info" style="display: none">
+                    <div class="hide-mission"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></div>
+                    <div id="mission-title" class="mission">
+                        <h3>XXXXXX mission</h3>
+                    </div>
+                    <div id="mission-detail" class="mission">DDDDDD</div>
+                    <div id="mission-reward" class="mission">15 egg</div>
+                    <div id="mission-confirm" class="mission">
+                        <button>YES</button>
+                        <button>NO</button>
+                    </div>
+                </div>*@
+
+                <div id="mission-info" style="display: none" class="panel panel-default">
+                    <div class="hide-mission"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></div>
+                    <div class="panel-body">
+                        <h4 id="mission-title">XXXX mission</h4>
+                        <div id="mission-detail" class="well">...</div>
+                        <div id="missoin-reward" class="well">...</div>
+                    </div>
+                </div>
+
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+</div>
+
+<script src="@Html.ScriptUrl("SearchMission.js")"></script>
+
+<script>
+    google.maps.event.addDomListener(window, 'load', showPosition);
+</script>

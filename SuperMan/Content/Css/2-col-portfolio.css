@@ -1,0 +1,182 @@
+/*!
+ * Start Bootstrap - 2 Col Portfolio (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.portfolio-item {
+    margin-bottom: 25px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+/*
+ *
+ * Common
+ *
+ */
+
+
+/*
+ *
+ * Google map
+ *
+ */
+#map-container {
+    padding: 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc #ccc #999 #ccc;
+    -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+    -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+    box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
+    width: 600px;
+}
+
+#map {
+    width: 100%;
+    height: 580px;
+}
+
+.btn.btn-super{
+    color: #FFF;
+    background-color:#FE2E2E;
+}
+
+
+/*!
+ *
+ * Top bar
+ *
+ */
+ 
+.navbar-inverse .navbar-brand .red-tooltip{
+    font-size: 24px;
+}
+
+.navbar-inverse {
+    background-color: #FFF9F9;
+    border-color: #D8D8D8;
+}
+
+
+
+.navbar-fixed-top{
+    height: 56px;
+}
+
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand {
+    color: #FE2E2E;
+    background-color: transparent;
+    font-size: 24px;
+}
+
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+    color: #FF0000;
+    background-color: transparent;
+}
+
+/* right icon*/
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a {
+    color: #FE2E2E;
+    background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    color: #FF0000;
+    background-color: transparent;
+}
+
+
+/*
+ *
+ * image icon
+ *
+ */
+.image-mission {
+    width:150px;
+    height:150px;
+    border-radius: 0%; /*圓弧修編*/
+    cursor: pointer;
+}
+
+.image-mission-small {
+    width: 72px;
+    height: 72px;
+    padding: 12px;
+}
+
+.image-mission.image-halo:hover {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(91, 192, 222, 0.67);
+    -moz-box-shadow:    0px 0px 30px 0px rgba(91, 192, 222, 0.67);
+    box-shadow:         0px 0px 30px 0px rgba(91, 192, 222, 0.67);
+
+}
+
+.image-mission.image-halo.active {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(223, 11, 11, 0.67);
+    -moz-box-shadow:    0px 0px 30px 0px rgba(223, 11, 11, 0.67);
+    box-shadow:         0px 0px 30px 0px rgba(223, 11, 11, 0.67);
+}
+
+.image-egg {
+    width:108px;
+    height:120px;
+    /*background-color: #F5ECCE;*/
+    /*border-radius: 15%; /*圓弧修編*/
+}
+
+.image-egg-small {
+    width: 64px;
+    height: 72px;
+    padding: 12px;
+}
+
+.image-egg.image-halo:hover {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(91, 192, 222, 0.67);
+    -moz-box-shadow:    0px 0px 30px 0px rgba(91, 192, 222, 0.67);
+    box-shadow:         0px 0px 30px 0px rgba(91, 192, 222, 0.67);
+
+}
+
+.image-egg.image-halo.active {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(255, 80, 0, 0.67);
+    -moz-box-shadow:    0px 0px 30px 0px rgba(255, 80, 0, 0.67);
+    box-shadow:         0px 0px 30px 0px rgba(255, 80, 0, 0.67);
+}
+
+.tab-pane > .row > div > p{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+/*
+ *
+ * mission form
+ *
+ */
+#complete > .well.well-lg{
+    min-height: 108px;
+}
+
+#complete > .well.well-lg > div > strong{
+    font-size: 24px;
+}

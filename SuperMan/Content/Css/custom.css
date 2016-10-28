@@ -1,0 +1,46 @@
+﻿/*SearchMission page start*/
+#mission-content {
+    position: relative;
+}
+
+    #mission-content .show-mission {
+        position: absolute;
+        z-index: 3;
+        padding: 5px;
+        margin: 5px;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+#mission-info {
+    width: 30%;
+    position: absolute;
+    z-index: 3;
+    padding: 5px;
+    margin: 5px;
+    background-color: #fff;
+}
+
+    #mission-info .hide-mission {
+        float: right;
+        padding: 0px 5px 5px 5px;
+        margin: 5px;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+.userImage {
+    width: 300px;
+    height: 300px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    border-radius: 150px;
+    background: url(http://link-to-your/image.jpg) no-repeat;
+}
+/*SearchMission page end*/
+
+/*MissionDetail page Start*/
+#mission-state {
+    background-color: white;
+}
+/*MissionDetail page end*/
