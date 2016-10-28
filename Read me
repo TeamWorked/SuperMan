@@ -3,5 +3,22 @@ Install-Package Microsoft.AspNet.Web.Optimization
 ¸ô®|: localhost:xxxx/home/searchmission
       localhost:xxxx/home/createmission
 	  
-	  
+
 	  Jerry
+
+
+CHRIS TEST
+
+Login : 
+
+HomePage:
+
+Profile: http://localhost:54797/home/memberprofile
+
+Help me Create mission:  http://localhost:54797/mission/createmission
+
+Search Mission: http://localhost:54797/mission/SearchMission
+
+Help Mission detail: http://localhost:54797/mission/help
+
+Give Mission detail:
