@@ -1,6 +1,6 @@
 ﻿<link rel="stylesheet" href="@Html.CssUrl("profile.css")" />
 
-<div class="container">
+<div class="container" id="container">
     <!-- step bar panel -->
     <div class="row">
         <div class="col-lg-12 profile-top">
@@ -126,111 +126,48 @@
                             </div>
                         </div>
                     </div>
+                    <!--helps-->
                     <div class="row tab-pane fade in" id="help-tab">
-                        <div class="col-lg-12 profile-list">
+                        <div class="col-lg-12 profile-list" v-for="mission in helps">
                             <div class="col-lg-2 profile_imgbox">
-                                <a href="#" title="找西屯區超級抄抄人">
-                                    <img class="image-mission" src="@Html.ImageUrl("tag-maintain.svg")" />
+                                <a href="#" :title="mission.Title">
+                                    <img class="image-mission" :src="getMissionImage(mission.MissionType)" />
                                 </a>
                             </div>
                             <div class="col-lg-10">
                                 <div class="profile-content-detail">
-                                    <a href="#" title="找西屯區超級抄抄人">找西屯區超級抄抄人</a>
-                                    <span class="fire_left">2016-10-27 08:56:00</span>
-                                    <p>葉君璋認為，每一個上場的球員，要有能力針對臨場狀況，做出各種贏球的判斷，「靈感來了，能夠創造球賽無限的可能性」。</p>
+                                    <a href="#" title="mission.Title" v-text="mission.Title"></a>
+                                    <span class="fire_left">{{mission.InDate | dateTimeFormat}}</span>
+                                    <p v-text="mission.Description"></p>
                                 </div>
                                 <div class="profile-content-info">
                                     <img class="image-egg-small" src="@Html.ImageUrl("egg2.png")" />
-                                    <span>x 15</span>
+                                    <span v-text="'x '+mission.Star"></span>
                                     <button class="btn btn-super pull-right">超人來囉 X5</button>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="col-lg-12 profile-list">
-                            <div class="col-lg-2 profile_imgbox">
-                                <a href="#" title="give-tab">
-                                    <img class="image-mission" src="@Html.ImageUrl("tag-maintain.svg")" />
-                                </a>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="profile-content-detail">
-                                    <a href="#" title="找西屯區超級抄抄人">找西屯區超級抄抄人</a>
-                                    <span class="fire_left">2016-10-27 08:56:00</span>
-                                    <p>葉君璋認為，每一個上場的球員，要有能力針對臨場狀況，做出各種贏球的判斷，「靈感來了，能夠創造球賽無限的可能性」。</p>
-                                </div>
-                                <div class="profile-content-info">
-                                    <img class="image-egg-small" src="@Html.ImageUrl("egg2.png")" />
-                                    <span>x 15</span>
-                                    <button class="btn btn-super pull-right">超人來囉 X5</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-12 profile-list">
-                            <div class="col-lg-2 profile_imgbox">
-                                <a href="article-21546-1.html" title="">
-                                    <img class="image-mission" src="@Html.ImageUrl("tag-maintain.svg")" />
-                                </a>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="profile-content-detail">
-                                    <a href="#" title="找西屯區超級抄抄人">找西屯區超級抄抄人</a>
-                                    <span class="fire_left">2016-10-27 08:56:00</span>
-                                    <p>葉君璋認為，每一個上場的球員，要有能力針對臨場狀況，做出各種贏球的判斷，「靈感來了，能夠創造球賽無限的可能性」。</p>
-                                </div>
-                                <div class="profile-content-info">
-                                    <img class="image-egg-small" src="@Html.ImageUrl("egg2.png")" />
-                                    <span>x 15</span>
-                                    <button class="btn btn-super pull-right">超人來囉 X5</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-12 profile-list">
-                            <div class="col-lg-2 profile_imgbox">
-                                <a href="article-21546-1.html" title="">
-                                    <img class="image-mission" src="@Html.ImageUrl("tag-maintain.svg")" />
-                                </a>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="profile-content-detail">
-                                    <a href="#" title="找西屯區超級抄抄人">找西屯區超級抄抄人</a>
-                                    <span class="fire_left">2016-10-27 08:56:00</span>
-                                    <p>葉君璋認為，每一個上場的球員，要有能力針對臨場狀況，做出各種贏球的判斷，「靈感來了，能夠創造球賽無限的可能性」。</p>
-                                </div>
-                                <div class="profile-content-info">
-                                    <img class="image-egg-small" src="@Html.ImageUrl("egg2.png")" />
-                                    <span>x 15</span>
-                                    <button class="btn btn-super pull-right">超人來囉 X5</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-12 profile-list">
-                            <div class="col-lg-2 profile_imgbox">
-                                <a href="article-21546-1.html" title="">
-                                    <img class="image-mission" src="@Html.ImageUrl("tag-maintain.svg")" />
-                                </a>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="profile-content-detail">
-                                    <a href="#" title="找西屯區超級抄抄人">找西屯區超級抄抄人</a>
-                                    <span class="fire_left">2016-10-27 08:56:00</span>
-                                    <p>葉君璋認為，每一個上場的球員，要有能力針對臨場狀況，做出各種贏球的判斷，「靈感來了，能夠創造球賽無限的可能性」。</p>
-                                </div>
-                                <div class="profile-content-info">
-                                    <img class="image-egg-small" src="@Html.ImageUrl("egg2.png")" />
-                                    <span>x 15</span>
-                                    <button class="btn btn-super pull-right">超人來囉 X5</button>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
+                    <!--gives-->
                     <div class="row tab-pane fade in" id="give-tab">
-                        <div class="col-lg-12 profile-list">
-                            history-give-tab --同 help tab 設計
+                        <div class="col-lg-12 profile-list" v-for="mission in gives">
+                            <div class="col-lg-2 profile_imgbox">
+                                <a href="#" :title="mission.Title">
+                                    <img class="image-mission" :src="getMissionImage(mission.MissionType)" />
+                                </a>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="profile-content-detail">
+                                    <a href="#" title="mission.Title" v-text="mission.Title"></a>
+                                    <span class="fire_left">{{mission.InDate | dateTimeFormat}}</span>
+                                    <p v-text="mission.Description"></p>
+                                </div>
+                                <div class="profile-content-info">
+                                    <img class="image-egg-small" src="@Html.ImageUrl("egg2.png")" />
+                                    <span v-text="'x '+mission.Star"></span>
+                                    <button class="btn btn-super pull-right">超人來囉 X5</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row tab-pane fade in" id="store-tab">
@@ -255,14 +192,48 @@
                             </div>
                         </div>
                     </div>
+                    <!--helps_history-->
                     <div class="row tab-pane fade in" id="history-help-tab">
-                        <div class="col-lg-12 profile-list">
-                            history-help-tab -- 同 help tab 設計
+                        <div class="col-lg-12 profile-list" v-for="mission in helps_history">
+                            <div class="col-lg-2 profile_imgbox">
+                                <a href="#" :title="mission.Title">
+                                    <img class="image-mission" :src="getMissionImage(mission.MissionType)" />
+                                </a>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="profile-content-detail">
+                                    <a href="#" title="mission.Title" v-text="mission.Title"></a>
+                                    <span class="fire_left">{{mission.InDate | dateTimeFormat}}</span>
+                                    <p v-text="mission.Description"></p>
+                                </div>
+                                <div class="profile-content-info">
+                                    <img class="image-egg-small" src="@Html.ImageUrl("egg2.png")" />
+                                    <span v-text="'x '+mission.Star"></span>
+                                    <button class="btn btn-super pull-right">超人來囉 X5</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <!--gives_history-->
                     <div class="row tab-pane fade in" id="history-give-tab">
-                        <div class="col-lg-12 profile-list">
-                            history-give-tab -- 同 help tab 設計
+                        <div class="col-lg-12 profile-list" v-for="mission in gives_history">
+                            <div class="col-lg-2 profile_imgbox">
+                                <a href="#" :title="mission.Title">
+                                    <img class="image-mission" :src="getMissionImage(mission.MissionType)" />
+                                </a>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="profile-content-detail">
+                                    <a href="#" title="mission.Title" v-text="mission.Title"></a>
+                                    <span class="fire_left">{{mission.InDate | dateTimeFormat}}</span>
+                                    <p v-text="mission.Description"></p>
+                                </div>
+                                <div class="profile-content-info">
+                                    <img class="image-egg-small" src="@Html.ImageUrl("egg2.png")" />
+                                    <span v-text="'x '+mission.Star"></span>
+                                    <button class="btn btn-super pull-right">超人來囉 X5</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -270,7 +241,7 @@
         </div>
     </div>
 </div>
-
+<script src="@Html.ScriptUrl("Profile.js")"></script>
 <script>
     $('#Carousel').carousel({ interval: 5000 });
 

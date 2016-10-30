@@ -6,6 +6,7 @@ var cm = new Vue({
         title: "",
         description: "",
         missionType: 0,
+        missionTypeList:MimeTypeList,
         address: "",
         lat: 0,
         lng: 0,
@@ -14,55 +15,55 @@ var cm = new Vue({
         contact: "",
         propIDs: [],
         props: [
-            {
-                "Id": 1001,
-                "Name": "超人披風",
-                "Description": "超人披風超人披風",
-                "Minute": 30,
-                "Image": "tag-maintain.svg",
-                "Cost": 30
-            },
-            {
-                "Id": 1002,
-                "Name": "超人內褲",
-                "Description": "超人內褲超人內褲",
-                "Minute": 30,
-                "Image": "tag-maintain.svg",
-                "Cost": 30
-            },
-            {
-                "Id": 1003,
-                "Name": "超人電話亭",
-                "Description": "超人電話亭超人電話亭",
-                "Minute": 30,
-                "Image": "tag-maintain.svg",
-                "Cost": 30
-            },
-            {
-                "Id": 1004,
-                "Name": "超人手錶",
-                "Description": "超人手錶超人手錶",
-                "Minute": 30,
-                "Image": "tag-maintain.svg",
-                "Cost": 30
-            }
+            //{
+            //    "Id": 1001,
+            //    "Name": "超人披風",
+            //    "Description": "超人披風超人披風",
+            //    "Minute": 30,
+            //    "Image": "tag-maintain.svg",
+            //    "Cost": 30
+            //},
+            //{
+            //    "Id": 1002,
+            //    "Name": "超人內褲",
+            //    "Description": "超人內褲超人內褲",
+            //    "Minute": 30,
+            //    "Image": "tag-maintain.svg",
+            //    "Cost": 30
+            //},
+            //{
+            //    "Id": 1003,
+            //    "Name": "超人電話亭",
+            //    "Description": "超人電話亭超人電話亭",
+            //    "Minute": 30,
+            //    "Image": "tag-maintain.svg",
+            //    "Cost": 30
+            //},
+            //{
+            //    "Id": 1004,
+            //    "Name": "超人手錶",
+            //    "Description": "超人手錶超人手錶",
+            //    "Minute": 30,
+            //    "Image": "tag-maintain.svg",
+            //    "Cost": 30
+            //}
         ]
     },
     methods: {
         create: function () {
-            console.log(JSON.stringify({
-                "MemberId": this.memberID,
-                "Title": this.title,
-                "Description": this.description,
-                "MissionType": this.missionType,
-                "Address": this.address,
-                "Latitude": this.lat,
-                "Longitude": this.lng,
-                "ZipCode": this.zipCode,
-                "Star": this.star,
-                "Contact": this.contact,
-                "PropIds": JSON.stringify(this.propIDs),
-            }))
+            //console.log(JSON.stringify({
+            //    "MemberId": this.memberID,
+            //    "Title": this.title,
+            //    "Description": this.description,
+            //    "MissionType": this.missionType,
+            //    "Address": this.address,
+            //    "Latitude": this.lat,
+            //    "Longitude": this.lng,
+            //    "ZipCode": this.zipCode,
+            //    "Star": this.star,
+            //    "Contact": this.contact,
+            //    "PropIds": JSON.stringify(this.propIDs),
+            //}))
             $.post("http://52.198.189.19:2453/api/mission/create", {
                 "MemberId": this.memberID,
                 "Title": this.title,
@@ -98,6 +99,9 @@ var cm = new Vue({
     computed: {} 
 })
 
+$.getJSON("http://52.198.189.19:2453/api/shop/effect", function (r) {
+    cm.props = r;
+})
 
 $("#filterbtn").hover(
   function () {
@@ -285,6 +289,3 @@ $(".btn-pref .btn").click(function () {
 // END
 
 
-//$.getJSON("http://52.198.189.19:2453/api/shop/effect", function (r) {
-//    cm.props = r;
-//})
