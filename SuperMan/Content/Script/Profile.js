@@ -34,18 +34,18 @@ $.getJSON("http://52.198.189.19:2453/api/member/100000248501818", function (r) {
     pf.memberInfo = r;
 })
 
-$.getJSON("http://52.198.189.19:2453/api/mission/help/100000248501818/active", function (r) {
+$.getJSON("http://52.198.189.19:2453/api/profile/help/100000248501818/active", function (r) {
     pf.helps = r.MissionCollection;
 })
 
-$.getJSON("http://52.198.189.19:2453/api/mission/give/100000248501920/active", function (r) {
+$.getJSON("http://52.198.189.19:2453/api/profile/give/100000248501920/active", function (r) {
     pf.gives = r.MissionCollection;
 })
 
-$.getJSON("http://52.198.189.19:2453/api/mission/help/100000248501818/complete", function (r) {
+$.getJSON("http://52.198.189.19:2453/api/profile/help/100000248501818/complete", function (r) {
     pf.helps_history = r.MissionCollection;
 })
 
-$.getJSON("http://52.198.189.19:2453/api/mission/give/100000248501920/complete", function (r) {
+$.getJSON("http://52.198.189.19:2453/api/profile/give/100000248501920/complete", function (r) {
     pf.gives_history = r.MissionCollection;
 })
