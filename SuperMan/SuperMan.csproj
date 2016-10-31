@@ -231,6 +231,7 @@
     <Content Include="Content\Script\FrameWork.js" />
     <Content Include="Content\Script\AcceptHelp.js" />
     <Content Include="Content\Script\googlemap.js" />
+    <Content Include="Content\Script\Login.js" />
     <Content Include="Content\Script\Profile.js" />
     <Content Include="Content\Script\SearchMission.js" />
     <Content Include="Content\Script\jquery.js" />
