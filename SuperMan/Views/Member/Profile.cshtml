@@ -1,18 +1,22 @@
 ﻿<link rel="stylesheet" href="@Html.CssUrl("profile.css")" />
 
 <div class="container" id="container">
+    
     <!-- step bar panel -->
     <div class="row">
         <div class="col-lg-12 profile-top">
             <div class="card hovercard">
                 <div class="card-background">
-                    <img class="card-bkimg" alt="" src="@Html.ImageUrl("chris.png")">
+                    <img class="card-bkimg" alt="" v-if="memberInfo.Image==''" src="../Content/Image/Chris.png"><!--default-->
+                    <img class="card-bkimg" alt="" v-else v-bind:src="memberInfo.Image">
                 </div>
-                <div class="useravatar">
-                    <img class="card-bkimg" alt="" src="@Html.ImageUrl("chris.png")">
+                <div class="useravatar" v-on:click="showMemberInfo">
+                    <img class="card-bkimg" alt="" v-if="memberInfo.Image=='' " src="../Content/Image/Chris.png"><!--default-->
+                    <img class="card-bkimg" alt="" v-else v-bind:src="memberInfo.Image">
                 </div>
                 <div class="card-info"><span class="card-title">Pamela Anderson</span></div>
             </div>
+            <!--tabs-->
             <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
                 <div class="btn-group" role="group">
                     <button type="button" id="medails-btn" class="btn btn-super" href="#medails-tab" data-toggle="tab">
@@ -57,7 +61,26 @@
             <div class="well">
                 <div class="tab-content">
                     <div class="row tab-pane fade active in" id="medails-tab">
-                        <div class="col-lg-12 profile-list">
+                        <div class="col-lg-12 profile-list" v-for="medal in medals">
+                            <div class="col-lg-2 profile_imgbox">
+                                <a href="" title="">
+                                    <img class="image-mission" v-bind:src="'../Content/Image/'+medal.Image" />
+                                </a>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="profile-content-detail">
+                                    <a href="#" v-bind:title="medal.MedalName"></a>
+                                    @*<span class="fire_left"></span>*@
+                                    <p v-text="medal.MedalDescription.format(medal.MedalLimit)">完成 [居家 / 清潔] 100次</p>
+                                </div>
+                                <div class="profile-content-info">
+                                    <img class="image-egg-small" src="~/Content/Image/egg2.png" /> 
+                                    <span v-text="'x '+medal.Score"></span>
+                                    <button class="btn btn-super pull-right" v-bind:disabled="medal.Achieve" v-text="'獲得蛋蛋 X'+medal.Reward"></button>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="col-lg-12 profile-list">
                             <div class="col-lg-2 profile_imgbox">
                                 <a href="" title="">
                                     <img class="image-mission" src="~/Content/Image/medail-gold-house.svg" />
@@ -73,102 +96,15 @@
                                     <img class="image-egg-small" src="~/Content/Image/egg2.png" /> <span>x 15</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12 profile-list">
-                            <div class="col-lg-2 profile_imgbox">
-                                <a href="" title="">
-                                    <img class="image-mission" src="~/Content/Image/medail-copper-house.svg" />
-                                </a>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="profile-content-detail">
-                                    <a href="#" title="[居家 / 清潔] [銀]">[居家 / 清潔] [銀]</a>
-                                    <span class="fire_left">2016-10-27 08:56:00</span>
-                                    <p>完成 [居家 / 清潔] 50次</p>
-                                </div>
-                                <div class="profile-content-info">
-                                    <img class="image-egg-small" src="~/Content/Image/egg2.png" /> <span>x 15</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 profile-list">
-                            <div class="col-lg-2 profile_imgbox">
-                                <a href="" title="">
-                                    <img class="image-mission" src="~/Content/Image/medail-copper-house.svg" />
-                                </a>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="profile-content-detail">
-                                    <a href="#" title="[居家 / 清潔] [銅]">[居家 / 清潔] [銅]</a>
-                                    <span class="fire_left">2016-10-27 08:56:00</span>
-                                    <p>完成 [居家 / 清潔] 10次</p>
-                                </div>
-                                <div class="profile-content-info">
-                                    <img class="image-egg-small" src="~/Content/Image/egg2.png" /> <span>x 15</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 profile-list">
-                            <div class="col-lg-2 profile_imgbox">
-                                <a href="" title="">
-                                    <img class="image-mission" src="~/Content/Image/padlock.svg" />
-                                </a>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="profile-content-detail">
-                                    <a href="#" title="[居家 / 清潔] [金]">[居家 / 清潔] [金]</a>
-                                    <span class="fire_left">10 / 100</span>
-                                    <p>完成 [居家 / 清潔] 100次</p>
-                                </div>
-                                <div class="profile-content-info">
-                                    <img class="image-egg-small" src="~/Content/Image/egg2.png" /> <span>x 15</span>
-                                </div>
-                            </div>
-                        </div>
+                        </div>*@
                     </div>
                     <!--helps-->
                     <div class="row tab-pane fade in" id="help-tab">
-                        <div class="col-lg-12 profile-list" v-for="mission in helps">
-                            <div class="col-lg-2 profile_imgbox">
-                                <a href="#" :title="mission.Title">
-                                    <img class="image-mission" :src="getMissionImage(mission.MissionType)" />
-                                </a>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="profile-content-detail">
-                                    <a href="#" title="mission.Title" v-text="mission.Title"></a>
-                                    <span class="fire_left">{{mission.InDate | dateTimeFormat}}</span>
-                                    <p v-text="mission.Description"></p>
-                                </div>
-                                <div class="profile-content-info">
-                                    <img class="image-egg-small" src="@Html.ImageUrl("egg2.png")" />
-                                    <span v-text="'x '+mission.Star"></span>
-                                    <button class="btn btn-super pull-right">超人來囉 X5</button>
-                                </div>
-                            </div>
-                        </div>
+                        <profile-mission-list v-bind:missions="helps"></profile-mission-list>
                     </div>
                     <!--gives-->
                     <div class="row tab-pane fade in" id="give-tab">
-                        <div class="col-lg-12 profile-list" v-for="mission in gives">
-                            <div class="col-lg-2 profile_imgbox">
-                                <a href="#" :title="mission.Title">
-                                    <img class="image-mission" :src="getMissionImage(mission.MissionType)" />
-                                </a>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="profile-content-detail">
-                                    <a href="#" title="mission.Title" v-text="mission.Title"></a>
-                                    <span class="fire_left">{{mission.InDate | dateTimeFormat}}</span>
-                                    <p v-text="mission.Description"></p>
-                                </div>
-                                <div class="profile-content-info">
-                                    <img class="image-egg-small" src="@Html.ImageUrl("egg2.png")" />
-                                    <span v-text="'x '+mission.Star"></span>
-                                    <button class="btn btn-super pull-right">超人來囉 X5</button>
-                                </div>
-                            </div>
-                        </div>
+                        <profile-mission-list v-bind:missions="gives" v-bind:is_give="true"></profile-mission-list>
                     </div>
                     <div class="row tab-pane fade in" id="store-tab">
                         <div class="col-lg-12 profile-list">
@@ -194,62 +130,88 @@
                     </div>
                     <!--helps_history-->
                     <div class="row tab-pane fade in" id="history-help-tab">
-                        <div class="col-lg-12 profile-list" v-for="mission in helps_history">
-                            <div class="col-lg-2 profile_imgbox">
-                                <a href="#" :title="mission.Title">
-                                    <img class="image-mission" :src="getMissionImage(mission.MissionType)" />
-                                </a>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="profile-content-detail">
-                                    <a href="#" title="mission.Title" v-text="mission.Title"></a>
-                                    <span class="fire_left">{{mission.InDate | dateTimeFormat}}</span>
-                                    <p v-text="mission.Description"></p>
-                                </div>
-                                <div class="profile-content-info">
-                                    <img class="image-egg-small" src="@Html.ImageUrl("egg2.png")" />
-                                    <span v-text="'x '+mission.Star"></span>
-                                    <button class="btn btn-super pull-right">超人來囉 X5</button>
-                                </div>
-                            </div>
-                        </div>
+                        <profile-mission-list v-bind:missions="helps_history"></profile-mission-list>
                     </div>
                     <!--gives_history-->
                     <div class="row tab-pane fade in" id="history-give-tab">
-                        <div class="col-lg-12 profile-list" v-for="mission in gives_history">
-                            <div class="col-lg-2 profile_imgbox">
-                                <a href="#" :title="mission.Title">
-                                    <img class="image-mission" :src="getMissionImage(mission.MissionType)" />
-                                </a>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="profile-content-detail">
-                                    <a href="#" title="mission.Title" v-text="mission.Title"></a>
-                                    <span class="fire_left">{{mission.InDate | dateTimeFormat}}</span>
-                                    <p v-text="mission.Description"></p>
-                                </div>
-                                <div class="profile-content-info">
-                                    <img class="image-egg-small" src="@Html.ImageUrl("egg2.png")" />
-                                    <span v-text="'x '+mission.Star"></span>
-                                    <button class="btn btn-super pull-right">超人來囉 X5</button>
-                                </div>
-                            </div>
-                        </div>
+                        <profile-mission-list v-bind:missions="gives_history" v-bind:is_give="true"></profile-mission-list>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<script src="@Html.ScriptUrl("Profile.js")"></script>
-<script>
-    $('#Carousel').carousel({ interval: 5000 });
+    <!--memberInfo-->
+    <!--style="display:none;position:absolute;top:0px;left:0px;"-->
+    <div style="display:none;position:absolute;top:0px;left:0px;position:absolute;top:100px;left:100px;z-index:10" class="col-lg-3 col-xs-10" id="memberInfo">
+        <div class="row">
+            <div class="col-lg-12" style="background-color:#fcb0a9;padding:10px">
+                <div class="circular-portrait" style="margin:15px auto;">
+                    <img alt="" src="../Content/Image/Chris.png"><!--default-->
+                    @*<img alt="" v-if="memberInfo.Image=='' " src="../Content/Image/Chris.png"><!--default-->
+                    <img alt="" v-else v-bind:src="memberInfo.Image">*@
+                </div>
+                <div class="member-info-font">Master Clean</div>
+                <div class="member-info-button" style="width:50%">Vic</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6" style="background-color:#9eed6a;padding:5px">
+                <div class="member-info-font" style="line-height: 1;">Favorable<br /><span>56</span></div>
+            </div>
+            <div class="col-lg-6" style="background-color:#8c4313;padding:5px">
+                <div class="member-info-font" style="line-height: 1;">Bad<br /><span>183</span></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2" style="background-color:#9605b7;padding:5px">
+                <div class="member-info-font" style="line-height: 1;">P</div>
+            </div>
+            <div class="col-lg-10" style="background-color:#ca69e0;padding:5px">
+                <div class="member-info-font" style="line-height: 1;text-align:right">0911-111111</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2" style="background-color:#14007a;padding:5px">
+                <div class="member-info-font" style="line-height: 1;">E</div>
+            </div>
+            <div class="col-lg-10" style="background-color:#656af7;padding:5px">
+                <div class="member-info-font" style="line-height: 1;text-align:right">HelloWorld@newegg.com</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2" style="background-color:#037221;padding:5px">
+                <div class="member-info-font" style="line-height: 1;">A</div>
+            </div>
+            <div class="col-lg-10" style="background-color:#72e084;padding:5px">
+                <div class="member-info-font" style="line-height: 1;text-align:right">CSS0804</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2" style="background-color:#bc8505;padding:5px">
+                <div class="member-info-font" style="line-height: 1;">蛋</div>
+            </div>
+            <div class="col-lg-10" style="background-color:#d6cf08;padding:5px">
+                <div class="member-info-font" style="line-height: 1;text-align:right">56</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2" style="background-color:#9b0707;padding:5px">
+                <div class="member-info-font" style="line-height: 1;">筆</div>
+            </div>
+            <div class="col-lg-10" style="background-color:#d88686;padding:5px">
+                <div class="member-info-font" style="line-height: 1;text-align:right">Edit</div>
+            </div>
+        </div>
+    </div>
+            <script src="@Html.ScriptUrl("Profile.js")"></script>
+            <script>
+                $('#Carousel').carousel({ interval: 5000 });
 
-    $(".btn-pref .btn").click(function () {
-        $(".btn-pref .btn").removeClass("btn-super").addClass("btn-super-low");
-        // $(".tab").addClass("active"); // instead of this do the below
-        $(this).removeClass("btn-super-low").addClass("btn-super");
-    });
-</script>
+                $(".btn-pref .btn").click(function () {
+                    $(".btn-pref .btn").removeClass("btn-super").addClass("btn-super-low");
+                    // $(".tab").addClass("active"); // instead of this do the below
+                    $(this).removeClass("btn-super-low").addClass("btn-super");
+                });
+            </script>
 
 

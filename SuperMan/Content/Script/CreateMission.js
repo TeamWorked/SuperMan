@@ -6,7 +6,7 @@ var cm = new Vue({
         title: "",
         description: "",
         missionType: 0,
-        missionTypeList:MimeTypeList,
+        missionTypeList:MissionTypeList,
         address: "",
         lat: 0,
         lng: 0,
