@@ -223,6 +223,8 @@
     <Content Include="Content\Image\tag-service.svg" />
     <Content Include="Content\Image\tag-together.svg" />
     <Content Include="Content\Image\tag-transport.svg" />
+    <Content Include="Content\Image\Unlike-icon.png" />
+    <Content Include="Content\Image\Like-icon.png" />
     <Content Include="Content\Image\user-shape.svg" />
     <Content Include="Content\Script\bootstrap.js" />
     <Content Include="Content\Script\CreateMission.js" />

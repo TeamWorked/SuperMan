@@ -14,40 +14,7 @@ var cm = new Vue({
         star: 0,
         contact: "",
         propIDs: [],
-        props: [
-            //{
-            //    "Id": 1001,
-            //    "Name": "超人披風",
-            //    "Description": "超人披風超人披風",
-            //    "Minute": 30,
-            //    "Image": "tag-maintain.svg",
-            //    "Cost": 30
-            //},
-            //{
-            //    "Id": 1002,
-            //    "Name": "超人內褲",
-            //    "Description": "超人內褲超人內褲",
-            //    "Minute": 30,
-            //    "Image": "tag-maintain.svg",
-            //    "Cost": 30
-            //},
-            //{
-            //    "Id": 1003,
-            //    "Name": "超人電話亭",
-            //    "Description": "超人電話亭超人電話亭",
-            //    "Minute": 30,
-            //    "Image": "tag-maintain.svg",
-            //    "Cost": 30
-            //},
-            //{
-            //    "Id": 1004,
-            //    "Name": "超人手錶",
-            //    "Description": "超人手錶超人手錶",
-            //    "Minute": 30,
-            //    "Image": "tag-maintain.svg",
-            //    "Cost": 30
-            //}
-        ]
+        props: []
     },
     methods: {
         create: function () {
@@ -88,12 +55,18 @@ var cm = new Vue({
                 }
             }, "json")
         },
-        chgPropID: function (id) {
+        chgPropID: function (id,e) {
             var index = this.propIDs.indexOf(id)
             if (index > -1)
                 this.propIDs.splice(index, 1);
             else
                 this.propIDs.push(id);
+
+            var $this = $(e.currentTarget);
+            if ($this.hasClass("btn-default")) 
+                $this.removeClass("btn-default").addClass("btn-super");
+            else 
+                $this.removeClass("btn-super").addClass("btn-default");
         }
     },
     computed: {} 
@@ -269,15 +242,15 @@ function setEgg(count) {
 }
 
 // mission detail submit
-$(".propsbtn").click(function (e) {
-    if ($(this).hasClass("btn-default")) {
-        $(this).removeClass("btn-default").addClass("btn-super");
-    }
-    else {
-        $(this).removeClass("btn-super").addClass("btn-default");
-    }
-    //console.log($(this).attr("class"));
-});
+//$(".propsbtn").click(function (e) {
+//    if ($(this).hasClass("btn-default")) {
+//        $(this).removeClass("btn-default").addClass("btn-super");
+//    }
+//    else {
+//        $(this).removeClass("btn-super").addClass("btn-default");
+//    }
+//    //console.log($(this).attr("class"));
+//});
 // END
 
 // profile page
