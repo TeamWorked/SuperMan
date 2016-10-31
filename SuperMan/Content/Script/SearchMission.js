@@ -1,4 +1,8 @@
-$("div.show-mission").on("click", function () {
+$("#show-mission").on("click", function () {
+    setTimeout(function () {
+        $("#show-mission").show()
+    }, 1000);
+
     $("#mission-info").fadeIn("slow");
 });
 
@@ -9,29 +13,36 @@ $("div.hide-mission").on("click", function () {
 var markerCluster;
 
 var Icon = {
-    tag_work: {
-        url: UrlBuilder.ImageUrl("tag_work.png"),
+    house: {
+        url: UrlBuilder.ImageUrl("marker-house.png"),
         size: new google.maps.Size(36, 48),
         scaledSize: new google.maps.Size(36, 48), // scaled size
         origin: new google.maps.Point(0, 0), // origin
         anchor: new google.maps.Point(0, 0) // anchor
     },
-    tag_help: {
-        url: UrlBuilder.ImageUrl("tag_help.png"),
+    maintain: {
+        url: UrlBuilder.ImageUrl("marker-maintain.png"),
         size: new google.maps.Size(36, 48),
         scaledSize: new google.maps.Size(36, 48), // scaled size
         origin: new google.maps.Point(0, 0), // origin
         anchor: new google.maps.Point(0, 0) // anchor
     },
-    tag_join: {
-        url: UrlBuilder.ImageUrl("tag_join.png"),
+    together: {
+        url: UrlBuilder.ImageUrl("marker-together.png"),
         size: new google.maps.Size(36, 48),
         scaledSize: new google.maps.Size(36, 48), // scaled size
         origin: new google.maps.Point(0, 0), // origin
         anchor: new google.maps.Point(0, 0) // anchor
     },
-    tag_join2: {
-        url: UrlBuilder.ImageUrl("tag_join2.png"),
+    transport: {
+        url: UrlBuilder.ImageUrl("marker-transport.png"),
+        size: new google.maps.Size(36, 48),
+        scaledSize: new google.maps.Size(36, 48), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    service: {
+        url: UrlBuilder.ImageUrl("marker-service.png"),
         size: new google.maps.Size(36, 48),
         scaledSize: new google.maps.Size(36, 48), // scaled size
         origin: new google.maps.Point(0, 0), // origin
@@ -99,7 +110,7 @@ function SetMarkers(mapMakers) {
             case 1:
                 marker = new google.maps.Marker({
                     position: latLng,
-                    icon: Icon.tag_help,
+                    icon: Icon.house,
                     title: mapMakers[i].MissionType.toString(),
                     id: mapMakers[i].MissionId
                 });
@@ -107,7 +118,7 @@ function SetMarkers(mapMakers) {
             case 2:
                 marker = new google.maps.Marker({
                     position: latLng,
-                    icon: Icon.tag_work,
+                    icon: Icon.maintain,
                     title: mapMakers[i].MissionType.toString(),
                     id: mapMakers[i].MissionId
                 });
@@ -115,7 +126,7 @@ function SetMarkers(mapMakers) {
             case 3:
                 marker = new google.maps.Marker({
                     position: latLng,
-                    icon: Icon.tag_join,
+                    icon: Icon.together,
                     title: mapMakers[i].MissionType.toString(),
                     id: mapMakers[i].MissionId
                 });
@@ -123,7 +134,15 @@ function SetMarkers(mapMakers) {
             case 4:
                 marker = new google.maps.Marker({
                     position: latLng,
-                    icon: Icon.tag_join2,
+                    icon: Icon.transport,
+                    title: mapMakers[i].MissionType.toString(),
+                    id: mapMakers[i].MissionId
+                });
+                break;
+            case 5:
+                marker = new google.maps.Marker({
+                    position: latLng,
+                    icon: Icon.service,
                     title: mapMakers[i].MissionType.toString(),
                     id: mapMakers[i].MissionId
                 });
@@ -154,22 +173,51 @@ function MissionClickEvent(markers) {
             // get mission detail info
             GetMissionDetail(v.id);
 
-            $("div.show-mission").trigger("click");
+            $("#show-mission").trigger("click");
         });
     });
 }
 
-function RenderMissionDetail(data) {
+function RenderMissionDetail(data, mId) {
     $("#mission-title").html(data.Title);
     $("#mission-detail").html(data.Description);
-    $("#missoin-reward").html(data.Star);
+    $("#missoin-reward span").html(data.Star);
+    var $button = $("<button type=\"button\" class=\"btn btn-success\" onclick=\"AskRequest(" + mId + ")\">Accept Mission</button>");
+    $("#mission-accept").html($button);
+}
+
+function AskRequest(mid) {
+    // wait for modify
+    var postData = {
+        MemberId: 36445567,
+        Title: "GGGGG",
+        Detail: "GGGGGGGG",
+        MissionId: mid
+    }
+
+    $("#mission-accept button").popover({
+        html: true,
+        content: function () {
+            return "Mission request has been sent!";
+        }
+    });
+
+    $.ajax({
+        url: Global.Api.MissionAsk,
+        type: "post",
+        dataType: "json",
+        data: postData,
+        success: function (data) {
+            $("#mission-accept button").popover("toggle");
+        }
+    });
 }
 
 function GetSearchResult(func) {
 
     $.ajax({
         url: Global.Api.MissionSearch,
-        data: {'request.maxSize': 50},
+        data: { 'request.maxSize': 50 },
         success: function (data) {
             func(data.MapMakers);
         }
@@ -181,7 +229,7 @@ function GetMissionDetail(Id) {
         // wait fo modify
         url: Global.Api.MissionDetail + 10000000,
         success: function (data) {
-            RenderMissionDetail(data.MissionCollection[0]);
+            RenderMissionDetail(data.MissionCollection[0], 10000010);
         }
     });
 }

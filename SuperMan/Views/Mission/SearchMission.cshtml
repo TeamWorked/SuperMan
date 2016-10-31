@@ -6,25 +6,31 @@
     <!-- Page Header -->
     <div class="row">
         <div class="col-lg-12">
-            <div class="well">
-                <button id="Area" class="btn btn-super" type="button">
-                    Area
-                </button>
-                <button id="Type1" class="btn btn-super" type="button">
-                    Type1
-                </button>
-                <button id="Type2" class="btn btn-super" type="button">
-                    Type2
-                </button>
-                <button id="Type3" class="btn btn-super" type="button">
-                    Type3
-                </button>
-                <button id="Type4" class="btn btn-super" type="button">
-                    Type4
-                </button>
-                <button id="Other" class="btn btn-super" type="button">
-                    Other
-                </button>
+            <div id="search-type" class="well">
+                @*<button id="Area" class="btn btn-super" type="button">
+                        Area
+                    </button>
+                    <button id="Type1" class="btn btn-super" type="button">
+                        Type1
+                    </button>
+                    <button id="Type2" class="btn btn-super" type="button">
+                        Type2
+                    </button>
+                    <button id="Type3" class="btn btn-super" type="button">
+                        Type3
+                    </button>
+                    <button id="Type4" class="btn btn-super" type="button">
+                        Type4
+                    </button>
+                    <button id="Other" class="btn btn-super" type="button">
+                        Other
+                    </button>*@
+
+                <img src="@Html.ImageUrl("tag-house.svg")" />
+                <img src="@Html.ImageUrl("tag-service.svg")" />
+                <img src="@Html.ImageUrl("tag-together.svg")" />
+                <img src="@Html.ImageUrl("tag-transport.svg")" />
+                <img src="@Html.ImageUrl("tag-maintain.svg")" />
             </div>
         </div>
     </div>
@@ -33,34 +39,30 @@
     <div class="row">
         <div class="col-lg-12">
             <div id="mission-content">
-                <div class="show-mission"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></div>
-                @*<div id="mission-info" style="display: none">
-                    <div class="hide-mission"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></div>
-                    <div id="mission-title" class="mission">
-                        <h3>XXXXXX mission</h3>
-                    </div>
-                    <div id="mission-detail" class="mission">DDDDDD</div>
-                    <div id="mission-reward" class="mission">15 egg</div>
-                    <div id="mission-confirm" class="mission">
-                        <button>YES</button>
-                        <button>NO</button>
-                    </div>
-                </div>*@
+                <div id="show-mission" style="display:none"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></div>
 
                 <div id="mission-info" style="display: none" class="panel panel-default">
                     <div class="hide-mission"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></div>
                     <div class="panel-body">
-                        <h4 id="mission-title">XXXX mission</h4>
-                        <div id="mission-detail" class="well">...</div>
-                        <div id="missoin-reward" class="well">...</div>
+                        <h4 id="mission-title"></h4>
+                        <div class="well">
+                            <img class="img-circle" src="@Html.ImageUrl("user-shape.svg")" />
+                            <span id="user-name">阿梅</span>
+                            <div id="mission-detail"></div>
+                        </div>
+                        <div id="missoin-reward" class="well">
+                            <img class="img-circle" src="@Html.ImageUrl("egg2.png")" />
+                            <strong>x<span></span></strong>
+                        </div>
+                        <div id="mission-accept" class="well"></div>
                     </div>
                 </div>
 
-            <div id="map"></div>
+                <div id="map"></div>
+            </div>
         </div>
     </div>
-</div>
-<!-- /.row -->
+    <!-- /.row -->
 </div>
 
 <script src="@Html.ScriptUrl("SearchMission.js")"></script>

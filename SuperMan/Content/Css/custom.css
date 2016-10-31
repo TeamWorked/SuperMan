@@ -3,14 +3,14 @@
     position: relative;
 }
 
-    #mission-content .show-mission {
-        position: absolute;
-        z-index: 3;
-        padding: 5px;
-        margin: 5px;
-        background-color: #fff;
-        cursor: pointer;
-    }
+#show-mission {
+    position: absolute;
+    z-index: 3;
+    padding: 5px;
+    margin: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
 
 #mission-info {
     width: 30%;
@@ -29,14 +29,28 @@
         cursor: pointer;
     }
 
-.userImage {
-    width: 300px;
-    height: 300px;
-    -webkit-border-radius: 150px;
-    -moz-border-radius: 150px;
-    border-radius: 150px;
-    background: url(http://link-to-your/image.jpg) no-repeat;
+.img-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
 }
+
+#search-type img {
+    width: 50px;
+    height: 50px;
+    margin-right: 30px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+    #search-type img:hover {
+        width: 50px;
+        height: 50px;
+        margin-right: 30px;
+        cursor: pointer;
+        opacity: 1;
+        box-shadow: 0 0 10px #ccc;
+    }
 /*SearchMission page end*/
 
 /*MissionDetail page Start*/
