@@ -38,15 +38,6 @@ Date.prototype.Format = function (fmt) {
     return fmt;
 };
 
-<<<<<<< HEAD
-String.format = function () {
-    var s = arguments[0];
-    for (var i = 0; i < arguments.length - 1; i++) {
-        var reg = new RegExp("\\{" + i + "\\}", "gm");
-        s = s.replace(reg, arguments[i + 1]);
-    }
-    return s;
-=======
 //string.format
 
 //可在Javascript中使用如同C#中的string.format
@@ -81,5 +72,4 @@ function getStringFormatPlaceHolderRegEx(placeHolderIndex) {
 function cleanStringFormatResult(txt) {
     if (txt == null) return "";
     return txt.replace(getStringFormatPlaceHolderRegEx("\\d+"), "");
->>>>>>> 9caff57325fd295353302af45635764c1cbcb405
 }
