@@ -41,10 +41,40 @@ function InitAcceptHelp(id) {
             $("#mission-title p").html(mission.Title);
             $("#mission-detail p").html(mission.Description);
             $("#mission-reward span").html(mission.Star);
+
+            if (mission.Status == "W") {
+                GetSuperManList();
+            }
+
+            if (mission.Status == "R") {
+                var i = 1;
+                $('.progress .circle').removeClass().addClass('circle');
+                $('.progress .bar').removeClass().addClass('bar');
+                setInterval(function () {
+                    $('.progress .circle:nth-of-type(' + i + ')').addClass('active');
+
+                    $('.progress .circle:nth-of-type(' + (i - 1) + ')').removeClass('active').addClass('done');
+
+                    $('.progress .circle:nth-of-type(' + (i - 1) + ') .label').html('&#10003;');
+
+                    $('.progress .bar:nth-of-type(' + (i - 1) + ')').addClass('active');
+
+                    $('.progress .bar:nth-of-type(' + (i - 2) + ')').removeClass('active').addClass('done');
+
+                    i++;
+
+                    if (i == 0) {
+                        $('.progress .bar').removeClass().addClass('bar');
+                        $('.progress div.circle').removeClass().addClass('circle');
+                        i = 1;
+                    }
+                }, 1000);
+            }
         }
     });
+}
 
-    // get super man list
+function GetSuperManList() {
     $.ajax({
         // wait fo modify
         url: Global.Api.SuperManList + 10000007,
@@ -58,37 +88,44 @@ function InitAcceptHelp(id) {
                         var $content = $("<div class=\"well row\"></div>");
 
                         var $name = $("<div class=\"col-lg-3\"></div>");
-                        var $name_img = $("<img class=\"img-circle\" src=\"" + UrlBuilder.ImageUrl("user-shape.svg") + "\">");
-                        var $name_name = $(String.format("<span>{0}</span>", memberInfo.Name));
+                        var $name_img = $(String.format("<img class=\"img-circle-normal\" src=\"{0}\">", UrlBuilder.ImageUrl("user-shape.svg")));
+                        var $name_name = $(String.format("<p>{0}</p>", memberInfo.Name));
+
+                        var $evaluation = $("<div id=\"evaluation\"></div>");
+                        var $good = $(String.format("<span><img src=\"{0}\" class=\"img-square-mini\"/>{1}</span>", UrlBuilder.ImageUrl("Like-icon.png"), memberInfo.Good));
+                        var $bad = $(String.format("<span><img src=\"{0}\" class=\"img-square-mini\"/>{1}</span>", UrlBuilder.ImageUrl("Unlike-icon.png"), memberInfo.Bad));
+                        $evaluation.append($good);
+                        $evaluation.append($bad);
+
                         $name.append($name_img);
                         $name.append($name_name);
+                        //$name.append($evaluation);
 
-                        var $level = $("<div class=\"col-lg-3\"></div>");
-                        var $level_img = $(String.format("<img class=\"img-circle\" src=\"{0}\"\>", UrlBuilder.ImageUrl(memberMedalInfo.Image)));
+                        var $level = $("<div class=\"col-lg-2\"></div>");
+                        var $level_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberMedalInfo.Image), memberMedalInfo.MedalName));
                         $level.append($level_img);
 
-                        var $contact = $("<div class=\"col-lg-4\"></div>");
+                        var $contact = $("<div class=\"col-lg-5\"></div>");
                         if (memberInfo.Email) {
-                            $contact_email = $(String.format("<p>Email:{0}</p>", memberInfo.Email));
+                            $contact_email = $(String.format("<p>Email : {0}</p>", memberInfo.Email));
                             $contact.append($contact_email);
                         }
                         if (memberInfo.Phone) {
-                            $contact_phone = $(String.format("<p>Phone:{0}</p>", memberInfo.Phone));
+                            $contact_phone = $(String.format("<p>Phone : {0}</p>", memberInfo.Phone));
                             $contact.append($contact_phone);
                         }
                         if (memberInfo.Line) {
-                            $contact_line = $(String.format("<p>Line:{0}</p>", memberInfo.Line));
+                            $contact_line = $(String.format("<p>Line : {0}</p>", memberInfo.Line));
                             $contact.append($contact_line);
                         }
 
                         var $confirm = $("<div class=\"col-lg-2\"></div>");
-                        $confirm.append("<button class=\"btn btn-super\" type=\"button\" onclick=\"\">Accept</button>");
+                        $confirm.append("<button class=\"btn btn-super\" type=\"button\" onclick=\"AcceptMission(" + memberInfo.MemberId + ")\">Accept</button>");
 
                         $content.append($name);
                         $content.append($level);
                         $content.append($contact);
                         $content.append($confirm);
-
 
                         $("#superman-list").append($content);
                     }
@@ -96,4 +133,8 @@ function InitAcceptHelp(id) {
             }
         }
     });
+}
+
+function AcceptMission(id) {
+
 }
