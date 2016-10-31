@@ -1,0 +1,50 @@
+﻿@using SuperMan.Common;
+
+<link rel="stylesheet" href="@Html.CssUrl("custom.css")" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <form class="form-horizontal well row">
+                <div id="mission-title" class="form-group">
+                    <label class="col-sm-2 control-label">Mission:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static"></p>
+                    </div>
+                </div>
+                <div id="mission-detail" class="form-group">
+                    <label class="col-sm-2 control-label">Desc:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static"></p>
+                    </div>
+                </div>
+                <div id="mission-reward" class="form-group">
+                    <label class="col-sm-2 control-label">Reward:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">
+                            <img class="img-circle" src="@Html.ImageUrl("egg2.png")" />
+                            <strong>x<span></span></strong>
+                        </p>
+                    </div>
+                </div>
+            </form>
+            <hr />
+            <div id="superman-list"></div>
+        </div>
+        <div class="col-lg-6">
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+
+<script src="@Html.ScriptUrl("AcceptHelp.js")"></script>
+
+<script>
+
+
+    var missionId = @ViewBag.MissionId;
+    $(document).ready(function () {
+        google.maps.event.addDomListener(window, 'load', initMap);
+        InitAcceptHelp(missionId);
+    });
+</script>
