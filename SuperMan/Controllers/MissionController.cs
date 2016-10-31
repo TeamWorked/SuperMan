@@ -21,7 +21,15 @@ namespace SuperMan.Controllers
             return View();
         }
 
-        public ActionResult Help()
+        // person who request help
+        public ActionResult AcceptHelp(double id)
+        {
+            ViewBag.MissionId = id;
+            return View();
+        }
+
+        // person who give help
+        public ActionResult GiveHelp()
         {
             return View();
         }

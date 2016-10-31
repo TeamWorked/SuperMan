@@ -226,7 +226,7 @@
     <Content Include="Content\Script\bootstrap.js" />
     <Content Include="Content\Script\CreateMission.js" />
     <Content Include="Content\Script\FrameWork.js" />
-    <Content Include="Content\Script\Help.js" />
+    <Content Include="Content\Script\AcceptHelp.js" />
     <Content Include="Content\Script\googlemap.js" />
     <Content Include="Content\Script\Profile.js" />
     <Content Include="Content\Script\SearchMission.js" />
@@ -279,7 +279,7 @@
     <Content Include="Views\Mission\SearchMission.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Mission\Help.cshtml" />
+    <Content Include="Views\Mission\AcceptHelp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Fonts\FontAwesome - Copy.otf" />
