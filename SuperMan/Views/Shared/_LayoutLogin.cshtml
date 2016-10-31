@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd8CIfC7a5QepYroYyRMwYxPSRx1sd9yA"></script>
+
     <script src="@Html.ScriptUrl("FrameWork.js")"></script>
     <script src="@Html.ScriptUrl("markerclusterer.js")"></script>
     <script src="@Html.ScriptUrl("fbs.js")"></script>
@@ -53,16 +54,7 @@
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a id="header-user">Hi, Jerry</a>
-                    </li>
-                    <li>
-                        <a href=@Url.Action("Profile", "Member", new { tab = "medals-tab" }) data-toggle="tooltip" data-placement="bottom" title="Me"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href=@Url.Action("Profile", "Member", new { tab = "help-tab" }) data-toggle="tooltip" data-placement="bottom" title="Help"><i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href=@Url.Action("Profile", "Member", new { tab = "give-tab" }) data-toggle="tooltip" data-placement="bottom" title="Give"><i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i></a>
+                        <a id="header-user">Hi, 好朋友</a>
                     </li>
                 </ul>
             </div>

@@ -142,6 +142,7 @@
     <Content Include="Content\Css\bootstrap.css" />
     <Content Include="Content\Css\bootstrap.min.css" />
     <Content Include="Content\Css\custom.css" />
+    <Content Include="Content\Script\fbs.js" />
     <Content Include="Content\Css\font-awesome.min.css" />
     <Content Include="Content\Css\profile.css" />
     <Content Include="Content\Css\stepbar.css" />
@@ -305,6 +306,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\HAGSite.pubxml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
