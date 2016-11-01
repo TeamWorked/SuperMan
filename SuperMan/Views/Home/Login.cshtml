@@ -1,4 +1,6 @@
-﻿@{
+﻿@using SuperMan.Common;
+
+@{
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 
@@ -7,26 +9,10 @@
         <div class="row">
             <div class="col-lg-7 login-left ">
                 <h3>Help me & Give a Hand，讓你和世界各地保持聯繫，隨時幫忙或求助生活中的每一個困難。</h3>
-                <img src="https://www.facebook.com/rsrc.php/v3/yx/r/pyNVUg5EM0j.png" />
+                <img src="@Html.ImageUrl("LoginLogo.png")" />
             </div>
             <div class="col-lg-5 login-right">
-                <h2>註冊</h2>
-                <h4>永遠免費!</h4>
-                <h6>您可以選擇連結社交網站:</h6>
-                <div id="fb-regiest"> 
-                    <button class="btn btn-default fb-login-button" data-size="large" data-show-faces="false" data-auto-logout-link="true">Facebook Login</button>
-                    <h6>您已經登入FB</h6>
-                    <div class="form-group">
-                        <input type="hidden" class="form-control" id="inputUserId" />
-                    </div>
-                </div>
-                <div id="email-regiest">
-                    <h6>或是使用Email註冊:</h6>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="inputRegiestEmail" placeholder="Email">
-                    </div>
-                </div>
-                <hr />
+                <h2>一般註冊</h2>
                 <div class="form-group">
                     <label for="exampleInputName">姓名</label>
                     <input type="text" class="form-control" id="inputPassword" placeholder="姓名">
@@ -46,7 +32,17 @@
                     <input type="text" class="form-control" id="inputLine" placeholder="Line、QQ、微信、IG...">
                 </div>
 
-                <button type="submit" class="btn btn-super">建立帳號</button>
+                <button type="submit" class="btn btn-success btn-lg">建立帳號</button>
+                <hr />
+                <h2>簡易註冊</h2>
+                <h6>您可以選擇以下社群網站帳號登入:</h6>
+                <div id="fb-regiest"> 
+                    <button class="btn btn-default fb-login-button" data-size="large" data-show-faces="false" data-auto-logout-link="true">Facebook Login</button>
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="inputUserId" />
+                    </div>
+                    <button class="btn btn-default g-signin2" data-onsuccess="onSignIn" data-width="85" data-height="30"></button>
+                </div>                         
             </div>
         </div>
     </div>

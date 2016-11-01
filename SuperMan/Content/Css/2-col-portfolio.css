@@ -13,9 +13,22 @@ body {
     margin-bottom: 25px;
 }
 
+.login-left > img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
 #header-user{
     font-size: large;
     font-weight: bold;
+}
+
+#login-email, #login-password, #login-btn{
+    margin-top: 10px;
+}
+
+#login-email, #login-password{
+    width: 125px;
 }
 
 footer {
@@ -184,8 +197,8 @@ footer {
  *
  */
 .gradient {
-    background: linear-gradient(white, #FFF9F9);
-
+    background: linear-gradient(white, #FE2E2E);
+    /*#F5A9A9*/
 }
 
 /*

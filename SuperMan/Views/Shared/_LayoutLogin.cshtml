@@ -4,6 +4,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="739895678595-45n93qidkjm5ffqn9040vu9tpfq5rdss.apps.googleusercontent.com">
     <title>@Page.Title</title>
     <link rel='icon' href=@Html.ImageUrl("logo.png") />
 
@@ -13,6 +14,7 @@
 
     <script src="@Html.ScriptUrl("FrameWork.js")"></script>
     <script src="@Html.ScriptUrl("markerclusterer.js")"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="@Html.ScriptUrl("fbs.js")"></script>
     <script src="@Html.ScriptUrl("Login.js")"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.min.js"></script>
@@ -58,10 +60,13 @@
                         <a id="header-user">Hi, 好朋友</a>
                     </li>
                     <li>
-                        <input type="email" placeholder="輸入你的Email登入" />
+                        <input id="login-email" type="email" placeholder="輸入你的Email" />
                     </li>
                     <li>
-                        <button class="btn btn-sm btn-super">登入</button>
+                        <input id="login-password" type="password" placeholder="輸入您的密碼" />
+                    </li>
+                    <li>
+                        <button id="login-btn" class="btn btn-sm btn-super" onclick="GetLogin()">登入</button>
                     </li>
                 </ul>
             </div>
@@ -72,14 +77,5 @@
     @RenderBody()
 
     <hr />
-    <div class="container">
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Help me & Give a hand </p>
-                </div>
-            </div>
-        </footer>
-    </div>
 </body>
 </html>
