@@ -45,9 +45,10 @@ var cm = new Vue({
                 "PropIds": JSON.stringify(this.propIDs),
             }, function (result) {
                 console.log(result)
-                if (result.StatusCode == 0) {
+                if (result.Status.StatusCode == 0) {
                     //add success
                     alert("success");
+                    location.href = "/Mission/AcceptHelp?id=" + result.MissionId;
                 }
                 else {
                     // add fail
@@ -74,6 +75,12 @@ var cm = new Vue({
 
 $.getJSON("http://52.198.189.19:2453/api/shop/effect", function (r) {
     cm.props = r;
+})
+
+$.getJSON("http://52.198.189.19:2453/api/member/100000248501818", function (r) {
+    cm.contact = "信箱:" + r.Email + "\r\n" +
+        "電話:" + r.Phone + "\r\n" +
+        "Line:" + r.Line;
 })
 
 $("#filterbtn").hover(
