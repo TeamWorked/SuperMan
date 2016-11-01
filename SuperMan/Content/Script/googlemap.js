@@ -2,7 +2,7 @@
 var geocoder = new google.maps.Geocoder();
 var map = null;
 
-function showPosition() {
+/*function showPosition() {
     var center = new google.maps.LatLng(24.1981, 120.6267);
 
     map = new google.maps.Map(document.getElementById('map'), {
@@ -10,6 +10,24 @@ function showPosition() {
         center: center,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
     });
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+        }, function () {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
 
     var data = [
         { latitude: 24.1981, longitude: 120.6267 },
@@ -123,7 +141,14 @@ function showPosition() {
     });
 
     markerCluster.addMarker(marker);
-};
+};*/
+
+//function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+//    infoWindow.setPosition(pos);
+//    infoWindow.setContent(browserHasGeolocation ?
+//                          'Error: The Geolocation service failed.' :
+//                          'Error: Your browser doesn\'t support geolocation.');
+//}
 
 function initialize() {
     //Get user position
@@ -132,13 +157,24 @@ function initialize() {
 
 // for select user own position
 function showUserClickPanel() {
-    var center = new google.maps.LatLng(24.1981, 120.6267);
+    var center = new google.maps.LatLng(23.1981, 120.6267);
 
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 14,
         center: center,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
     });
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            map.setCenter(pos);
+        }, function () { });
+    }
 
     var marker = null;
 

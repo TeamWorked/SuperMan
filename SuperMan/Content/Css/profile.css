@@ -155,7 +155,7 @@
 
 .member-info-button {
    border: 4px solid #ffffff;
-   background: #ebcdcd;
+   background: #fcd4d4;
    background: -webkit-gradient(linear, left top, left bottom, from(#ebcdcd), to(#ebcdcd));
    background: -webkit-linear-gradient(top, #ebcdcd, #ebcdcd);
    background: -moz-linear-gradient(top, #ebcdcd, #ebcdcd);

@@ -52,7 +52,8 @@ var pf = new Vue({
         helps: [],
         gives: [],
         helps_history: [],
-        gives_history: []
+        gives_history: [],
+        props:[]
     },
     methods: {
         showMemberInfo: function (e) {
@@ -64,31 +65,53 @@ var pf = new Vue({
                     $(this).fadeOut().off("mouseleave");
                 }.bind(this), 200);
             });
+        },
+        buyProp: function(propID, star){
+            if(this.memberInfo.Star>star)
+            {
+                $.post("http://52.198.189.19:2453/api/shop/effect/buy",{
+                    "MemberId": this.memberInfo.MemberId,
+                    "EffectId": propID,
+                    "Count": 1
+                },function(data){
+                    this.memberInfo.Star -= star;
+
+                    alert("道具成功購買");
+                })
+            }
+            else
+            {
+                alert("您所持有的蛋蛋數不足以購買此道具");
+            }
         }
     },
     computed: {}
 })
 
-$.getJSON("http://52.198.189.19:2453/api/member/100000248501818", function (r) { 
+$.getJSON("http://52.198.189.19:2453/api/member/"+head.memberInfo.MemberId, function (r) { 
     pf.memberInfo = r;
 })
 
-$.getJSON("http://52.198.189.19:2453/api/profile/medal/100000248501818", function (r) {
+$.getJSON("http://52.198.189.19:2453/api/profile/medal/"+head.memberInfo.MemberId, function (r) {
     pf.medals = r;
 })
 
-$.getJSON("http://52.198.189.19:2453/api/profile/help/100000248501818/active", function (r) {
+$.getJSON("http://52.198.189.19:2453/api/profile/help/"+head.memberInfo.MemberId+"/active", function (r) {
     pf.helps = r.MissionCollection;
 })
 
-$.getJSON("http://52.198.189.19:2453/api/profile/give/100000248501920/active", function (r) {
+$.getJSON("http://52.198.189.19:2453/api/profile/give/"+head.memberInfo.MemberId+"/active", function (r) {
     pf.gives = r.MissionCollection;
 })
 
-$.getJSON("http://52.198.189.19:2453/api/profile/help/100000248501818/complete", function (r) {
+$.getJSON("http://52.198.189.19:2453/api/profile/help/"+head.memberInfo.MemberId+"/complete", function (r) {
     pf.helps_history = r.MissionCollection;
 })
 
-$.getJSON("http://52.198.189.19:2453/api/profile/give/100000248501920/complete", function (r) {
+$.getJSON("http://52.198.189.19:2453/api/profile/give/"+head.memberInfo.MemberId+"/complete", function (r) {
     pf.gives_history = r.MissionCollection;
+})
+//props
+$.getJSON("http://52.198.189.19:2453/api/profile/effect/"+head.memberInfo.MemberId, function (r) {
+    pf.props = r;
 })

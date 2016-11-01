@@ -349,9 +349,6 @@
     <Content Include="Content\Fonts\glyphicons-halflings-regular - Copy.woff2" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\CreateMission.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Member\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>

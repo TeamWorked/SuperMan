@@ -21,11 +21,6 @@ namespace SuperMan.Controllers
             return View();
         }
 
-        public ActionResult CreateMission()
-        {
-            return View();
-        }
-
         public ActionResult Login()
         {
             return View();

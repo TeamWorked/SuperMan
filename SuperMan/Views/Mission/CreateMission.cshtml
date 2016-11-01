@@ -63,7 +63,7 @@
                             </div>
                             <!--mission type-->
                             <div class="tab-pane" role="tabpanel" id="step2">
-                                <h3></h3>
+                                <h3>選擇任務類型</h3>
                                 <p></p>
                                 <div class="row">
                                     <div class="col-lg-4 text-center" v-for="type in missionTypeList">
@@ -74,50 +74,23 @@
                                         <img class="image-mission image-halo" src="@Html.ImageUrl("tag-house.svg")" mission_type="1001" />
                                         <p>居家 / 清潔</p>
                                     </div>
-                                    <div class="col-lg-4 text-center">
-                                        <img class="image-mission image-halo" src="@Html.ImageUrl("tag-maintain.svg")" mission_type="1002" />
-                                        <p>專業 / 維修</p>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <img class="image-mission image-halo" src="@Html.ImageUrl("tag-service.svg")" mission_type="1003" />
-                                        <p>代客 / 服務</p>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <img class="image-mission image-halo" src="@Html.ImageUrl("tag-together.svg")" mission_type="1004" />
-                                        <p>揪團 / 出遊</p>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <img class="image-mission image-halo" src="@Html.ImageUrl("tag-transport.svg")" mission_type="1005" />
-                                        <p>共乘 / 運送</p>
-                                    </div>*@
+                                    *@
                                 </div>
                                 <ul class="list-inline pull-right"></ul>
                             </div>
                             <!--egg-->
                             <div class="tab-pane" role="tabpanel" id="step3">
-                                <h3></h3>
+                                <h3>選擇贈送蛋蛋數</h3>
                                 <p></p>
                                 <div class="row">
-                                    <div class="col-lg-4 text-center">
+                                    <div class="col-lg-4 text-center" v-for="star in [5,10,15,20,25]">
                                         <img class="image-egg image-halo" src="@Html.ImageUrl("egg2.png")" />
-                                        <p>X 5</p>
+                                        <p>X {{star}}</p>
                                     </div>
-                                    <div class="col-lg-4 text-center">
+                                    @*<div class="col-lg-4 text-center">
                                         <img class="image-egg image-halo" src="@Html.ImageUrl("egg2.png")" />
                                         <p>X 10</p>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <img class="image-egg image-halo" src="@Html.ImageUrl("egg2.png")" />
-                                        <p>X 15</p>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <img class="image-egg image-halo" src="@Html.ImageUrl("egg2.png")" />
-                                        <p>X 20</p>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <img class="image-egg image-halo" src="@Html.ImageUrl("egg2.png")" />
-                                        <p>X 25</p>
-                                    </div>
+                                    </div>>*@
                                     <div class="col-lg-4 text-center">
                                         <img class="image-egg image-halo" src="@Html.ImageUrl("egg2.png")" id="custom-egg" />
                                         <div class="form-group" style="padding-top:5px">
@@ -151,7 +124,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputMissionContact"><h4><strong>聯絡方式</strong></h4></label>
-                                        <textarea class="form-control" rows="3" id="inputMissionContact" placeholder="限100字" v-model="contact"></textarea>
+                                        <textarea class="form-control" rows="3" id="inputMissionContact" placeholder="限100字" v-model="contact"> </textarea>
                                     </div>
                                     <hr>
                                     <!--prop-->
@@ -161,50 +134,24 @@
                                         </a>
                                         <div class="well well-lg collapse" id="collapseProps">
                                             <div class="row propsList">
-                                                @*<div class="col-lg-6">
-                                                        <img class="image-egg img-rounded pull-left" src="@Html.ImageUrl("tag-transport.svg")"/>
-                                                        <h4><strong>超人電話亭</strong> <span class="label label-primary"> x 30</span></h4>
-                                                        <strong>使用後於任務列表高亮置頂  </strong><span class="label label-success">0.5H</span>
-                                                        <a class="btn btn-default btn-circle btn-xl pull-right propsbtn" v-on:click=""><span class="glyphicon glyphicon-ok"></a>
-                                                        <p>
-                                                            <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> 購買 </a>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <img class="image-egg img-rounded pull-left" src="@Html.ImageUrl("tag-transport.svg")"/>
-                                                        <h4><strong>超人披風</strong> <span class="label label-primary"> x 30</span></h4>
-                                                        <strong>使用後於任務列表高亮置頂  </strong><span class="label label-success">0.5H</span>
-                                                        <a class="btn btn-default btn-circle btn-xl pull-right propsbtn" v-on:click=""><span class="glyphicon glyphicon-ok"></a>
-                                                        <p>
-                                                            <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> 購買 </a>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <img class="image-egg img-rounded pull-left" src="@Html.ImageUrl("tag-transport.svg")"/>
-                                                        <h4><strong>超人手錶</strong> <span class="label label-primary"> x 30</span></h4>
-                                                        <strong>使用後於任務列表高亮置頂  </strong><span class="label label-success">0.5H</span>
-                                                        <a class="btn btn-default btn-circle btn-xl pull-right propsbtn" v-on:click=""><span class="glyphicon glyphicon-ok"></a>
-                                                        <p>
-                                                            <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> 購買 </a>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <img class="image-egg img-rounded pull-left" src="@Html.ImageUrl("tag-transport.svg")"/>
-                                                        <h4><strong>超人內褲</strong> <span class="label label-danger"> x 30</span></h4>
-                                                        <strong>使用後於任務列表高亮置頂  </strong><span class="label label-success">0.5H</span>
-                                                        <a class="btn btn-default btn-circle btn-xl pull-right propsbtn disabled"><span class="glyphicon glyphicon-ok"></a>
-                                                        <p>
-                                                            <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> 購買 </a>
-                                                        </p>
-                                                    </div>*@
-                                                <div class="col-lg-6" v-for="(prop,index) in props">
-                                                    <img class="image-egg img-rounded pull-left" v-bind:src="'../Content/Image/'+prop.Image">
-                                                    <h4><strong v-text="prop.EffectName"></strong> <span class="label label-danger" v-text="' x '+prop.Cost"> x 0</span></h4>
-                                                    <strong>使用後於任務列表高亮置頂  </strong><span class="label label-success" v-text="(prop.EffectMinute/60)+'H'">1H</span>
-                                                    <a class="btn btn-default btn-circle btn-xl pull-right propsbtn" v-on:click="chgPropID(prop.EffectId,$event)"><span class="glyphicon glyphicon-ok"></a>
+                                                @* 
+                                                <div class="col-lg-6">
+                                                    <img class="image-egg img-rounded pull-left" src="@Html.ImageUrl("tag-transport.svg")"/>
+                                                    <h4><strong>超人內褲</strong> <span class="label label-danger"> x 30</span></h4>
+                                                    <strong>使用後於任務列表高亮置頂  </strong><span class="label label-success">0.5H</span>
+                                                    <a class="btn btn-default btn-circle btn-xl pull-right propsbtn disabled"><span class="glyphicon glyphicon-ok"></a>
                                                     <p>
                                                         <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> 購買 </a>
                                                     </p>
+                                                </div>
+                                                *@
+                                                <div class="col-lg-6" v-for="(prop,index) in props" v-if="prop.ReadEffectType == 2">
+                                                    <img class="image-egg img-rounded pull-left" v-bind:src="'../Content/Image/'+prop.Image">
+                                                    <h4><strong v-text="prop.EffectName"></strong> <span class="label label-danger" v-text="' x '+prop.Cost"></span></h4>
+                                                    <strong>{{prop.EffectDescription}}  </strong><span class="label label-success" v-text="(prop.EffectMinute/60)+'H'"></span>
+                                                    <a class="btn btn-default btn-circle btn-xl pull-right propsbtn" v-on:click="chgPropID(prop.EffectId,$event)">
+                                                        <span v-bind:class="{ 'glyphicon': true, 'glyphicon-ok': (propIDs.indexOf(prop.EffectId)>-1), 'glyphicon-remove': (propIDs.indexOf(prop.EffectId)==-1) }"></span>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
