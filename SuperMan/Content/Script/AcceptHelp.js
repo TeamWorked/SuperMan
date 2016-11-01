@@ -31,11 +31,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                           'Error: Your browser doesn\'t support geolocation.');
 }
 
-function InitAcceptHelp(id) {
+function InitAcceptHelp(missionId) {
     // get detail info
     $.ajax({
         // wait fo modify
-        url: Global.Api.MissionDetail + id,
+        url: Global.Api.MissionDetail + missionId,
         success: function (data) {
             var mission = data.MissionCollection[0];
             $("#mission-title p").html(mission.Title);
@@ -44,16 +44,15 @@ function InitAcceptHelp(id) {
 
             MissionStateInit(mission.Status);
 
+            GetSuperManList(missionId, mission.SuperManId);
+
             //if (mission.Status == "W") {
             //    GetSuperManList(id);
             //}
 
-            GetSuperManList(id);
+            //if (mission.Status == "R") {
 
-            if (mission.Status == "R") {
-
-
-            }
+            //}
         }
     });
 }
@@ -88,75 +87,122 @@ function MissionStateInit(state) {
     $('.progress .bar:nth-of-type(' + (index - 1) + ')').addClass('active');
 }
 
-function GetSuperManList(id) {
+function GetSuperManList(missionId, superManId) {
     $.ajax({
         // wait fo modify
-        url: Global.Api.SuperManList + id,
+        url: Global.Api.SuperManList + missionId,
         success: function (data) {
             if (data.MsgReqeustList != null && data.MsgReqeustList.length > 0) {
-                $.each(data.MsgReqeustList, function (i, v) {
-                    var memberInfo = v.MemberInfo;
-                    if (memberInfo != null) {
-                        var memberMedalInfo = memberInfo.MemberMedalInfo[0];
-
-                        var $content = $("<div class=\"well row\"></div>");
-                        var $eva_bar = $("<div class=\"row\"><div class=\"eva-container\"><div class=\"evabar\" style=\"width:20%\"></div></div></div>");
-                        $content.append($eva_bar);
-
-                        ///////////////////////
-                        var $name = $("<div class=\"col-lg-3\"></div>");
-                        var $name_img = $(String.format("<img class=\"img-circle-normal\" src=\"{0}\">", UrlBuilder.ImageUrl("user-shape.svg")));
-                        var $name_name = $(String.format("<p>{0}</p>", memberInfo.Name));
-                        
-
-                        var $evaluation = $("<div id=\"evaluation\"></div>");
-                        var $good = $(String.format("<span><img src=\"{0}\" class=\"img-square-mini\"/>{1}</span>", UrlBuilder.ImageUrl("Like-icon.png"), memberInfo.Good));
-                        var $bad = $(String.format("<span><img src=\"{0}\" class=\"img-square-mini\"/>{1}</span>", UrlBuilder.ImageUrl("Unlike-icon.png"), memberInfo.Bad));
-                        $evaluation.append($good);
-                        $evaluation.append($bad);
-
-                        $name.append($name_img);
-                        $name.append($name_name);
-                        //$name.append($evaluation);
-                        ///////////////////////
-
-                        //////////////////////
-                        var $level = $("<div class=\"col-lg-2\"></div>");
-                        var $level_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberMedalInfo.Image), memberMedalInfo.MedalName));
-                        $level.append($level_img);
-                        /////////////////////
-
-                        var $contact = $("<div class=\"col-lg-5\"></div>");
-                        if (memberInfo.Email) {
-                            $contact_email = $(String.format("<p>Email : {0}</p>", memberInfo.Email));
-                            $contact.append($contact_email);
-                        }
-                        if (memberInfo.Phone) {
-                            $contact_phone = $(String.format("<p>Phone : {0}</p>", memberInfo.Phone));
-                            $contact.append($contact_phone);
-                        }
-                        if (memberInfo.Line) {
-                            $contact_line = $(String.format("<p>Line : {0}</p>", memberInfo.Line));
-                            $contact.append($contact_line);
-                        }
-
-                        var $confirm = $("<div class=\"col-lg-2\"></div>");
-                        $confirm.append("<button class=\"btn btn-super\" type=\"button\" onclick=\"AcceptMission(" + memberInfo.MemberId + "," + v.MissionId + ")\">就是你了</button>");
-
-                        $content.append($name);
-                        $content.append($level);
-                        $content.append($contact);
-                        $content.append($confirm);
-
-                        $("#superman-list").append($content);
-                    }
-                });
+                if (superManId == null) {
+                    RenderSuperManList(data.MsgReqeustList);
+                } else {
+                    RenderSelectedSuperMan(data.MsgReqeustList, superManId);
+                }
             } else {
                 var $wait = $("<div class=\"well\">等待超人救援中...</div>");
                 $("#superman-list").append($wait);
             }
         }
     });
+}
+
+function RenderSuperManList(superManList) {
+    $.each(superManList, function (i, v) {
+        var memberInfo = v.MemberInfo;
+        if (memberInfo != null) {
+            var memberMedalInfo = memberInfo.MemberMedalInfo[0];
+
+            var $content = $("<div class=\"well row\"></div>");
+            var $eva_bar = $("<div class=\"row\"><div class=\"eva-container\"><div class=\"evabar\" style=\"width:20%\"></div></div></div>");
+            $content.append($eva_bar);
+
+            ///////////////////////
+            var $name = $("<div class=\"col-lg-3\"></div>");
+            var $name_img = $(String.format("<img class=\"img-circle-normal\" src=\"{0}\">", UrlBuilder.ImageUrl("user-shape.svg")));
+            var $name_name = $(String.format("<p>{0}</p>", memberInfo.Name));
+            $name.append($name_img);
+            $name.append($name_name);
+            ///////////////////////
+
+            //////////////////////
+            var $level = $("<div class=\"col-lg-2\"></div>");
+            var $level_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberMedalInfo.Image), memberMedalInfo.MedalName));
+            $level.append($level_img);
+            /////////////////////
+
+            var $contact = $("<div class=\"col-lg-5\"></div>");
+            if (memberInfo.Email) {
+                $contact_email = $(String.format("<p>Email : {0}</p>", memberInfo.Email));
+                $contact.append($contact_email);
+            }
+            if (memberInfo.Phone) {
+                $contact_phone = $(String.format("<p>Phone : {0}</p>", memberInfo.Phone));
+                $contact.append($contact_phone);
+            }
+            if (memberInfo.Line) {
+                $contact_line = $(String.format("<p>Line : {0}</p>", memberInfo.Line));
+                $contact.append($contact_line);
+            }
+
+            var $confirm = $("<div class=\"col-lg-2\"></div>");
+            $confirm.append("<button class=\"btn btn-super\" type=\"button\" onclick=\"AcceptMission(" + memberInfo.MemberId + "," + v.MissionId + ")\">就是你了</button>");
+
+            $content.append($name);
+            $content.append($level);
+            $content.append($contact);
+            $content.append($confirm);
+
+            $("#superman-list").append($content);
+        }
+    });
+}
+
+function RenderSelectedSuperMan(superManList, superManId)
+{
+    var memberInfo;
+    var memberMedalInfo;
+    $.each(superManList, function (i, v) {
+        if (v.MemberId == superManId) {
+            memberInfo = v.MemberInfo;
+            memberMedalInfo = memberInfo.MemberMedalInfo[0];
+            return false;
+        }
+    });
+
+    $supeManContainer = $("<div class=\"well row\"></div>");
+
+    var $eva_bar = $("<div class=\"row\"><div class=\"eva-container\"><div class=\"evabar\" style=\"width:20%\"></div></div></div>");
+    $supeManContainer.append($eva_bar);
+
+    var $name = $("<div class=\"col-lg-3\"></div>");
+    var $name_img = $(String.format("<img class=\"img-circle-normal\" src=\"{0}\">", UrlBuilder.ImageUrl("user-shape.svg")));
+    var $name_name = $(String.format("<p>{0}</p>", memberInfo.Name));
+    $name.append($name_img);
+    $name.append($name_name);
+    $supeManContainer.append($name);
+
+    var $level = $("<div class=\"col-lg-2\"></div>");
+    var $level_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberMedalInfo.Image), memberMedalInfo.MedalName));
+    $level.append($level_img);
+    $supeManContainer.append($level);
+
+    var $contact = $("<div class=\"col-lg-5\"></div>");
+    if (memberInfo.Email) {
+        $contact_email = $(String.format("<p>Email : {0}</p>", memberInfo.Email));
+        $contact.append($contact_email);
+    }
+    if (memberInfo.Phone) {
+        $contact_phone = $(String.format("<p>Phone : {0}</p>", memberInfo.Phone));
+        $contact.append($contact_phone);
+    }
+    if (memberInfo.Line) {
+        $contact_line = $(String.format("<p>Line : {0}</p>", memberInfo.Line));
+        $contact.append($contact_line);
+    }
+
+    $supeManContainer.append($contact);
+
+    $("#superman-list").append($supeManContainer);
 }
 
 function AcceptMission(superManId, missionId) {
