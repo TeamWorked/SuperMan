@@ -1,0 +1,39 @@
+
+Login:
+任務守則
+
+Homepage:
+1. Button link
+2. header request 刷新
+3. Landing Banner image
+
+
+Help Detail:
+1. 地圖圖釘消失
+2. Best Seller (UI & Service)
+3. 超人列表刷新 5s
+4. 開始任務Service沒接受
+5. 寫條 tooltip
+6. 評價按鈕
+
+
+
+SearchMission:
+1. Service補MemberInfo
+2. UI 補檢舉按鈕
+3. UI 補血條
+4. Accept 改中文 我來救你
+5. Filter 
+6. 應徵後 顯示"送出"
+7. 進度條 滿版 (改中文)
+
+
+Profile:
+1. tab 定位
+2. 換icon
+3. 滑鼠移到大頭貼 改成"手"
+4. Banner 換圖
+5. 刪除獲得蛋蛋按鈕
+6. 蛋蛋X(Reward)
+7. Help 按鈕島葉
+8. 買蛋 IPhone7(3690) NOTE7(5566)
