@@ -17,7 +17,7 @@ $(document).ready(function () {
 
                     $("#inputPassword").val(fbUser.name);
                     $("#inputUserId").val(fbUser.id);
-                    $("#header-user").val("Hi, " + fbUser.name);
+                    $("#header-user").text("Hi, " + fbUser.name);
                 });
             } else if (response.status === 'not_authorized') {
                 //document.getElementById('status').innerHTML = 'We are not connected.';
