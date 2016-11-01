@@ -4,13 +4,13 @@
         "<div class='row tab-pane fade in' id='help-tab'>" +
             "<div class ='col-lg-12 profile-list' v-for='(mission,index) in missions'>"+
                 "<div class ='col-lg-2 profile_imgbox'>"+
-                    "<a href='#' v-bind:title='mission.Title'>"+
+                    "<a v-bind:href=\"'/Mission/AcceptHelp?id='+mission.MissionId\" v-bind:title='mission.Title'>" +
                         "<img class ='image-mission' v-bind:src='getMissionImage(mission.MissionType)' />"+
                     "</a>"+
                 "</div>"+
                 "<div class ='col-lg-10'>"+
                     "<div class ='profile-content-detail'>"+
-                        "<a href='#' v-bind:title='mission.Title' v-text='mission.Title'></a>"+
+                        "<a v-bind:href=\"'/Mission/AcceptHelp?id='+mission.MissionId\" v-bind:title='mission.Title' v-text='mission.Title'></a>" +
                         "<span class ='fire_left'>{{mission.InDate | dateTimeFormat}}</span>"+
                         "<p v-text='mission.Description'></p>"+
                     "</div>"+
