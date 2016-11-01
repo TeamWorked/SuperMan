@@ -1,27 +1,27 @@
 ﻿var ProfileMissionList = Vue.extend({
     props: ["missions","is_give"],
-    template: `
-        <div class="row tab-pane fade in" id="help-tab">
-            <div class ="col-lg-12 profile-list" v-for="(mission,index) in missions">
-                <div class ="col-lg-2 profile_imgbox">
-                    <a href="#" v-bind:title="mission.Title">
-                        <img class ="image-mission" v-bind:src="getMissionImage(mission.MissionType)" />
-                    </a>
-                </div>
-                <div class ="col-lg-10">
-                    <div class ="profile-content-detail">
-                        <a href="#" v-bind:title="mission.Title" v-text="mission.Title"></a>
-                        <span class ="fire_left">{{mission.InDate | dateTimeFormat}}</span>
-                        <p v-text="mission.Description"></p>
-                    </div>
-                    <div class ="profile-content-info">
-                        <img class ="image-egg-small" src="../Content/Image/egg2.png" />
-                        <span v-text="'x '+mission.Star"></span>
-                        <button class ="btn btn-super pull-right" v-if="!is_give" v-text="'超人來囉 X'+mission.Applicants"></button>
-                    </div>
-                </div>
-            </div>
-        </div>`,
+    template: 
+        "<div class='row tab-pane fade in' id='help-tab'>" +
+            "<div class ='col-lg-12 profile-list' v-for='(mission,index) in missions'>"+
+                "<div class ='col-lg-2 profile_imgbox'>"+
+                    "<a href='#' v-bind:title='mission.Title'>"+
+                        "<img class ='image-mission' v-bind:src='getMissionImage(mission.MissionType)' />"+
+                    "</a>"+
+                "</div>"+
+                "<div class ='col-lg-10'>"+
+                    "<div class ='profile-content-detail'>"+
+                        "<a href='#' v-bind:title='mission.Title' v-text='mission.Title'></a>"+
+                        "<span class ='fire_left'>{{mission.InDate | dateTimeFormat}}</span>"+
+                        "<p v-text='mission.Description'></p>"+
+                    "</div>"+
+                    "<div class ='profile-content-info'>"+
+                        "<img class ='image-egg-small' src='../Content/Image/egg2.png' />"+
+                        "<span>x {{mission.Star}}</span>" +
+                        "<button class ='btn btn-super pull-right' v-if='!is_give' >超人來囉 X{{mission.Applicants}}</button>" +
+                    "</div>"+
+                "</div>"+
+            "</div>"+
+        "</div>",
     methods: {
         getMissionImage: function (type) {
             var tmp = MissionTypeList.filter(function (x) {
@@ -66,18 +66,26 @@ var pf = new Vue({
                 }.bind(this), 200);
             });
         },
-        buyProp: function(propID, star){
-            if(this.memberInfo.Star>star)
+        buyProp: function(prop){
+            if (this.memberInfo.Star > prop.EffectInfo.Cost)
             {
                 $.post("http://52.198.189.19:2453/api/shop/effect/buy",{
                     "MemberId": this.memberInfo.MemberId,
-                    "EffectId": propID,
+                    "EffectId": prop.EffectInfo.EffectId,
                     "Count": 1
-                },function(data){
-                    this.memberInfo.Star -= star;
-
-                    alert("道具成功購買");
-                })
+                }, function (data) {
+                    if (data.StatusCode == 0)
+                    {
+                        this.memberInfo.Star -= prop.EffectInfo.Cost;
+                        this.props[this.props.indexOf(prop)].Count++;
+                        alert("道具成功購買");
+                    }
+                    else
+                    {
+                        alert("道具購買失敗");
+                    }
+                    
+                }.bind(this))
             }
             else
             {
@@ -115,3 +123,12 @@ $.getJSON("http://52.198.189.19:2453/api/profile/give/"+head.memberInfo.MemberId
 $.getJSON("http://52.198.189.19:2453/api/profile/effect/"+head.memberInfo.MemberId, function (r) {
     pf.props = r;
 })
+
+$('#Carousel').carousel({ interval: 5000 });
+
+$(".btn-pref .btn").click(function () {
+    
+    $(".btn-pref .btn").removeClass("btn-super").addClass("btn-super-low");
+    // $(".tab").addClass("active"); // instead of this do the below
+    $(this).removeClass("btn-super-low").addClass("btn-super");
+});

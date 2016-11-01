@@ -107,23 +107,23 @@
                         <profile-mission-list v-bind:missions="gives" v-bind:is_give="true"></profile-mission-list>
                     </div>
                     <div class="row tab-pane fade in" id="store-tab">
-                        <div class="col-lg-12 profile-list" v-for="prop in porps">
+                        <div class="col-lg-12 profile-list" v-for="prop in props">
                             <div class="col-lg-2 profile_imgbox">
                                 <a v-bind:title="prop.EffectName">
-                                    <img class="image-mission" v-bind:src="'../Content/Image/'+prop.Image" />
+                                    <img class="image-mission" v-bind:src="'../Content/Image/'+prop.EffectInfo.Image" />
                                 </a>
                             </div>
                             <div class="col-lg-10">
                                 <div class="profile-content-detail">
-                                    <a v-bind:title="prop.EffectName">{{prop.EffectName}}</a>
-                                    <span>x 12</span>
+                                    <a v-bind:title="prop.EffectName">{{prop.EffectInfo.EffectName}}</a>
+                                    <span>x {{prop.Count}}</span>
                                     <button class="btn btn-warning">使用道具</button>
-                                    <p>{{prop.EffectDescription}}</p>
+                                    <p>{{prop.EffectInfo.EffectDescription}}</p>
                                 </div>
                                 <div class="profile-content-info">
                                     <img class="image-egg-small" src="~/Content/Image/egg2.png" />
-                                    <span>x {{prop.Cost}}</span>
-                                    <button class="btn btn-super pull-right" v-on:click="buyProp(prop.EffectId, prop.Cost)">
+                                    <span>x {{prop.EffectInfo.Cost}}</span>
+                                    <button class="btn btn-super pull-right" v-on:click="buyProp(prop)">
                                         <i class="fa fa-shopping-cart" aria-hidden="true"></i> 購買道具
                                     </button>
                                 </div>
@@ -177,42 +177,42 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6" style="background-color:#e20000;padding:5px">
+            <div class="col-lg-6 member-info-detail" style="">
                 <div class="member-info-font" style="line-height: 1;">Favorable<br /><span>{{memberInfo.Good}}</span></div>
             </div>
-            <div class="col-lg-6" style="background-color:#e20000;padding:5px">
+            <div class="col-lg-6 member-info-detail" style="">
                 <div class="member-info-font" style="line-height: 1;">Bad<br /><span>{{memberInfo.Bad}}</span></div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2" style="background-color:#fcd4d4;padding:5px">
+            <div class="col-lg-2 member-info-detail" style="">
                 <div class="member-info-font" style="line-height: 1;">P</div>
             </div>
-            <div class="col-lg-10" style="background-color:#fcd4d4;padding:5px">
+            <div class="col-lg-10 member-info-detail" style="">
                 <div class="member-info-font" style="line-height: 1;text-align:right">{{memberInfo.Phone}}</div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2" style="background-color:#e20000;padding:5px">
+            <div class="col-lg-2 member-info-detail" style="">
                 <div class="member-info-font" style="line-height: 1;">E</div>
             </div>
-            <div class="col-lg-10" style="background-color:#e20000;padding:5px">
+            <div class="col-lg-10 member-info-detail" style="">
                 <div class="member-info-font" style="line-height: 1;text-align:right">{{memberInfo.Email}}</div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2" style="background-color:#fcd4d4;padding:5px">
+            <div class="col-lg-2 member-info-detail" style="">
                 <div class="member-info-font" style="line-height: 1;">A</div>
             </div>
-            <div class="col-lg-10" style="background-color:#fcd4d4;padding:5px">
+            <div class="col-lg-10 member-info-detail" style="">
                 <div class="member-info-font" style="line-height: 1;text-align:right">{{memberInfo.Line}}</div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2" style="background-color:#e20000;padding:5px">
+            <div class="col-lg-2 member-info-detail" style="background-color:#848484;padding:5px">
                 <div class="member-info-font" style="line-height: 1;">蛋</div>
             </div>
-            <div class="col-lg-10" style="background-color:#e20000;padding:5px">
+            <div class="col-lg-10" style="background-color:#848484;padding:5px">
                 <div class="member-info-font" style="line-height: 1;text-align:right">{{memberInfo.Star}}</div>
             </div>
         </div>
@@ -225,15 +225,8 @@
             </div>
         </div>*@
     </div>
-            <script src="@Html.ScriptUrl("Profile.js")"></script>
-            <script>
-                $('#Carousel').carousel({ interval: 5000 });
 
-                $(".btn-pref .btn").click(function () {
-                    $(".btn-pref .btn").removeClass("btn-super").addClass("btn-super-low");
-                    // $(".tab").addClass("active"); // instead of this do the below
-                    $(this).removeClass("btn-super-low").addClass("btn-super");
-                });
-            </script>
+            <script src="@Html.ScriptUrl("Profile.js")"></script>
+            
 
 
