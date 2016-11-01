@@ -1,20 +1,20 @@
 ﻿<link rel="stylesheet" href="@Html.CssUrl("profile.css")" />
-
+<link rel="stylesheet" href="@Html.CssUrl("jquery.confirm.css")" />
+<script src="@Html.ScriptUrl("jquery.confirm.js")"></script>
 <div class="container" id="container">
-    
     <!-- step bar panel -->
     <div class="row">
         <div class="col-lg-12 profile-top">
             <div class="card hovercard">
                 <div class="card-background">
-                    <img class="card-bkimg" alt="" v-if="memberInfo.Image==''" src="../Content/Image/Chris.png"><!--default-->
+                    <img class="card-bkimg" alt="" v-if="memberInfo.Image==''" v-bind:src="defaultBannerSrc"><!--default-->
                     <img class="card-bkimg" alt="" v-else v-bind:src="memberInfo.Image">
                 </div>
-                <div class="useravatar" v-on:click="showMemberInfo">
-                    <img class="card-bkimg" alt="" v-if="memberInfo.Image=='' " src="../Content/Image/Chris.png"><!--default-->
+                <div class="useravatar" v-on:click="showMemberInfo" style="cursor:pointer">
+                    <img class="card-bkimg" alt="" v-if="memberInfo.Image=='' " v-bind:src="defaultImageSrc"><!--default-->
                     <img class="card-bkimg" alt="" v-else v-bind:src="memberInfo.Image">
                 </div>
-                <div class="card-info"><span class="card-title">Pamela Anderson</span></div>
+                @*<div class="card-info"><span class="card-title">Pamela Anderson</span></div>*@
             </div>
             <!--tabs-->
             <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
@@ -75,8 +75,8 @@
                                 </div>
                                 <div class="profile-content-info">
                                     <img class="image-egg-small" src="~/Content/Image/egg2.png" /> 
-                                    <span v-text="'x '+medal.Score"></span>
-                                    <button class="btn btn-super pull-right" v-bind:disabled="medal.Achieve" v-text="'獲得蛋蛋 X'+medal.Reward"></button>
+                                    <span v-text="'x '+medal.Reward"></span>
+                                    @*<button class="btn btn-super pull-right" v-bind:disabled="medal.Achieve" v-text="'獲得蛋蛋 X'+medal.Reward"></button>*@
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
                                 <div class="profile-content-detail">
                                     <a v-bind:title="prop.EffectName">{{prop.EffectInfo.EffectName}}</a>
                                     <span>x {{prop.Count}}</span>
-                                    <button class="btn btn-warning">使用道具</button>
+                                    @*<button class="btn btn-warning">使用道具</button>*@
                                     <p>{{prop.EffectInfo.EffectDescription}}</p>
                                 </div>
                                 <div class="profile-content-info">
@@ -125,6 +125,28 @@
                                     <span>x {{prop.EffectInfo.Cost}}</span>
                                     <button class="btn btn-super pull-right" v-on:click="buyProp(prop)">
                                         <i class="fa fa-shopping-cart" aria-hidden="true"></i> 購買道具
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- by money-->
+                        <div class="col-lg-12 profile-list" v-for="prop in propsOthers">
+                            <div class="col-lg-2 profile_imgbox">
+                                <a v-bind:title="prop.Title">
+                                    <img class="image-mission" v-bind:src="'../Content/Image/'+prop.Image" />
+                                </a>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="profile-content-detail">
+                                    <a v-bind:title="prop.Title">{{prop.Title}}</a>
+                                    <p>{{prop.Description}}</p>
+                                </div>
+                                <div class="profile-content-info">
+                                    <img class="image-egg-small" v-bind:src="'../Content/Image/'+prop.Pay" />
+                                    <span>x {{prop.Cost}}</span>
+                                    <button class="btn btn-super pull-right" v-on:click="notYet">
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> 購買商品
                                     </button>
                                 </div>
                             </div>
@@ -167,10 +189,10 @@
     <div style="display:none;position:absolute;top:0px;left:0px;position:absolute;top:100px;left:100px;z-index:10" class="col-lg-3 col-xs-10" id="memberInfo">
         <div class="row">
             <div class="col-lg-12" style="background-color:#333;padding:10px">
-                <div class="circular-portrait" style="margin:15px auto;">
+                <div class="circular-portrait" style="margin:15px auto;" >
                     @*<img alt="" src="../Content/Image/Chris.png">*@<!--default-->
-                    <img alt="" v-if="memberInfo.Image=='' " src="../Content/Image/Chris.png"><!--default-->
-                    <img alt="" v-else v-bind:src="memberInfo.Image">
+                    <img alt="" v-if="memberInfo.Image=='' " class="cover" v-bind:src="defaultImageSrc"><!--default-->
+                    <img alt="" v-else class="cover" v-bind:src="memberInfo.Image">
                 </div>
                 @*<div class="member-info-font">Master Clean</div>*@
                 <div class="member-info-button" style="width:50%">{{memberInfo.Name}}</div>
@@ -185,34 +207,34 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2 member-info-detail" style="">
-                <div class="member-info-font" style="line-height: 1;">P</div>
+            <div class="col-lg-2 member-info-detail detail-oneline" style="">
+                <img class="contain" src="../Content/Image/phone.png" />
             </div>
-            <div class="col-lg-10 member-info-detail" style="">
+            <div class="col-lg-10 member-info-detail detail-oneline" style="">
                 <div class="member-info-font" style="line-height: 1;text-align:right">{{memberInfo.Phone}}</div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2 member-info-detail" style="">
-                <div class="member-info-font" style="line-height: 1;">E</div>
+            <div class="col-lg-2 member-info-detail detail-oneline" style="">
+                <img class="contain" src="../Content/Image/mail.png" />
             </div>
-            <div class="col-lg-10 member-info-detail" style="">
+            <div class="col-lg-10 member-info-detail detail-oneline" style="">
                 <div class="member-info-font" style="line-height: 1;text-align:right">{{memberInfo.Email}}</div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2 member-info-detail" style="">
-                <div class="member-info-font" style="line-height: 1;">A</div>
+            <div class="col-lg-2 member-info-detail detail-oneline" style="">
+                <img class="contain" src="../Content/Image/message.png" />
             </div>
-            <div class="col-lg-10 member-info-detail" style="">
+            <div class="col-lg-10 member-info-detail detail-oneline" style="">
                 <div class="member-info-font" style="line-height: 1;text-align:right">{{memberInfo.Line}}</div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2 member-info-detail" style="background-color:#848484;padding:5px">
-                <div class="member-info-font" style="line-height: 1;">蛋</div>
+            <div class="col-lg-2 member-info-detail detail-oneline" style="background-color:#848484;padding:5px">
+                <img class="contain" src="../Content/Image/egg2.png" />
             </div>
-            <div class="col-lg-10" style="background-color:#848484;padding:5px">
+            <div class="col-lg-10 member-info-detail detail-oneline" style="background-color:#848484;padding:5px">
                 <div class="member-info-font" style="line-height: 1;text-align:right">{{memberInfo.Star}}</div>
             </div>
         </div>

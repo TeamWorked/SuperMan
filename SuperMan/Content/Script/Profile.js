@@ -17,7 +17,9 @@
                     "<div class ='profile-content-info'>"+
                         "<img class ='image-egg-small' src='../Content/Image/egg2.png' />"+
                         "<span>x {{mission.Star}}</span>" +
-                        "<button class ='btn btn-super pull-right' v-if='!is_give' >超人來囉 X{{mission.Applicants}}</button>" +
+                        "<a v-bind:href=\"'/Mission/AcceptHelp?id='+mission.MissionId\">"+
+                            "<button class ='btn btn-super pull-right' v-if='!is_give' >超人來囉 X{{mission.Applicants}}</button>"+
+                        "</a>" +
                     "</div>"+
                 "</div>"+
             "</div>"+
@@ -53,7 +55,38 @@ var pf = new Vue({
         gives: [],
         helps_history: [],
         gives_history: [],
-        props:[]
+        props: [],
+        propsOthers:[
+          {
+              "Title": "Iphone7",
+              "Description": "沒有耳機恐的耳機",
+              "Image": "iphone7.jpg",
+              "Cost": 3690,
+              "Pay":"egg2.png"
+          },
+          {
+              "Title": "Samsung Note7",
+              "Description": "5萬6買顆手榴彈，划算",
+              "Image": "note7.jpg",
+              "Cost": 5566,
+              "Pay": "egg2.png"
+          },
+          {
+              "Title": "大七",
+              "Description": "家人守護神器，進入東海商圈後防禦力+150",
+              "Image": "bmw740.jpg",
+              "Cost": 160000,
+              "Pay": "egg2.png"
+          },{
+              "Title": "Egg",
+              "Description": "蛋蛋淡淡的憂傷",
+              "Image": "egg2.png",
+              "Cost": 10,
+              "Pay":"money.jpg"
+          },
+        ],
+        defaultBannerSrc: "../Content/Image/banner-get-help.jpg",
+        defaultImageSrc: "../Content/Image/superman.jpg"
     },
     methods: {
         showMemberInfo: function (e) {
@@ -78,22 +111,31 @@ var pf = new Vue({
                     {
                         this.memberInfo.Star -= prop.EffectInfo.Cost;
                         this.props[this.props.indexOf(prop)].Count++;
-                        alert("道具成功購買");
+                        //alert("道具成功購買");
+                        $.alert('道具成功購買!'); // shorthand.
                     }
                     else
                     {
-                        alert("道具購買失敗");
+                        //alert("道具購買失敗");
+                        $.alert('道具購買失敗!');
                     }
                     
                 }.bind(this))
             }
             else
             {
-                alert("您所持有的蛋蛋數不足以購買此道具");
+                //alert("您所持有的蛋蛋數不足以購買此道具");
+                $.alert('您所持有的蛋蛋數不足以購買此道具!');
             }
+        },
+        notYet: function () {
+            //alert("商品還沒準備好");
+            $.alert('商品尚未準備妥當!');
         }
     },
-    computed: {}
+    computed: {
+        
+    }
 })
 
 $.getJSON("http://52.198.189.19:2453/api/member/"+head.memberInfo.MemberId, function (r) { 
@@ -132,3 +174,6 @@ $(".btn-pref .btn").click(function () {
     // $(".tab").addClass("active"); // instead of this do the below
     $(this).removeClass("btn-super-low").addClass("btn-super");
 });
+
+var tab = getParam("tab").split("-")[0]+"-btn";
+$("#" + tab).trigger("click");

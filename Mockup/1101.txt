@@ -29,11 +29,14 @@ SearchMission:
 
 
 Profile:
-1. tab 定位
-2. 換icon
-3. 滑鼠移到大頭貼 改成"手"
-4. Banner 換圖
-5. 刪除獲得蛋蛋按鈕
-6. 蛋蛋X(Reward)
-7. Help 按鈕島葉
-8. 買蛋 IPhone7(3690) NOTE7(5566)
+1. tab 定位V
+2. 換iconV
+3. 滑鼠移到大頭貼 改成"手"V
+4. Banner 換圖V
+5. 刪除獲得蛋蛋按鈕V
+6. 蛋蛋X(Reward)V
+7. Help 按鈕島葉V
+8. 買蛋 IPhone7(3690) NOTE7(5566)V
+
+
+memberID:['100000248501818','100000248501920']
