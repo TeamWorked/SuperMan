@@ -48,8 +48,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -240,6 +241,7 @@
     <Content Include="LandingPage\css\bootstrap.css" />
     <Content Include="LandingPage\css\font-awesome.css" />
     <Content Include="LandingPage\css\jquery.circliful.css" />
+    <Content Include="LandingPage\css\landing.css" />
     <Content Include="LandingPage\css\main.css" />
     <Content Include="LandingPage\css\nivo-lightbox-default.css" />
     <Content Include="LandingPage\css\nivo-lightbox.css" />
@@ -270,6 +272,7 @@
     <Content Include="LandingPage\img\Banner7.jpg" />
     <Content Include="LandingPage\img\Border.png" />
     <Content Include="LandingPage\img\checkbox.png" />
+    <Content Include="LandingPage\img\handshake.png" />
     <Content Include="LandingPage\img\indexBanner.jpg" />
     <Content Include="LandingPage\img\underline.png" />
     <Content Include="LandingPage\js\appear.js" />

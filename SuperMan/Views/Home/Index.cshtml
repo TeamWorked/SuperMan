@@ -55,7 +55,7 @@
     <!-- Header scripts -->
     <script src="@Html.LandingScriptUrl("vendor/modernizr-2.8.3.min.js")"></script>
     <script src="@Html.LandingScriptUrl("queryloader2.min.js")"></script>
-
+    <link rel="stylesheet" href="@Html.LandingCssUrl("landing.css")">
     <!-- =========================
        Preloader
     ============================== -->
@@ -281,7 +281,7 @@
     <!-- =========================
        Call to action
     ============================== -->
-    <section id="call-to-action" class="call-to-action main-bg">
+    @*<section id="call-to-action" class="call-to-action main-bg">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-12 wow slideInLeft animated">
@@ -293,7 +293,74 @@
                 <div class="clearfix"></div>
             </div>
         </div>
-    </section> <!-- *** end call-to-action *** -->
+    </section>*@ <!-- *** end call-to-action *** -->
+    <div class="row">
+        <div class="banner-1 col-lg-12">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="banner-2-left col-lg-6">
+            <img class="pull-right" src="@Html.LandingImageUrl("handshake.png")" />
+        </div>
+        <div class="banner-2-right col-lg-6">
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="banner-3 col-lg-12" style="background-image:url(@Html.LandingImageUrl("banner2.jpg"));">
+            <div class="text">
+                <h2>It's no shame asking for help.</h2>
+                <h2>It can help you</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="banner-4 col-lg-12" style="background-image:url(@Html.LandingImageUrl("banner3.jpg"));">
+            <div class="banner4-text1">
+                <h2>Give others a hand. and the happiness will be double.</h2>
+            </div>
+            <div class="banner4-text2" style="">
+                <h1>Action is Power</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="banner-5 col-lg-1" style="min-width: 60px">
+            
+        </div>
+        <div class="banner-5 col-lg-2">
+            <img class="" src="@Html.LandingImageUrl("banner4_1.jpg")" />
+        </div>
+        <div class="banner-5 col-lg-6" style="background-image:url(@Html.LandingImageUrl("Border.png"));">
+            <div class="banner5-text">
+                <h2>Asking for help in the virtual world.</h2>
+                <h2>Giving you a hand in the real world.</h2>
+                <img src="@Html.LandingImageUrl("underline.png")" />
+            </div>
+        </div>
+        <div class="banner-5 col-lg-2">
+            <img class="" src="@Html.LandingImageUrl("banner4_2.jpg")" />
+        </div>
+        <div class="banner-5 col-lg-1" style="min-width: 60px">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="banner-6 col-lg-12" style="background-image:url(@Html.LandingImageUrl("Banner5.jpg"));">
+            <div class="banner6-text1">
+                <h2>You can find the helper or do some.</h2>
+                <h2>Favors to the others through our apps!</h2>
+            </div>
+            <div class="banner6-text2">
+                <h2>Connect with</h2>
+                <h2>Facebook,</h2>
+                <h2>Twitter,</h2>
+                <h2>Instagram,</h2>
+                <h2>and other Social network services.</h2>
+            </div>
+        </div>
+    </div>
     <!-- =========================
        About Us
     ============================== -->
