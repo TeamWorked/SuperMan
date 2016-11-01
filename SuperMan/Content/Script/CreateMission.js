@@ -77,7 +77,7 @@ $.getJSON("http://52.198.189.19:2453/api/shop/effect", function (r) {
     cm.props = r;
 })
 
-$.getJSON("http://52.198.189.19:2453/api/member/100000248501818", function (r) {
+$.getJSON("http://52.198.189.19:2453/api/member/"+head.memberInfo.MemberId, function (r) {
     cm.contact = "信箱:" + r.Email + "\r\n" +
         "電話:" + r.Phone + "\r\n" +
         "Line:" + r.Line;

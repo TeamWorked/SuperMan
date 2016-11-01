@@ -4,11 +4,13 @@
         url: "http://52.198.189.19:2453/api/member/" + $("#login-password").val(),
         success: function (data) {
             if (data != null) {
-                alert(data.Name);
-                alert(data.MemberId);
+                //alert(data.Name);
+                //alert(data.MemberId);
+                setCookie("memberInfo", JSON.stringify(data));
+                location.href = "/";
             }
             else {
-                alert("error");
+                alert("查無此用戶，請重新輸入或註冊");
             }
         }
     });

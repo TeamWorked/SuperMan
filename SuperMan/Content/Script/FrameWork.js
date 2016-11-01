@@ -10,6 +10,9 @@ var UrlBuilder = {
     }
 }
 
+//check login
+
+
 var MissionTypeList = [
     { Index: 1001, Title: "居家 / 除蟲", Image: "tag-house.svg" },
     { Index: 1002, Title: "專業 / 維修", Image: "tag-maintain.svg" },
@@ -81,7 +84,7 @@ function setCookie(name, value, days)//key, value, keep days
     days = days || 30; //此 cookie 将被保存 30 天
     var exp = new Date();    //new Date("December 31, 9998");
     exp.setTime(exp.getTime() + days * 24 * 60 * 60 * 1000);
-    document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+    document.cookie = name + "=" + escape(value) + "; expires=" + exp.toGMTString()+"; path=/";
 }
 function getCookie(name)//      
 {
@@ -94,5 +97,5 @@ function delCookie(name)//
     var exp = new Date();
     exp.setTime(exp.getTime() - 1);
     var cval = getCookie(name);
-    if (cval != null) document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+    if (cval != null) document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + "; path=/";
 }
