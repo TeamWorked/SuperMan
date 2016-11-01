@@ -70,7 +70,9 @@
                 MissionSearch: "http://52.198.189.19:2453/api/search/search",
                 MissionDetail: "http://52.198.189.19:2453/api/mission/",
                 MissionAsk: "http://52.198.189.19:2453/api/request/ask",
-                SuperManList: "http://52.198.189.19:2453/api/request/"
+                SuperManList: "http://52.198.189.19:2453/api/request/",
+                MissionStart: "http://52.198.189.19:2453/api/mission/start",
+                MissionComplete: "http://52.198.189.19:2453/api/mission/complete"
             }
         }
     </script>
@@ -101,13 +103,13 @@
                     </li>
                     <li>
                         <a href=@Url.Action("Profile", "Member", new { tab = "help-tab" }) data-toggle="tooltip" data-placement="bottom" title="Help" style="postion:relative">
-                            <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
+                            <i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i>
                             <span class="mission-count" v-text="missionCount.Help"></span>
                         </a>
                     </li>
                     <li>
                         <a href=@Url.Action("Profile", "Member", new { tab = "give-tab" }) data-toggle="tooltip" data-placement="bottom" title="Give" style="postion:relative">
-                            <i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i>
+                            <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
                             <span class="mission-count" v-text="missionCount.Give"></span>
                         </a>
                     </li>
