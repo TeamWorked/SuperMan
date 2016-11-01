@@ -10,6 +10,16 @@ $("div.hide-mission").on("click", function () {
     $("#mission-info").fadeOut("slow");
 });
 
+$("#search-type img").on("click", function () {
+    if ($(this).attr("class") == "choice") {
+        $(this).removeClass("choice");
+    } else {
+        $(this).addClass("choice");
+    }
+    GetSearchResult(RefreshMarkers);
+});
+
+
 var markerCluster;
 
 var Icon = {
@@ -158,7 +168,7 @@ function SetMarkers(mapMakers) {
                     id: mapMakers[i].MissionId
                 });
                 break;
-            case 1003:
+            case 1004:
                 marker = new google.maps.Marker({
                     position: latLng,
                     icon: mapMakers[i].IsHighlight ? Icon.togetherEX : Icon.together,
@@ -166,7 +176,7 @@ function SetMarkers(mapMakers) {
                     id: mapMakers[i].MissionId
                 });
                 break;
-            case 1004:
+            case 1005:
                 marker = new google.maps.Marker({
                     position: latLng,
                     icon: mapMakers[i].IsHighlight ? Icon.transportEX : Icon.transport,
@@ -174,7 +184,7 @@ function SetMarkers(mapMakers) {
                     id: mapMakers[i].MissionId
                 });
                 break;
-            case 1005:
+            case 1003:
                 marker = new google.maps.Marker({
                     position: latLng,
                     icon: mapMakers[i].IsHighlight ? Icon.serviceEX : Icon.service,
@@ -213,29 +223,30 @@ function MissionClickEvent(markers) {
     });
 }
 
-function RenderMissionDetail(data, mId) {
+function RenderMissionDetail(data) {
+    var memberInfo = data.MemberInfo;
     $("#mission-title").html(data.Title);
-    $("#user-name").html(data.MemberId);
+    $("#user-name").html(memberInfo.Name);
     $("#mission-detail").html(data.Description);
     $("#missoin-reward span").html(data.Star);
-    var $button = $("<button type=\"button\" class=\"btn btn-success\" onclick=\"AskRequest(" + mId + ")\">Accept Mission</button>");
+    var $button = $("<button type=\"button\" class=\"btn btn-primary\" onclick=\"AskRequest(this, " + data.MissionId + ")\">Give a hand</button>");
     $("#mission-accept").html($button);
 }
 
-function AskRequest(mid) {
+function AskRequest(btn, missionId) {
     var postData = {
         MemberId: head.memberInfo.MemberId,
-        Title: "GGGGG",
-        Detail: "GGGGGGGG",
-        MissionId: mid
+        Title: "",
+        Detail: "",
+        MissionId: missionId
     }
 
-    $("#mission-accept button").popover({
-        html: true,
-        content: function () {
-            return "Mission request has been sent!";
-        }
-    });
+    //$("#mission-accept button").popover({
+    //    html: true,
+    //    content: function () {
+    //        return "Mission request has been sent!";
+    //    }
+    //});
 
     $.ajax({
         url: Global.Api.MissionAsk,
@@ -243,19 +254,35 @@ function AskRequest(mid) {
         dataType: "json",
         data: postData,
         success: function (data) {
-            $("#mission-accept button").popover("toggle");
+            $(btn).attr("disabled", "disable");
+            $(btn).removeClass("btn-primary").addClass("btn-success");
+            $(btn).text("Success send help request");
         }
     });
 }
 
 function GetSearchResult(func) {
+    var requestData = {
+        'request.maxSize': 50,
+        'request.missionType': GetSelectedMissionType()
+    }
+
     $.ajax({
         url: Global.Api.MissionSearch,
-        data: { 'request.maxSize': 50 },
+        data: requestData,
         success: function (data) {
             func(data.MapMakers);
         }
     });
+}
+
+function GetSelectedMissionType() {
+    var missionType = [];
+    $.each($("#search-type img.choice"), function (i, v) {
+        missionType.push($(v).data("type"));
+    });
+
+    return missionType.join(',');
 }
 
 function GetMissionDetail(Id) {
