@@ -16,7 +16,7 @@ $(document).ready(function () {
                     fbUser.memberId = response.id;
 
                     //fb id ¼È®É·í±K½X¥Î
-                    $("#login-password").val(fbUser.memberId);
+                    //$("#login-password").val(fbUser.memberId);
                     //$("#header-user").text("Hi, " + fbUser.name);
                 });
             } else if (response.status === 'not_authorized') {

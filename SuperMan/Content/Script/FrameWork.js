@@ -99,3 +99,17 @@ function delCookie(name)//
     var cval = getCookie(name);
     if (cval != null) document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + "; path=/";
 }
+
+// Get params
+function getParam(name) {
+    var result = null,
+        tmp = [];
+    location.search
+    .substr(1)
+        .split("&")
+        .forEach(function (item) {
+            tmp = item.split("=");
+            if (tmp[0] === name) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
+}

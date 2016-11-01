@@ -142,6 +142,16 @@
     <Content Include="Content\Css\bootstrap.css" />
     <Content Include="Content\Css\bootstrap.min.css" />
     <Content Include="Content\Css\custom.css" />
+    <Content Include="Content\Css\jquery.confirm.css" />
+    <Content Include="Content\Image\banner-get-help.jpg" />
+    <Content Include="Content\Image\bmw740.jpg" />
+    <Content Include="Content\Image\iphone7.jpg" />
+    <Content Include="Content\Image\mail.png" />
+    <Content Include="Content\Image\message.png" />
+    <Content Include="Content\Image\money.jpg" />
+    <Content Include="Content\Image\note7.jpg" />
+    <Content Include="Content\Image\phone.png" />
+    <Content Include="Content\Image\superman.jpg" />
     <Content Include="Content\Script\fbs.js" />
     <Content Include="Content\Css\font-awesome.min.css" />
     <Content Include="Content\Css\profile.css" />
@@ -358,6 +368,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Script\jquery.confirm.js" />
     <None Include="Properties\PublishProfiles\HAGSite.pubxml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />

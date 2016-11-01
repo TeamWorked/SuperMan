@@ -25,11 +25,11 @@
     height: 130px;
 }
 .card-background img {
-    -webkit-filter: blur(25px);
+    /*-webkit-filter: blur(25px);
     -moz-filter: blur(25px);
     -o-filter: blur(25px);
     -ms-filter: blur(25px);
-    filter: blur(25px);
+    filter: blur(25px);*/
     margin-left: -100px;
     margin-top: -200px;
     min-width: 130%;
@@ -150,7 +150,7 @@
     text-align:center;
     color:white;
     margin:5px;
-    height:100%
+    height:100%;
 }
 
 .member-info-button {
@@ -180,5 +180,22 @@
     border-right:1px solid #333;
     border-bottom:1px solid #333;
     background-color:#848484;
-    padding:5px
+    padding:5px;
+}
+
+.detail-oneline
+{
+    height:43px;
+}
+
+.cover{
+    object-fit: cover; 
+    width: 100%; 
+    height: 100%;
+}
+
+.contain{
+    object-fit: contain; 
+    width: 100%; 
+    height: 100%;
 }
