@@ -237,6 +237,58 @@
     <Content Include="Content\Script\jquery.js" />
     <Content Include="Content\Script\markerclusterer.js" />
     <Content Include="Global.asax" />
+    <Content Include="LandingPage\css\animate.min.css" />
+    <Content Include="LandingPage\css\bootstrap.css" />
+    <Content Include="LandingPage\css\font-awesome.css" />
+    <Content Include="LandingPage\css\jquery.circliful.css" />
+    <Content Include="LandingPage\css\main.css" />
+    <Content Include="LandingPage\css\nivo-lightbox-default.css" />
+    <Content Include="LandingPage\css\nivo-lightbox.css" />
+    <Content Include="LandingPage\css\nivo-lightbox\themes\default\close%402x.png" />
+    <Content Include="LandingPage\css\nivo-lightbox\themes\default\close.png" />
+    <Content Include="LandingPage\css\nivo-lightbox\themes\default\loading%402x.gif" />
+    <Content Include="LandingPage\css\nivo-lightbox\themes\default\loading.gif" />
+    <Content Include="LandingPage\css\nivo-lightbox\themes\default\next%402x.png" />
+    <Content Include="LandingPage\css\nivo-lightbox\themes\default\next.png" />
+    <Content Include="LandingPage\css\nivo-lightbox\themes\default\prev%402x.png" />
+    <Content Include="LandingPage\css\nivo-lightbox\themes\default\prev.png" />
+    <Content Include="LandingPage\css\owl-carousel\AjaxLoader.gif" />
+    <Content Include="LandingPage\css\owl-carousel\grabbing.png" />
+    <Content Include="LandingPage\css\owl.carousel.css" />
+    <Content Include="LandingPage\css\owl.theme.css" />
+    <Content Include="LandingPage\css\responsive.css" />
+    <Content Include="LandingPage\css\typography.css" />
+    <Content Include="LandingPage\img\Banner1_1.jpg" />
+    <Content Include="LandingPage\img\Banner1_2.jpg" />
+    <Content Include="LandingPage\img\Banner2.jpg" />
+    <Content Include="LandingPage\img\Banner3.jpg" />
+    <Content Include="LandingPage\img\Banner4_1.jpg" />
+    <Content Include="LandingPage\img\Banner4_2.jpg" />
+    <Content Include="LandingPage\img\Banner5.jpg" />
+    <Content Include="LandingPage\img\Banner6_1.png" />
+    <Content Include="LandingPage\img\Banner6_2.png" />
+    <Content Include="LandingPage\img\Banner6_3.jpg" />
+    <Content Include="LandingPage\img\Banner7.jpg" />
+    <Content Include="LandingPage\img\Border.png" />
+    <Content Include="LandingPage\img\checkbox.png" />
+    <Content Include="LandingPage\img\indexBanner.jpg" />
+    <Content Include="LandingPage\img\underline.png" />
+    <Content Include="LandingPage\js\appear.js" />
+    <Content Include="LandingPage\js\imagesloaded.pkgd.min.js" />
+    <Content Include="LandingPage\js\isotope.pkgd.min.js" />
+    <Content Include="LandingPage\js\jquery.appear.js" />
+    <Content Include="LandingPage\js\jquery.circliful.min.js" />
+    <Content Include="LandingPage\js\jquery.easing.min.js" />
+    <Content Include="LandingPage\js\main.js" />
+    <Content Include="LandingPage\js\nivo-lightbox.min.js" />
+    <Content Include="LandingPage\js\owl.carousel.min.js" />
+    <Content Include="LandingPage\js\queryloader2.min.js" />
+    <Content Include="LandingPage\js\twitterFetcher_min.js" />
+    <Content Include="LandingPage\js\vendor\bootstrap.js" />
+    <Content Include="LandingPage\js\vendor\jquery-1.11.1.js" />
+    <Content Include="LandingPage\js\vendor\jquery-migrate-1.2.1.min.js" />
+    <Content Include="LandingPage\js\vendor\modernizr-2.8.3.min.js" />
+    <Content Include="LandingPage\js\wow.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -249,6 +301,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="LandingPage\fonts\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
