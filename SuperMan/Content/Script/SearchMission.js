@@ -47,6 +47,41 @@ var Icon = {
         scaledSize: new google.maps.Size(36, 48), // scaled size
         origin: new google.maps.Point(0, 0), // origin
         anchor: new google.maps.Point(0, 0) // anchor
+    },
+    houseEX: {
+        url: UrlBuilder.ImageUrl("marker-house-highlight.png"),
+        size: new google.maps.Size(54, 72),
+        scaledSize: new google.maps.Size(54, 72), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    maintainEX: {
+        url: UrlBuilder.ImageUrl("marker-maintain-highlight.png"),
+        size: new google.maps.Size(54, 72),
+        scaledSize: new google.maps.Size(54, 72), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    togetherEX: {
+        url: UrlBuilder.ImageUrl("marker-together-highlight.png"),
+        size: new google.maps.Size(54, 72),
+        scaledSize: new google.maps.Size(54, 72), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    transportEX: {
+        url: UrlBuilder.ImageUrl("marker-transport-highlight.png"),
+        size: new google.maps.Size(54, 72),
+        scaledSize: new google.maps.Size(54, 72), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    serviceEX: {
+        url: UrlBuilder.ImageUrl("marker-service-highlight.png"),
+        size: new google.maps.Size(54, 72),
+        scaledSize: new google.maps.Size(54, 72), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
     }
 }
 
@@ -107,42 +142,42 @@ function SetMarkers(mapMakers) {
         var latLng = new google.maps.LatLng(mapMakers[i].Latitude, mapMakers[i].Longitude);
         var marker = {};
         switch (mapMakers[i].MissionType) {
-            case 1:
+            case 1001:
                 marker = new google.maps.Marker({
                     position: latLng,
-                    icon: Icon.house,
+                    icon: mapMakers[i].IsHighlight ? Icon.houseEX : Icon.house,
                     title: mapMakers[i].MissionType.toString(),
                     id: mapMakers[i].MissionId
                 });
                 break;
-            case 2:
+            case 1002:
                 marker = new google.maps.Marker({
                     position: latLng,
-                    icon: Icon.maintain,
+                    icon: mapMakers[i].IsHighlight ? Icon.maintainEX : Icon.maintain,
                     title: mapMakers[i].MissionType.toString(),
                     id: mapMakers[i].MissionId
                 });
                 break;
-            case 3:
+            case 1003:
                 marker = new google.maps.Marker({
                     position: latLng,
-                    icon: Icon.together,
+                    icon: mapMakers[i].IsHighlight ? Icon.togetherEX : Icon.together,
                     title: mapMakers[i].MissionType.toString(),
                     id: mapMakers[i].MissionId
                 });
                 break;
-            case 4:
+            case 1004:
                 marker = new google.maps.Marker({
                     position: latLng,
-                    icon: Icon.transport,
+                    icon: mapMakers[i].IsHighlight ? Icon.transportEX : Icon.transport,
                     title: mapMakers[i].MissionType.toString(),
                     id: mapMakers[i].MissionId
                 });
                 break;
-            case 5:
+            case 1005:
                 marker = new google.maps.Marker({
                     position: latLng,
-                    icon: Icon.service,
+                    icon: mapMakers[i].IsHighlight ? Icon.serviceEX : Icon.service,
                     title: mapMakers[i].MissionType.toString(),
                     id: mapMakers[i].MissionId
                 });
@@ -180,6 +215,7 @@ function MissionClickEvent(markers) {
 
 function RenderMissionDetail(data, mId) {
     $("#mission-title").html(data.Title);
+    $("#user-name").html(data.MemberId);
     $("#mission-detail").html(data.Description);
     $("#missoin-reward span").html(data.Star);
     var $button = $("<button type=\"button\" class=\"btn btn-success\" onclick=\"AskRequest(" + mId + ")\">Accept Mission</button>");
@@ -214,7 +250,6 @@ function AskRequest(mid) {
 }
 
 function GetSearchResult(func) {
-
     $.ajax({
         url: Global.Api.MissionSearch,
         data: { 'request.maxSize': 50 },
@@ -226,10 +261,9 @@ function GetSearchResult(func) {
 
 function GetMissionDetail(Id) {
     $.ajax({
-        // wait fo modify
-        url: Global.Api.MissionDetail + 10000000,
+        url: Global.Api.MissionDetail + Id,
         success: function (data) {
-            RenderMissionDetail(data.MissionCollection[0], 10000010);
+            RenderMissionDetail(data.MissionCollection[0], Id);
         }
     });
 }
