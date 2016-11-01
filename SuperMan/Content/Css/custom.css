@@ -87,6 +87,11 @@
 .clear {
     margin-top: 10px;
 }
+
+.accusation {
+    float: right;
+    cursor: pointer;
+}
 /*SearchMission page end*/
 
 
@@ -112,7 +117,7 @@
 
     .progress .bar {
         position: relative;
-        width: 115px;
+        width: 200px;
         height: 6px;
         top: -33px;
         margin-left: -5px;
@@ -188,3 +193,10 @@
     line-height: inherit;
 }
 /*eva bar end*/
+
+/*mission detail start*/
+#superman-list h5 {
+    text-align: center;
+}
+
+/*mission detail end*/

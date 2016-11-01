@@ -12,6 +12,78 @@ var UrlBuilder = {
 
 //check login
 
+var Icon = {
+    house: {
+        url: UrlBuilder.ImageUrl("marker-house.png"),
+        size: new google.maps.Size(36, 48),
+        scaledSize: new google.maps.Size(36, 48), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    maintain: {
+        url: UrlBuilder.ImageUrl("marker-maintain.png"),
+        size: new google.maps.Size(36, 48),
+        scaledSize: new google.maps.Size(36, 48), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    together: {
+        url: UrlBuilder.ImageUrl("marker-together.png"),
+        size: new google.maps.Size(36, 48),
+        scaledSize: new google.maps.Size(36, 48), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    transport: {
+        url: UrlBuilder.ImageUrl("marker-transport.png"),
+        size: new google.maps.Size(36, 48),
+        scaledSize: new google.maps.Size(36, 48), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    service: {
+        url: UrlBuilder.ImageUrl("marker-service.png"),
+        size: new google.maps.Size(36, 48),
+        scaledSize: new google.maps.Size(36, 48), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    houseEX: {
+        url: UrlBuilder.ImageUrl("marker-house-highlight.png"),
+        size: new google.maps.Size(54, 72),
+        scaledSize: new google.maps.Size(54, 72), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    maintainEX: {
+        url: UrlBuilder.ImageUrl("marker-maintain-highlight.png"),
+        size: new google.maps.Size(54, 72),
+        scaledSize: new google.maps.Size(54, 72), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    togetherEX: {
+        url: UrlBuilder.ImageUrl("marker-together-highlight.png"),
+        size: new google.maps.Size(54, 72),
+        scaledSize: new google.maps.Size(54, 72), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    transportEX: {
+        url: UrlBuilder.ImageUrl("marker-transport-highlight.png"),
+        size: new google.maps.Size(54, 72),
+        scaledSize: new google.maps.Size(54, 72), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    },
+    serviceEX: {
+        url: UrlBuilder.ImageUrl("marker-service-highlight.png"),
+        size: new google.maps.Size(54, 72),
+        scaledSize: new google.maps.Size(54, 72), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    }
+}
 
 var MissionTypeList = [
     { Index: 1001, Title: "居家 / 除蟲", Image: "tag-house.svg" },

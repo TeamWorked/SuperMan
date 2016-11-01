@@ -1,5 +1,5 @@
-﻿function initMap() {
-    var center = new google.maps.LatLng(24.1981, 120.6267);
+﻿function initMap(mission) {
+    var center = new google.maps.LatLng(mission.Latitude, mission.Longitude);
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
         center: center,
@@ -7,30 +7,50 @@
         mapTypeControl: false
     });
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-
-            map.setCenter(pos);
-        }, function () {
-            handleLocationError(true, infoWindow, map.getCenter());
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
+    var locationIcon;
+    switch (mission.MissionType) {
+        case 1001:
+            locationIcon = Icon.house;
+            break;
+        case 1002:
+            locationIcon = Icon.maintain;
+            break;
+        case 1003:
+            locationIcon = Icon.service;
+            break;
+        case 1004:
+            locationIcon = Icon.together;
+            break;
+        case 1005:
+            locationIcon = Icon.transport;
+            break;
+        default:
     }
-}
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-                          'Error: The Geolocation service failed.' :
-                          'Error: Your browser doesn\'t support geolocation.');
-}
+    marker = new google.maps.Marker({
+        position: center,
+        icon: locationIcon,
+        map: map
+    });
 
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+
+    //if (navigator.geolocation) {
+    //    navigator.geolocation.getCurrentPosition(function (position) {
+    //        var pos = {
+    //            lat: position.coords.latitude,
+    //            lng: position.coords.longitude
+    //        };
+
+    //        map.setCenter(pos);
+    //    }, function () {
+    //        handleLocationError(true, infoWindow, map.getCenter());
+    //    });
+    //} else {
+    //    // Browser doesn't support Geolocation
+    //    handleLocationError(false, infoWindow, map.getCenter());
+    //}
+}
 function InitAcceptHelp(missionId) {
     // get detail info
     $.ajax({
@@ -42,9 +62,13 @@ function InitAcceptHelp(missionId) {
             $("#mission-detail p").html(mission.Description);
             $("#mission-reward span").html(mission.Star);
 
+            initMap(mission);
             MissionStateInit(mission.Status);
-
             GetSuperManList(missionId, mission.SuperManId);
+
+            setInterval(function () {
+                GetSuperManList(missionId, mission.SuperManId);
+            }, 5000);
 
             //if (mission.Status == "W") {
             //    GetSuperManList(id);
@@ -93,8 +117,26 @@ function GetSuperManList(missionId, superManId) {
         url: Global.Api.SuperManList + missionId,
         success: function (data) {
             if (data.MsgReqeustList != null && data.MsgReqeustList.length > 0) {
+                // filter
+                var sellerList = [];
+                var normalList = [];
+                $.each(data.MsgReqeustList, function (i, v) {
+                    if (v.MemberInfo != null && v.MemberInfo.IsBest) {
+                        sellerList.push(v);
+                    }
+
+                    if (v.MemberInfo != null && !v.MemberInfo.IsBest) {
+                        normalList.push(v);
+                    }
+                });
+
                 if (superManId == null) {
-                    RenderSuperManList(data.MsgReqeustList);
+                    $("#superman-list").show();
+                    if (sellerList.length > 0 && normalList.length > 0) {
+                        $("#superman-list hr").show();
+                    }
+                    RenderSuperManList(sellerList, "#superman-list-seller");
+                    RenderSuperManList(normalList, "#superman-list-normal");
                 } else {
                     RenderSelectedSuperMan(data.MsgReqeustList, superManId);
                 }
@@ -106,7 +148,12 @@ function GetSuperManList(missionId, superManId) {
     });
 }
 
-function RenderSuperManList(superManList) {
+function RenderSuperManList(superManList, container) {
+    if (superManList.length != 0) {
+        $(container).show();
+    }
+
+    $(container + " .list-container").empty();
     $.each(superManList, function (i, v) {
         var memberInfo = v.MemberInfo;
         if (memberInfo != null) {
@@ -152,15 +199,14 @@ function RenderSuperManList(superManList) {
             $content.append($contact);
             $content.append($confirm);
 
-            $("#superman-list").append($content);
+            $(container + " .list-container").append($content);
         }
     });
 }
 
-function RenderSelectedSuperMan(superManList, superManId)
-{
-    var memberInfo;
-    var memberMedalInfo;
+function RenderSelectedSuperMan(superManList, superManId) {
+    var memberInfo = null;
+    var memberMedalInfo = null;
     $.each(superManList, function (i, v) {
         if (v.MemberId == superManId) {
             memberInfo = v.MemberInfo;
@@ -168,6 +214,12 @@ function RenderSelectedSuperMan(superManList, superManId)
             return false;
         }
     });
+
+    if (memberInfo == null || memberMedalInfo == null) {
+        return;
+    } else {
+        $("#evaluation").show();
+    }
 
     $supeManContainer = $("<div class=\"well row\"></div>");
 
@@ -181,7 +233,7 @@ function RenderSelectedSuperMan(superManList, superManId)
     $name.append($name_name);
     $supeManContainer.append($name);
 
-    var $level = $("<div class=\"col-lg-2\"></div>");
+    var $level = $("<div class=\"col-lg-3\"></div>");
     var $level_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberMedalInfo.Image), memberMedalInfo.MedalName));
     $level.append($level_img);
     $supeManContainer.append($level);
@@ -202,7 +254,9 @@ function RenderSelectedSuperMan(superManList, superManId)
 
     $supeManContainer.append($contact);
 
-    $("#superman-list").append($supeManContainer);
+    $("#superman-selected").html($supeManContainer);
+
+
 }
 
 function AcceptMission(superManId, missionId) {
