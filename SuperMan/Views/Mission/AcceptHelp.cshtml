@@ -4,6 +4,8 @@
 
 <div class="container">
     <div class="row">
+        <h2 style="text-align:center">HELP ME</h2>
+
         <div class="col-lg-6">
             <div class="progress">
                 <div class="circle done">
@@ -26,22 +28,25 @@
                     <span class="title">Complete</span>
                 </div>
             </div>
-            <form class="form-horizontal well row">
+            <div id="superman-list"></div>
+        </div>
+        <div class="col-lg-6">
+            <form class="form-horizontal well">
                 <div id="mission-title" class="form-group">
-                    <label class="col-sm-2 control-label">Mission:</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-3 control-label">任務名稱:</label>
+                    <div class="col-sm-9">
                         <p class="form-control-static"></p>
                     </div>
                 </div>
                 <div id="mission-detail" class="form-group">
-                    <label class="col-sm-2 control-label">Desc:</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-3 control-label">任務資訊:</label>
+                    <div class="col-sm-9">
                         <p class="form-control-static"></p>
                     </div>
                 </div>
                 <div id="mission-reward" class="form-group">
-                    <label class="col-sm-2 control-label">Reward:</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-3 control-label">任務獎勵:</label>
+                    <div class="col-sm-9">
                         <p class="form-control-static">
                             <img class="img-circle" src="@Html.ImageUrl("egg2.png")" />
                             <strong>x<span></span></strong>
@@ -49,11 +54,7 @@
                     </div>
                 </div>
             </form>
-            <hr />
-            <div id="superman-list"></div>
 
-        </div>
-        <div class="col-lg-6">
             <div id="map"></div>
         </div>
     </div>

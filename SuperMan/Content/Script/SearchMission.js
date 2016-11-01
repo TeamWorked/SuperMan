@@ -223,9 +223,8 @@ function RenderMissionDetail(data, mId) {
 }
 
 function AskRequest(mid) {
-    // wait for modify
     var postData = {
-        MemberId: 36445567,
+        MemberId: head.memberInfo.MemberId,
         Title: "GGGGG",
         Detail: "GGGGGGGG",
         MissionId: mid

@@ -37,15 +37,15 @@
 }
 
 .img-circle-normal {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 25%;
     margin-right: 5px;
 }
 
 .img-square-normal {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     margin-right: 5px;
 }
 
@@ -83,6 +83,8 @@
 }
 /*SearchMission page end*/
 
+
+/*progress start*/
 .progress {
     width: 100%;
     margin: 20px auto;
@@ -104,7 +106,7 @@
 
     .progress .bar {
         position: relative;
-        width: 125px;
+        width: 115px;
         height: 6px;
         top: -33px;
         margin-left: -5px;
@@ -161,3 +163,22 @@
     .progress .circle.active .title {
         color: #0c95be;
     }
+/*progerss end*/
+
+/*eva bar start*/
+.eva-container {
+    height: 1em;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    position: relative;
+    background-color: red;
+}
+
+.evabar {
+    background-color: #0c95be;
+    height: 100%;
+    position: absolute;
+    line-height: inherit;
+}
+/*eva bar end*/

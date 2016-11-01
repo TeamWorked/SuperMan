@@ -21,21 +21,64 @@
     <link rel="stylesheet" href="@Html.CssUrl("stepbar.css")" />
 
     @RenderSection("head", required: false)
+
+    <style>
+        @@keyframes shine {
+            0% {
+                text-shadow: 0px 0px 20px #FF0000;
+            }
+
+            50% {
+                text-shadow: 0px 0px 20px #FF0000;
+            }
+
+            100% {
+                text-shadow: 0px 0px 20px #FFCCCC;
+            }
+        }
+
+        .mission-count {
+            position: relative;
+            float: right;
+            top: 12px;
+            left: -5px;
+            color: #333;
+            font-weight: 900;
+            z-index: 10;
+            text-shadow: 0px 0px 0px #FF37FD;
+            animation: shine 1s infinite;
+        }
+    </style>
+
 </head>
 <body>
     <script>
+
+        var memberInfo = getCookie("memberInfo")
+        var checkLogin = function () {
+            if (location.pathname != "/") {
+                if (memberInfo == null) {
+                    //console.log(memberInfo);
+                    location.href = "/Home/Login";
+                }
+            }
+        };
+        checkLogin();
+
         var Global = {
             Api: {
                 MissionSearch: "http://52.198.189.19:2453/api/search/search",
                 MissionDetail: "http://52.198.189.19:2453/api/mission/",
                 MissionAsk: "http://52.198.189.19:2453/api/request/ask",
-                SuperManList: "http://52.198.189.19:2453/api/request/"
+                SuperManList: "http://52.198.189.19:2453/api/request/",
+                MissionStart: "http://52.198.189.19:2453/api/mission/start",
+                MissionComplete: "http://52.198.189.19:2453/api/mission/complete"
             }
         }
     </script>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container" id="header">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -53,19 +96,56 @@
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a id="header-user">Hi, 好朋友</a>
+                        <a id="header-user" v-text="'Hi, '+memberInfo.Name"></a>
                     </li>
                     <li>
                         <a href=@Url.Action("Profile", "Member", new { tab = "medals-tab" }) data-toggle="tooltip" data-placement="bottom" title="Me"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href=@Url.Action("Profile", "Member", new { tab = "help-tab" }) data-toggle="tooltip" data-placement="bottom" title="Help"><i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i></a>
+                        <a href=@Url.Action("Profile", "Member", new { tab = "help-tab" }) data-toggle="tooltip" data-placement="bottom" title="Help" style="postion:relative">
+                            <i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i>
+                            <span class="mission-count" v-text="missionCount.Help"></span>
+                        </a>
                     </li>
                     <li>
-                        <a href=@Url.Action("Profile", "Member", new { tab = "give-tab" }) data-toggle="tooltip" data-placement="bottom" title="Give"><i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i></a>
+                        <a href=@Url.Action("Profile", "Member", new { tab = "give-tab" }) data-toggle="tooltip" data-placement="bottom" title="Give" style="postion:relative">
+                            <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
+                            <span class="mission-count" v-text="missionCount.Give"></span>
+                        </a>
                     </li>
                 </ul>
             </div>
+            
+            <script>
+
+                var head = new Vue({
+                    el: "#header",
+                    data: {
+                        memberInfo: JSON.parse(memberInfo || "{}"),
+                        missionCount: {},
+                        missionCountStyle: {
+                            "position": "relative",
+                            "float": "right",
+                            "top": "12px",
+                            "left":"-5px",
+                            "color": "#333",
+                            "font-weight": "900",
+                            "z-index": "10",
+                            "text-shadow": "0px 0px 20px #FF37FD",
+                            "animation-duration": "1s"
+                        }
+                    }
+                })
+                var timer = setInterval(getMissionCount, 3000)
+                var getMissionCount = function()
+                {
+                    $.getJSON("http://52.198.189.19:2453/api/request/notice/" + head.memberInfo.MemberId, function (r) {
+                        head.missionCount = r;
+                    })
+                }
+                getMissionCount();
+            </script>
+
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -82,5 +162,6 @@
             </div>
         </footer>
     </div>
+    
 </body>
 </html>
