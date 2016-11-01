@@ -240,6 +240,7 @@
     <Content Include="Content\Script\CreateMission.js" />
     <Content Include="Content\Script\FrameWork.js" />
     <Content Include="Content\Script\AcceptHelp.js" />
+    <Content Include="Content\Script\GiveHelp.js" />
     <Content Include="Content\Script\googlemap.js" />
     <Content Include="Content\Script\Login.js" />
     <Content Include="Content\Script\Profile.js" />
@@ -372,6 +373,7 @@
     <None Include="Properties\PublishProfiles\HAGSite.pubxml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Mission\GiveHelp.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

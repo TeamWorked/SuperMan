@@ -66,9 +66,9 @@ function InitAcceptHelp(missionId) {
             MissionStateInit(mission.Status);
             GetSuperManList(missionId, mission.SuperManId);
 
-            setInterval(function () {
-                GetSuperManList(missionId, mission.SuperManId);
-            }, 5000);
+            //setInterval(function () {
+            //    GetSuperManList(missionId, mission.SuperManId);
+            //}, 5000);
 
             //if (mission.Status == "W") {
             //    GetSuperManList(id);
