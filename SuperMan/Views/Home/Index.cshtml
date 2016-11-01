@@ -294,73 +294,424 @@
             </div>
         </div>
     </section>*@ <!-- *** end call-to-action *** -->
-    <div class="row">
-        <div class="banner-1 col-lg-12">
+    <section id="banner-1" class="banner-1">
+        <div class="row">
+            <img src="@Html.LandingImageUrl("Banner1_1.png")" />
+            <a href="#banner-2" class="btn btn-circle page-scroll">
+                <i class="fa fa-angle-double-down animated"></i>
+            </a>
+        </div>
+    </section>
+    <section id="banner-2" class="banner-2">
+        <div class="row">
 
         </div>
-    </div>
-    <div class="row">
-        <div class="banner-2-left col-lg-6">
-            <img class="pull-right" src="@Html.LandingImageUrl("handshake.png")" />
-        </div>
-        <div class="banner-2-right col-lg-6">
-            
-        </div>
-    </div>
-    <div class="row">
-        <div class="banner-3 col-lg-12" style="background-image:url(@Html.LandingImageUrl("banner2.jpg"));">
-            <div class="text">
-                <h2>It's no shame asking for help.</h2>
-                <h2>It can help you</h2>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="banner-4 col-lg-12" style="background-image:url(@Html.LandingImageUrl("banner3.jpg"));">
-            <div class="banner4-text1">
-                <h2>Give others a hand. and the happiness will be double.</h2>
-            </div>
-            <div class="banner4-text2" style="">
-                <h1>Action is Power</h1>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="banner-5 col-lg-1" style="min-width: 60px">
-            
-        </div>
-        <div class="banner-5 col-lg-2">
-            <img class="" src="@Html.LandingImageUrl("banner4_1.jpg")" />
-        </div>
-        <div class="banner-5 col-lg-6" style="background-image:url(@Html.LandingImageUrl("Border.png"));">
-            <div class="banner5-text">
-                <h2>Asking for help in the virtual world.</h2>
-                <h2>Giving you a hand in the real world.</h2>
-                <img src="@Html.LandingImageUrl("underline.png")" />
-            </div>
-        </div>
-        <div class="banner-5 col-lg-2">
-            <img class="" src="@Html.LandingImageUrl("banner4_2.jpg")" />
-        </div>
-        <div class="banner-5 col-lg-1" style="min-width: 60px">
+    </section>
+    <section id="banner-3" class="banner-3">
+        <div class="row">
 
         </div>
-    </div>
-    <div class="row">
-        <div class="banner-6 col-lg-12" style="background-image:url(@Html.LandingImageUrl("Banner5.jpg"));">
-            <div class="banner6-text1">
-                <h2>You can find the helper or do some.</h2>
-                <h2>Favors to the others through our apps!</h2>
-            </div>
-            <div class="banner6-text2">
-                <h2>Connect with</h2>
-                <h2>Facebook,</h2>
-                <h2>Twitter,</h2>
-                <h2>Instagram,</h2>
-                <h2>and other Social network services.</h2>
+    </section>
+    <section id="banner-4" class="banner-4">
+        <div class="row">
+
+        </div>
+    </section>
+    <section id="banner-5" class="banner-5">
+        <div class="row">
+
+        </div>
+    </section>
+    <section id="banner-6" class="banner-6">
+        <div class="row">
+
+        </div>
+    </section>
+    <section id="banner-7" class="banner-7">
+        <div class="row">
+
+        </div>
+    </section>
+    <section id="our-team" class="our-team">
+        <div class="container padding-top-large">
+            <h2 class="wow fadeInRight" data-wow-duration="1.5s" data-wow-delay=".5s">
+                Our
+                <strong class="bold-text">H&A</strong>
+                <span class="light-text main-color">Team</span>
+            </h2>
+            <div class="line main-bg margin-bottom-medium"></div>
+
+            <p class="margin-bottom-medium wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".5s">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            </p>
+            <div class="row">
+                <!-- ***** Team member 1 section ***** -->
+                <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-large">
+                    <!-- ***** Team member-1 ***** -->
+                    <div class="team-member center-block wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="1s">
+                        <img src="@Html.LandingImageUrl("chris.jpg")" class="img-responsive" alt="Jack Smith">
+                        <div class="team-overlay text-center">
+                            <div class="info">
+                                <h3><strong>Chris Kuo</strong></h3>
+                                <p>UI Developer</p>
+                            </div>
+                            <div class="learn-more" data-toggle="modal" data-target="#team-member-1">
+                                <strong>Learn More</strong>
+                            </div>
+                        </div>
+                    </div> <!-- *** end Team member-1 *** -->
+                    <!-- Team Member-1 Modal -->
+                    <div class="modal fade contact-form" id="team-member-1" tabindex="-1" role="dialog" aria-labelledby="team-member-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="modal-body member-info">
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-5">
+                                            <figure>
+                                                <img src="@Html.LandingImageUrl("chris.jpg")" alt="Chris Kuo">
+                                            </figure>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7">
+                                            <div class="description">
+                                                <h3><strong class="bold-text">Jack Smith</strong></h3>
+                                                <div class="light-text">CEO/Founder</div>
+                                                <div class="about margin-top-medium">
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                        consequat.
+                                                    </p>
+                                                    <p>
+                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </p>
+                                                </div>
+                                                <div class="member-skills">
+                                                    <div id="skill-1" class="member-skill" data-dimension="100" data-text="PHP" data-width="10" data-fontsize="16" data-percent="35" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-2" class="member-skill" data-dimension="100" data-text="Python" data-width="10" data-fontsize="16" data-percent="70" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-3" class="member-skill" data-dimension="100" data-text="Laravel" data-width="10" data-fontsize="16" data-percent="80" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-4" class="member-skill" data-dimension="100" data-text="WP" data-width="10" data-fontsize="16" data-percent="60" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                </div>
+                                            </div> <!-- *** end description *** -->
+                                        </div> <!-- *** end col-md-7 *** -->
+                                    </div> <!-- *** end row *** -->
+                                </div> <!-- *** end modal-body *** -->
+                            </div> <!-- *** end modal-content *** -->
+                        </div> <!-- *** end modal-dialog *** -->
+                    </div> <!-- *** end Contact Form modal *** -->
+                </div> <!-- *** end Team member 1 section *** -->
+                <!-- ***** Team member 2 section ***** -->
+                <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-large">
+                    <!-- ***** Team member-2 ***** -->
+                    <div class="team-member center-block wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">
+                        <img src="@Html.LandingImageUrl("jac.jpg")" class="img-responsive" alt="John Doe">
+                        <div class="team-overlay text-center">
+                            <div class="info">
+                                <h3><strong>Jac Wang</strong></h3>
+                                <p>UI Developer</p>
+                            </div>
+                            <div class="learn-more" data-toggle="modal" data-target="#team-member-2">
+                                <strong>Learn More</strong>
+                            </div>
+                        </div>
+                    </div> <!-- *** end Team member-1 *** -->
+                    <!-- Team Member-2 Modal -->
+                    <div class="modal fade contact-form" id="team-member-2" tabindex="-1" role="dialog" aria-labelledby="team-member-2" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="modal-body member-info">
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-5">
+                                            <figure>
+                                                <img src="@Html.LandingImageUrl("jac.jpg")" alt="Jac Wang">
+                                            </figure>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7">
+                                            <div class="description">
+                                                <h3><strong class="bold-text">John Doe</strong></h3>
+                                                <div class="light-text">Back-end Developer</div>
+                                                <div class="about margin-top-medium">
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                        consequat.
+                                                    </p>
+                                                    <p>
+                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </p>
+                                                </div>
+                                                <div class="member-skills">
+                                                    <div id="skill-5" class="member-skill" data-dimension="100" data-text="Django" data-width="10" data-fontsize="16" data-percent="35" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-6" class="member-skill" data-dimension="100" data-text="Laravel" data-width="10" data-fontsize="16" data-percent="70" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-7" class="member-skill" data-dimension="100" data-text="NodeJS" data-width="10" data-fontsize="16" data-percent="80" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-8" class="member-skill" data-dimension="100" data-text="WP" data-width="10" data-fontsize="16" data-percent="60" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                </div>
+                                            </div> <!-- *** end description *** -->
+                                        </div> <!-- *** end col-md-7 *** -->
+                                    </div> <!-- *** end row *** -->
+                                </div> <!-- *** end modal-body *** -->
+                            </div> <!-- *** end modal-content *** -->
+                        </div> <!-- *** end modal-dialog *** -->
+                    </div> <!-- *** end Contact Form modal *** -->
+                </div> <!-- *** end Team member 2 section *** -->
+                <!-- ***** Team member 3 section ***** -->
+                <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-large">
+                    <!-- ***** Team member-1 ***** -->
+                    <div class="team-member center-block wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">
+                        <img src="@Html.LandingImageUrl("jerry.jpg")" class="img-responsive" alt="Jack Sparrow">
+                        <div class="team-overlay text-center">
+                            <div class="info">
+                                <h3><strong>Jerry Tong</strong></h3>
+                                <p>Back-end Developer</p>
+                            </div>
+                            <div class="learn-more" data-toggle="modal" data-target="#team-member-3">
+                                <strong>Learn More</strong>
+                            </div>
+                        </div>
+                    </div> <!-- *** end Team member-3 *** -->
+                    <!-- Team Member-3 Modal -->
+                    <div class="modal fade contact-form" id="team-member-3" tabindex="-1" role="dialog" aria-labelledby="team-member-3" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="modal-body member-info">
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-5">
+                                            <figure>
+                                                <img src="@Html.LandingImageUrl("jerry.jpg")" alt="Jerry Tong">
+                                            </figure>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7">
+                                            <div class="description">
+                                                <h3><strong class="bold-text">Jack Sparrow</strong></h3>
+                                                <div class="light-text">Front-end Developer</div>
+                                                <div class="about margin-top-medium">
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                        consequat.
+                                                    </p>
+                                                    <p>
+                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </p>
+                                                </div>
+                                                <div class="member-skills">
+                                                    <div id="skill-9" class="member-skill" data-dimension="100" data-text="HTML" data-width="10" data-fontsize="13" data-percent="35" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-10" class="member-skill" data-dimension="100" data-text="CSS" data-width="10" data-fontsize="13" data-percent="70" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-11" class="member-skill" data-dimension="100" data-text="jQuery" data-width="10" data-fontsize="13" data-percent="80" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-12" class="member-skill" data-dimension="100" data-text="AngularJS" data-width="10" data-fontsize="13" data-percent="60" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                </div>
+                                            </div> <!-- *** end description *** -->
+                                        </div> <!-- *** end col-md-7 *** -->
+                                    </div> <!-- *** end row *** -->
+                                </div> <!-- *** end modal-body *** -->
+                            </div> <!-- *** end modal-content *** -->
+                        </div> <!-- *** end modal-dialog *** -->
+                    </div> <!-- *** end Contact Form modal *** -->
+                </div> <!-- *** end Team member 3 section *** -->
+                <!-- ***** Team member 4 section ***** -->
+                <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-large">
+                    <!-- ***** Team member-1 ***** -->
+                    <div class="team-member center-block wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="1s">
+                        <img src="@Html.LandingImageUrl("hugo.jpg")" class="img-responsive" alt="George Wyne">
+                        <div class="team-overlay text-center">
+                            <div class="info">
+                                <h3><strong>Hugo</strong></h3>
+                                <p>UI/UX Designer</p>
+                            </div>
+                            <div class="learn-more" data-toggle="modal" data-target="#team-member-4">
+                                <strong>Learn More</strong>
+                            </div>
+                        </div>
+                    </div> <!-- *** end Team member-4 *** -->
+                    <!-- Team Member-4 Modal -->
+                    <div class="modal fade contact-form" id="team-member-4" tabindex="-1" role="dialog" aria-labelledby="team-member-4" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="modal-body member-info">
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-5">
+                                            <figure>
+                                                <img src="@Html.LandingImageUrl("hugo.jpg")" alt="Hugo Ku">
+                                            </figure>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7">
+                                            <div class="description">
+                                                <h3><strong class="bold-text">George Wyne</strong></h3>
+                                                <div class="light-text">UI/UX Designer</div>
+                                                <div class="about margin-top-medium">
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                        consequat.
+                                                    </p>
+                                                    <p>
+                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </p>
+                                                </div>
+                                                <div class="member-skills">
+                                                    <div id="skill-13" class="member-skill" data-dimension="100" data-text="AI" data-width="10" data-fontsize="24" data-percent="35" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-14" class="member-skill" data-dimension="100" data-text="PS" data-width="10" data-fontsize="24" data-percent="70" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-15" class="member-skill" data-dimension="100" data-text="AF" data-width="10" data-fontsize="24" data-percent="80" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-16" class="member-skill" data-dimension="100" data-text="WP" data-width="10" data-fontsize="24" data-percent="60" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                </div>
+                                            </div> <!-- *** end description *** -->
+                                        </div> <!-- *** end col-md-7 *** -->
+                                    </div> <!-- *** end row *** -->
+                                </div> <!-- *** end modal-body *** -->
+                            </div> <!-- *** end modal-content *** -->
+                        </div> <!-- *** end modal-dialog *** -->
+                    </div> <!-- *** end Contact Form modal *** -->
+                </div> <!-- *** end Team member 4 section *** -->
+                <!-- ***** Team member 4 section ***** -->
+                <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-large">
+                    <!-- ***** Team member-1 ***** -->
+                    <div class="team-member center-block wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="1s">
+                        <img src="@Html.LandingImageUrl("jon.jpg")" class="img-responsive" alt="George Wyne">
+                        <div class="team-overlay text-center">
+                            <div class="info">
+                                <h3><strong>Jon</strong></h3>
+                                <p>UI/UX Designer</p>
+                            </div>
+                            <div class="learn-more" data-toggle="modal" data-target="#team-member-4">
+                                <strong>Learn More</strong>
+                            </div>
+                        </div>
+                    </div> <!-- *** end Team member-4 *** -->
+                    <!-- Team Member-4 Modal -->
+                    <div class="modal fade contact-form" id="team-member-4" tabindex="-1" role="dialog" aria-labelledby="team-member-4" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="modal-body member-info">
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-5">
+                                            <figure>
+                                                <img src="@Html.LandingImageUrl("jon.jpg")" alt="Jon">
+                                            </figure>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7">
+                                            <div class="description">
+                                                <h3><strong class="bold-text">George Wyne</strong></h3>
+                                                <div class="light-text">UI/UX Designer</div>
+                                                <div class="about margin-top-medium">
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                        consequat.
+                                                    </p>
+                                                    <p>
+                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </p>
+                                                </div>
+                                                <div class="member-skills">
+                                                    <div id="skill-13" class="member-skill" data-dimension="100" data-text="AI" data-width="10" data-fontsize="24" data-percent="35" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-14" class="member-skill" data-dimension="100" data-text="PS" data-width="10" data-fontsize="24" data-percent="70" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-15" class="member-skill" data-dimension="100" data-text="AF" data-width="10" data-fontsize="24" data-percent="80" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-16" class="member-skill" data-dimension="100" data-text="WP" data-width="10" data-fontsize="24" data-percent="60" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                </div>
+                                            </div> <!-- *** end description *** -->
+                                        </div> <!-- *** end col-md-7 *** -->
+                                    </div> <!-- *** end row *** -->
+                                </div> <!-- *** end modal-body *** -->
+                            </div> <!-- *** end modal-content *** -->
+                        </div> <!-- *** end modal-dialog *** -->
+                    </div> <!-- *** end Contact Form modal *** -->
+                </div> <!-- *** end Team member 4 section *** -->
+                <!-- ***** Team member 4 section ***** -->
+                <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-large">
+                    <!-- ***** Team member-1 ***** -->
+                    <div class="team-member center-block wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="1s">
+                        <img src="img/team/team-member-4.jpg" class="img-responsive" alt="George Wyne">
+                        <div class="team-overlay text-center">
+                            <div class="info">
+                                <h3><strong>George Wyne</strong></h3>
+                                <p>UI/UX Designer</p>
+                            </div>
+                            <div class="learn-more" data-toggle="modal" data-target="#team-member-4">
+                                <strong>Learn More</strong>
+                            </div>
+                        </div>
+                    </div> <!-- *** end Team member-4 *** -->
+                    <!-- Team Member-4 Modal -->
+                    <div class="modal fade contact-form" id="team-member-4" tabindex="-1" role="dialog" aria-labelledby="team-member-4" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="modal-body member-info">
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-5">
+                                            <figure>
+                                                <img src="img/team/big/team-member-4.jpg" alt="">
+                                            </figure>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7">
+                                            <div class="description">
+                                                <h3><strong class="bold-text">George Wyne</strong></h3>
+                                                <div class="light-text">UI/UX Designer</div>
+                                                <div class="about margin-top-medium">
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                        consequat.
+                                                    </p>
+                                                    <p>
+                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </p>
+                                                </div>
+                                                <div class="member-skills">
+                                                    <div id="skill-13" class="member-skill" data-dimension="100" data-text="AI" data-width="10" data-fontsize="24" data-percent="35" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-14" class="member-skill" data-dimension="100" data-text="PS" data-width="10" data-fontsize="24" data-percent="70" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-15" class="member-skill" data-dimension="100" data-text="AF" data-width="10" data-fontsize="24" data-percent="80" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                    <div id="skill-16" class="member-skill" data-dimension="100" data-text="WP" data-width="10" data-fontsize="24" data-percent="60" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
+                                                </div>
+                                            </div> <!-- *** end description *** -->
+                                        </div> <!-- *** end col-md-7 *** -->
+                                    </div> <!-- *** end row *** -->
+                                </div> <!-- *** end modal-body *** -->
+                            </div> <!-- *** end modal-content *** -->
+                        </div> <!-- *** end modal-dialog *** -->
+                    </div> <!-- *** end Contact Form modal *** -->
+                </div> <!-- *** end Team member 4 section *** -->
+
             </div>
         </div>
-    </div>
+    </section> <!-- *** end Our Team *** -->
     <!-- =========================
        About Us
     ============================== -->
@@ -673,265 +1024,7 @@
     <!-- =========================
        Our Team
     ============================== -->
-    <section id="our-team" class="our-team">
-        <div class="container padding-top-large">
-            <h2 class="wow fadeInRight" data-wow-duration="1.5s" data-wow-delay=".5s">
-                Our
-                <strong class="bold-text">Awesome</strong>
-                <span class="light-text main-color">Team</span>
-            </h2>
-            <div class="line main-bg margin-bottom-medium"></div>
-
-            <p class="margin-bottom-medium wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".5s">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            </p>
-            <div class="row">
-                <!-- ***** Team member 1 section ***** -->
-                <div class="col-md-3 col-sm-6 col-xs-12 margin-bottom-large">
-                    <!-- ***** Team member-1 ***** -->
-                    <div class="team-member center-block wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="1s">
-                        <img src="img/team/team-member-1.jpg" class="img-responsive" alt="Jack Smith">
-                        <div class="team-overlay text-center">
-                            <div class="info">
-                                <h3><strong>Jack Smith</strong></h3>
-                                <p>CEO/Founder</p>
-                            </div>
-                            <div class="learn-more" data-toggle="modal" data-target="#team-member-1">
-                                <strong>Learn More</strong>
-                            </div>
-                        </div>
-                    </div> <!-- *** end Team member-1 *** -->
-                    <!-- Team Member-1 Modal -->
-                    <div class="modal fade contact-form" id="team-member-1" tabindex="-1" role="dialog" aria-labelledby="team-member-1" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <div class="modal-body member-info">
-                                    <div class="row">
-                                        <div class="col-md-5 col-sm-5">
-                                            <figure>
-                                                <img src="img/team/big/team-member-1.jpg" alt="Jack Smith">
-                                            </figure>
-                                        </div>
-                                        <div class="col-md-7 col-sm-7">
-                                            <div class="description">
-                                                <h3><strong class="bold-text">Jack Smith</strong></h3>
-                                                <div class="light-text">CEO/Founder</div>
-                                                <div class="about margin-top-medium">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                        consequat.
-                                                    </p>
-                                                    <p>
-                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                    </p>
-                                                </div>
-                                                <div class="member-skills">
-                                                    <div id="skill-1" class="member-skill" data-dimension="100" data-text="PHP" data-width="10" data-fontsize="16" data-percent="35" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                    <div id="skill-2" class="member-skill" data-dimension="100" data-text="Python" data-width="10" data-fontsize="16" data-percent="70" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                    <div id="skill-3" class="member-skill" data-dimension="100" data-text="Laravel" data-width="10" data-fontsize="16" data-percent="80" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                    <div id="skill-4" class="member-skill" data-dimension="100" data-text="WP" data-width="10" data-fontsize="16" data-percent="60" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                </div>
-                                            </div> <!-- *** end description *** -->
-                                        </div> <!-- *** end col-md-7 *** -->
-                                    </div> <!-- *** end row *** -->
-                                </div> <!-- *** end modal-body *** -->
-                            </div> <!-- *** end modal-content *** -->
-                        </div> <!-- *** end modal-dialog *** -->
-                    </div> <!-- *** end Contact Form modal *** -->
-                </div> <!-- *** end Team member 1 section *** -->
-                <!-- ***** Team member 2 section ***** -->
-                <div class="col-md-3 col-sm-6 col-xs-12 margin-bottom-large">
-                    <!-- ***** Team member-2 ***** -->
-                    <div class="team-member center-block wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">
-                        <img src="img/team/team-member-2.jpg" class="img-responsive" alt="John Doe">
-                        <div class="team-overlay text-center">
-                            <div class="info">
-                                <h3><strong>John Doe</strong></h3>
-                                <p>Back-end Developer</p>
-                            </div>
-                            <div class="learn-more" data-toggle="modal" data-target="#team-member-2">
-                                <strong>Learn More</strong>
-                            </div>
-                        </div>
-                    </div> <!-- *** end Team member-1 *** -->
-                    <!-- Team Member-2 Modal -->
-                    <div class="modal fade contact-form" id="team-member-2" tabindex="-1" role="dialog" aria-labelledby="team-member-2" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <div class="modal-body member-info">
-                                    <div class="row">
-                                        <div class="col-md-5 col-sm-5">
-                                            <figure>
-                                                <img src="img/team/big/team-member-2.jpg" alt="John Doe">
-                                            </figure>
-                                        </div>
-                                        <div class="col-md-7 col-sm-7">
-                                            <div class="description">
-                                                <h3><strong class="bold-text">John Doe</strong></h3>
-                                                <div class="light-text">Back-end Developer</div>
-                                                <div class="about margin-top-medium">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                        consequat.
-                                                    </p>
-                                                    <p>
-                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                    </p>
-                                                </div>
-                                                <div class="member-skills">
-                                                    <div id="skill-5" class="member-skill" data-dimension="100" data-text="Django" data-width="10" data-fontsize="16" data-percent="35" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                    <div id="skill-6" class="member-skill" data-dimension="100" data-text="Laravel" data-width="10" data-fontsize="16" data-percent="70" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                    <div id="skill-7" class="member-skill" data-dimension="100" data-text="NodeJS" data-width="10" data-fontsize="16" data-percent="80" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                    <div id="skill-8" class="member-skill" data-dimension="100" data-text="WP" data-width="10" data-fontsize="16" data-percent="60" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                </div>
-                                            </div> <!-- *** end description *** -->
-                                        </div> <!-- *** end col-md-7 *** -->
-                                    </div> <!-- *** end row *** -->
-                                </div> <!-- *** end modal-body *** -->
-                            </div> <!-- *** end modal-content *** -->
-                        </div> <!-- *** end modal-dialog *** -->
-                    </div> <!-- *** end Contact Form modal *** -->
-                </div> <!-- *** end Team member 2 section *** -->
-                <!-- ***** Team member 3 section ***** -->
-                <div class="col-md-3 col-sm-6 col-xs-12 margin-bottom-large">
-                    <!-- ***** Team member-1 ***** -->
-                    <div class="team-member center-block wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">
-                        <img src="img/team/team-member-3.jpg" class="img-responsive" alt="Jack Sparrow">
-                        <div class="team-overlay text-center">
-                            <div class="info">
-                                <h3><strong>Jack Sparrow</strong></h3>
-                                <p>Front-end Developer</p>
-                            </div>
-                            <div class="learn-more" data-toggle="modal" data-target="#team-member-3">
-                                <strong>Learn More</strong>
-                            </div>
-                        </div>
-                    </div> <!-- *** end Team member-3 *** -->
-                    <!-- Team Member-3 Modal -->
-                    <div class="modal fade contact-form" id="team-member-3" tabindex="-1" role="dialog" aria-labelledby="team-member-3" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <div class="modal-body member-info">
-                                    <div class="row">
-                                        <div class="col-md-5 col-sm-5">
-                                            <figure>
-                                                <img src="img/team/big/team-member-3.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-md-7 col-sm-7">
-                                            <div class="description">
-                                                <h3><strong class="bold-text">Jack Sparrow</strong></h3>
-                                                <div class="light-text">Front-end Developer</div>
-                                                <div class="about margin-top-medium">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                        consequat.
-                                                    </p>
-                                                    <p>
-                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                    </p>
-                                                </div>
-                                                <div class="member-skills">
-                                                    <div id="skill-9" class="member-skill" data-dimension="100" data-text="HTML" data-width="10" data-fontsize="13" data-percent="35" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                    <div id="skill-10" class="member-skill" data-dimension="100" data-text="CSS" data-width="10" data-fontsize="13" data-percent="70" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                    <div id="skill-11" class="member-skill" data-dimension="100" data-text="jQuery" data-width="10" data-fontsize="13" data-percent="80" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                    <div id="skill-12" class="member-skill" data-dimension="100" data-text="AngularJS" data-width="10" data-fontsize="13" data-percent="60" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                </div>
-                                            </div> <!-- *** end description *** -->
-                                        </div> <!-- *** end col-md-7 *** -->
-                                    </div> <!-- *** end row *** -->
-                                </div> <!-- *** end modal-body *** -->
-                            </div> <!-- *** end modal-content *** -->
-                        </div> <!-- *** end modal-dialog *** -->
-                    </div> <!-- *** end Contact Form modal *** -->
-                </div> <!-- *** end Team member 3 section *** -->
-                <!-- ***** Team member 4 section ***** -->
-                <div class="col-md-3 col-sm-6 col-xs-12 margin-bottom-large">
-                    <!-- ***** Team member-1 ***** -->
-                    <div class="team-member center-block wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="1s">
-                        <img src="img/team/team-member-4.jpg" class="img-responsive" alt="George Wyne">
-                        <div class="team-overlay text-center">
-                            <div class="info">
-                                <h3><strong>George Wyne</strong></h3>
-                                <p>UI/UX Designer</p>
-                            </div>
-                            <div class="learn-more" data-toggle="modal" data-target="#team-member-4">
-                                <strong>Learn More</strong>
-                            </div>
-                        </div>
-                    </div> <!-- *** end Team member-4 *** -->
-                    <!-- Team Member-4 Modal -->
-                    <div class="modal fade contact-form" id="team-member-4" tabindex="-1" role="dialog" aria-labelledby="team-member-4" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <div class="modal-body member-info">
-                                    <div class="row">
-                                        <div class="col-md-5 col-sm-5">
-                                            <figure>
-                                                <img src="img/team/big/team-member-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-md-7 col-sm-7">
-                                            <div class="description">
-                                                <h3><strong class="bold-text">George Wyne</strong></h3>
-                                                <div class="light-text">UI/UX Designer</div>
-                                                <div class="about margin-top-medium">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                        consequat.
-                                                    </p>
-                                                    <p>
-                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                    </p>
-                                                </div>
-                                                <div class="member-skills">
-                                                    <div id="skill-13" class="member-skill" data-dimension="100" data-text="AI" data-width="10" data-fontsize="24" data-percent="35" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                    <div id="skill-14" class="member-skill" data-dimension="100" data-text="PS" data-width="10" data-fontsize="24" data-percent="70" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                    <div id="skill-15" class="member-skill" data-dimension="100" data-text="AF" data-width="10" data-fontsize="24" data-percent="80" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                    <div id="skill-16" class="member-skill" data-dimension="100" data-text="WP" data-width="10" data-fontsize="24" data-percent="60" data-fgcolor="#e74c3c" data-bgcolor="#eee"></div>
-                                                </div>
-                                            </div> <!-- *** end description *** -->
-                                        </div> <!-- *** end col-md-7 *** -->
-                                    </div> <!-- *** end row *** -->
-                                </div> <!-- *** end modal-body *** -->
-                            </div> <!-- *** end modal-content *** -->
-                        </div> <!-- *** end modal-dialog *** -->
-                    </div> <!-- *** end Contact Form modal *** -->
-                </div> <!-- *** end Team member 4 section *** -->
-            </div>
-        </div>
-    </section> <!-- *** end Our Team *** -->
+   
     <!-- =========================
        Testimonial
     ============================== -->
