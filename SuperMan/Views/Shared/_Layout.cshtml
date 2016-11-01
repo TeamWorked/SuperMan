@@ -29,7 +29,9 @@
                 MissionSearch: "http://52.198.189.19:2453/api/search/search",
                 MissionDetail: "http://52.198.189.19:2453/api/mission/",
                 MissionAsk: "http://52.198.189.19:2453/api/request/ask",
-                SuperManList: "http://52.198.189.19:2453/api/request/"
+                SuperManList: "http://52.198.189.19:2453/api/request/",
+                MissionStart: "http://52.198.189.19:2453/api/mission/start",
+                MissionComplete: "http://52.198.189.19:2453/api/mission/complete"
             }
         }
     </script>
@@ -59,10 +61,10 @@
                         <a href=@Url.Action("Profile", "Member", new { tab = "medals-tab" }) data-toggle="tooltip" data-placement="bottom" title="Me"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href=@Url.Action("Profile", "Member", new { tab = "help-tab" }) data-toggle="tooltip" data-placement="bottom" title="Help"><i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i></a>
+                        <a href=@Url.Action("Profile", "Member", new { tab = "help-tab" }) data-toggle="tooltip" data-placement="bottom" title="Help"><i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href=@Url.Action("Profile", "Member", new { tab = "give-tab" }) data-toggle="tooltip" data-placement="bottom" title="Give"><i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i></a>
+                        <a href=@Url.Action("Profile", "Member", new { tab = "give-tab" }) data-toggle="tooltip" data-placement="bottom" title="Give"><i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i></a>
                     </li>
                 </ul>
             </div>

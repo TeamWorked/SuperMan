@@ -44,9 +44,11 @@ function InitAcceptHelp(id) {
 
             MissionStateInit(mission.Status);
 
-            if (mission.Status == "W") {
-                GetSuperManList(id);
-            }
+            //if (mission.Status == "W") {
+            //    GetSuperManList(id);
+            //}
+
+            GetSuperManList(id);
 
             if (mission.Status == "R") {
 
@@ -139,7 +141,7 @@ function GetSuperManList(id) {
                         }
 
                         var $confirm = $("<div class=\"col-lg-2\"></div>");
-                        $confirm.append("<button class=\"btn btn-super\" type=\"button\" onclick=\"AcceptMission(" + memberInfo.MemberId + ")\">Accept</button>");
+                        $confirm.append("<button class=\"btn btn-super\" type=\"button\" onclick=\"AcceptMission(" + memberInfo.MemberId + "," + v.MissionId + ")\">就是你了</button>");
 
                         $content.append($name);
                         $content.append($level);
@@ -153,6 +155,24 @@ function GetSuperManList(id) {
                 var $wait = $("<div class=\"well\">等待超人救援中...</div>");
                 $("#superman-list").append($wait);
             }
+        }
+    });
+}
+
+function AcceptMission(superManId, missionId) {
+    var postData = {
+        MissionId: missionId,
+        MemberId: head.memberInfo.MemberId,
+        SuperManId: superManId
+    }
+
+    $.ajax({
+        url: Global.Api.MissionStart,
+        type: "post",
+        dataType: "json",
+        data: postData,
+        success: function (data) {
+            window.location.href = "/mission/AcceptHelp?id=" + missionId;
         }
     });
 }
