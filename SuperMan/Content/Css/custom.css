@@ -29,6 +29,8 @@
         cursor: pointer;
     }
 
+
+
 .img-circle {
     width: 20px;
     height: 20px;
@@ -76,6 +78,10 @@
         cursor: pointer;
         opacity: 1;
         box-shadow: 0 0 10px #ccc;
+    }
+
+    #search-type img.choice {
+        opacity: 1;
     }
 
 .clear {
