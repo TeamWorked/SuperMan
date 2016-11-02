@@ -37,7 +37,8 @@
                     <label for="exampleInputLine">通訊軟體(Line、QQ、微信、IG...)</label>
                     <input type="text" class="form-control" id="inputLine" placeholder="Line、QQ、微信、IG..." v-model="line">
                 </div>
-
+                
+                <a href="javascript:void(0)" v-on:click="showTip">用戶守則</a><br />
                 <button type="button" class="btn btn-success btn-lg" v-on:click="apply">建立帳號</button>
                 <hr />
                 <h2>簡易註冊</h2>
@@ -53,4 +54,38 @@
         </div>
     </div>
 </div>
-
+<style>
+    #tip td{
+        padding:5px;
+        vertical-align:top;
+    }
+</style>
+<div id="tip" style="position:absolute;background-color:#222;color:#ddd;padding:20px;font-size:1.1em;display:none;width:500px;z-iindex:100000">
+    <table style="width:100%">
+        <tr>
+            <td>1. </td>
+            <td>本站僅提供民眾網路互助媒合，不涉及、不干涉任何私下交易。</td>
+        </tr>
+        <tr>
+            <td>2. </td>
+            <td>為確保人身安全，本站不建議18歲以下孩童「單獨」發出請求。</td>
+        </tr>
+        <tr>
+            <td>3. </td>
+            <td>為確保人身安全，本站不建議女星於夜晚「單獨」發出請求。</td>
+        </tr>
+        <tr>
+            <td>4. </td>
+            <td>本站杜絕任何違法情事，如使用者發現任何違法訊息，本站提供檢舉功能以及連絡方式，保留評估及強制取消訊息之權利。且本站將保留所有違法事證及IP位址提供執法人員協助偵辦。<br /></td>
+        </tr>
+        <tr>
+            <td>5. </td>
+            <td>若發現使用者藉由網站漏洞違法取得獎勵情事，本站將強制取消帳號，視情節嚴重性保留所有法律追訴之權利。</td>
+        </tr>
+        <tr>
+            <td>6. </td>
+            <td>您的聯絡資料將在互助的同時傳送給對方。</td>
+        </tr>
+    </table>
+    
+</div>
