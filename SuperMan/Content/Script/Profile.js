@@ -1,5 +1,5 @@
 ﻿var ProfileMissionList = Vue.extend({
-    props: ["missions","is_give","link_to"],
+    props: ["missions", "is_give", "link_to"],
     template: 
         "<div class='row tab-pane fade in' id='help-tab'>" +
             "<div class ='col-lg-12 profile-list' v-for='(mission,index) in missions'>"+
