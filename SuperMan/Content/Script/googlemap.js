@@ -210,7 +210,8 @@ function showUserClickPanel() {
                     infowindow.open(map, marker);
 
                     $("#missionAddress").val(results[1].formatted_address)
-                    $("#missionZipCode").val(results[0].formatted_address.substr(0,3))
+                    $("#missionZipCode").val(results[0].formatted_address.substr(0, 3))
+                    //cm.address = formatted_address;
                 }
             } else {
                 alert("Reverse Geocoding failed because: " + status);

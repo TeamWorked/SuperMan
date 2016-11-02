@@ -239,10 +239,10 @@ function setAddersss(address) {
     cm.lat = $("#missionlat").val();
     cm.lng = $("#missionlng").val();
     cm.zipCode = $("#missionZipCode").val();
-    if (address.length > 14) {
-        address = address.substr(0, 14);
-    }
-    $("#t-position > strong").text(address + " ...");
+    //if (address.length > 14) {
+    //    address = address.substr(0, 14);
+    //}
+    //$("#t-position > strong").text(address + " ...");
 }
 
 function setMissionType(image, title, type) {
