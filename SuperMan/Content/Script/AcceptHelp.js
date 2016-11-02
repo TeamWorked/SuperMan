@@ -142,7 +142,7 @@ function GetSuperManList(missionId, superManId) {
                 }
             } else {
                 var $wait = $("<div class=\"well\" style=\"text-align:center\">等待超人救援中...</div>");
-                $("#superman-list").append($wait);
+                $("#superman-wait").html($wait);
                 $("#superman-list").show();
             }
         }
