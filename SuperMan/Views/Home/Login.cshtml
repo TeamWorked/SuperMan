@@ -5,7 +5,7 @@
 }
 
 <div class="gradient">
-    <div class="container">
+    <div class="container" id="content">
         <div class="row">
             <div class="col-lg-7 login-left ">
                 <h3>Help me & Give a Hand，讓你和世界各地保持聯繫，隨時幫忙或求助生活中的每一個困難。</h3>
@@ -15,30 +15,30 @@
                 <h2>一般註冊</h2>
                 <div class="form-group">
                     <label for="exampleInputName">姓名</label>
-                    <input type="text" class="form-control" id="inputName" placeholder="姓名">
+                    <input type="text" class="form-control" id="inputName" placeholder="姓名" v-model="name">
                 </div>
                 <div id="email-input">
                     <div class="form-group">
                         <label for="exampleInputName">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" v-model="email">
                     </div>
                 </div>
                 <div id="email-input">
                     <div class="form-group">
                         <label for="exampleInputName">密碼</label>
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Email">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="密碼" v-model="pwd">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword">手機</label>
-                    <input type="tel" class="form-control" id="inputPhone" placeholder="手機">
+                    <input type="tel" class="form-control" id="inputPhone" placeholder="手機" v-model="phone">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputLine">通訊軟體(Line、QQ、微信、IG...)</label>
-                    <input type="text" class="form-control" id="inputLine" placeholder="Line、QQ、微信、IG...">
+                    <input type="text" class="form-control" id="inputLine" placeholder="Line、QQ、微信、IG..." v-model="line">
                 </div>
 
-                <button type="submit" class="btn btn-success btn-lg">建立帳號</button>
+                <button type="button" class="btn btn-success btn-lg" v-on:click="apply">建立帳號</button>
                 <hr />
                 <h2>簡易註冊</h2>
                 <h6>您可以選擇以下社群網站帳號登入:</h6>

@@ -140,7 +140,7 @@
                             <div class="col-lg-10">
                                 <div class="profile-content-detail">
                                     <a v-bind:title="prop.Title">{{prop.Title}}</a>
-                                    <p>{{prop.Description}}</p>
+                                    <p v-html="prop.Description"></p>
                                 </div>
                                 <div class="profile-content-info">
                                     <img class="image-egg-small" v-bind:src="'../Content/Image/'+prop.Pay" />

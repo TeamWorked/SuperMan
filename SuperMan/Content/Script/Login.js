@@ -1,4 +1,46 @@
-﻿function GetLogin() {
+﻿var default_data = {
+    name: "",
+    pwd: "",
+    email: "",
+    phone: "",
+    line: ""
+};
+//100000248501818
+var lg = new Vue({
+    el: "#content",
+    data: _.clone(default_data),
+    methods: {
+        apply: function () {
+            $.post("http://52.198.189.19:2453/api/member/register", {
+                //"MemberId": "string",
+                "Name": this.name,
+                "Password": this.pwd,
+                //"Description": "string",
+                "Email": this.email,
+                "Phone": this.phone,
+                "Line": this.line,
+                //"Image": "string"
+            }, function (data) {
+                if(data.StatusCode==0)
+                {
+                    alert("申請成功請重新登入");
+                    lg.reset();
+                }
+                else
+                {
+                    alert("fail")
+                }
+            })
+        },
+        reset: function () {
+            //Object.assign(this.$data, _.clone(default_data));
+            _.assign(this.$data,default_data)
+        }
+
+    }
+})
+
+function GetLogin() {
     $.ajax({
         // wait fo modify
         url: "http://52.198.189.19:2453/api/member/login?email=" + $("#login-email").val() + "&password=" + $("#login-password").val(),

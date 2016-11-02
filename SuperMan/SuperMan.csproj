@@ -144,9 +144,11 @@
     <Content Include="Content\Css\custom.css" />
     <Content Include="Content\Css\jquery.confirm.css" />
     <Content Include="Content\Image\banner-get-help.jpg" />
+    <Content Include="Content\Image\banner-get-help.png" />
     <Content Include="Content\Image\bmw740.jpg" />
     <Content Include="Content\Image\iphone7.jpg" />
     <Content Include="Content\Image\LoginLogo.png" />
+    <Content Include="Content\Image\logout.png" />
     <Content Include="Content\Image\mail.png" />
     <Content Include="Content\Image\message.png" />
     <Content Include="Content\Image\money.jpg" />

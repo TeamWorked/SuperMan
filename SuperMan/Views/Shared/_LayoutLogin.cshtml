@@ -16,14 +16,14 @@
     <script src="@Html.ScriptUrl("markerclusterer.js")"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="@Html.ScriptUrl("fbs.js")"></script>
-    <script src="@Html.ScriptUrl("Login.js")"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.min.js"></script>
     @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">*@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="@Html.CssUrl("bootstrap.min.css")" />
     <link rel="stylesheet" href="@Html.CssUrl("2-col-portfolio.css")" />
     <link rel="stylesheet" href="@Html.CssUrl("stepbar.css")" />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.6/lodash.min.js"></script>
     @RenderSection("head", required: false)
 </head>
 <body>
@@ -63,7 +63,7 @@
                         <input id="login-email" type="email" placeholder="輸入你的Email" />
                     </li>
                     <li>
-                        <input id="login-password" type="password" value="100000248501818" placeholder="輸入您的密碼" />
+                        <input id="login-password" type="password" value="" placeholder="輸入您的密碼" /><!--100000248501818-->
                     </li>
                     <li>
                         <button id="login-btn" class="btn btn-sm btn-super" onclick="GetLogin()">登入</button>
@@ -77,5 +77,6 @@
     @RenderBody()
 
     <hr />
+    <script src="@Html.ScriptUrl("Login.js")"></script>
 </body>
 </html>
