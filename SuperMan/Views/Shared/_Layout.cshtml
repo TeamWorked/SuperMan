@@ -43,6 +43,49 @@
             z-index: 10;
             text-shadow: 0px 0px 0px #FF37FD;
             animation: shine 1s linear infinite;
+            
+        }
+
+        .mission-count-jump{
+            animation: jump 3s linear infinite;
+        }
+
+        .mission-count-jump-delay{
+            animation: jump 3s linear infinite;
+            animation-delay: 0.1s;
+        }
+
+        @@keyframes jump {
+            0%{
+                top:12px;
+            }
+            58%{
+                top:12px;
+            }
+            64%{
+                top:-4px;
+            }
+            70%{
+                top:15px;
+            }
+            75%{
+                top:8px;
+            }
+            80%{
+                top:14px;
+            }
+            85%{
+                top:10px;
+            }
+            90%{
+                top:13px;
+            }
+            95%{
+                top:12px;
+            }
+            100%{
+                top:12px;
+            }
         }
 
     </style>
@@ -101,13 +144,13 @@
                     <li>
                         <a href=@Url.Action("Profile", "Member", new { tab = "help-tab" }) data-toggle="tooltip" data-placement="bottom" title="Help">
                             <i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i>
-                            <span class="mission-count" v-text="missionCount.Help"></span>
+                            <span class="mission-count mission-count-jump" v-text="missionCount.Help"></span>
                         </a>
                     </li>
                     <li>
                         <a href=@Url.Action("Profile", "Member", new { tab = "give-tab" }) data-toggle="tooltip" data-placement="bottom" title="Give">
                             <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
-                            <span class="mission-count" v-text="missionCount.Give"></span>
+                            <span class="mission-count mission-count-jump-delay" v-text="missionCount.Give"></span>
                         </a>
                     </li>
                     <li>
