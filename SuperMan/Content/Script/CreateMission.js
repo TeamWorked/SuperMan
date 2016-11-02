@@ -15,7 +15,7 @@ var cm = new Vue({
         contact: "",
         propIDs: [],
         props: []
-    },
+    }, 
     methods: {
         create: function () {
             //console.log(JSON.stringify({
@@ -47,12 +47,20 @@ var cm = new Vue({
                 console.log(result)
                 if (result.Status.StatusCode == 0) {
                     //add success
-                    alert("success");
-                    location.href = "/Mission/AcceptHelp?id=" + result.MissionId;
+                    //alert("success");
+                    //$.alert('任務創建成功!');
+                    $.alert({
+                        title: '任務',
+                        content: '任務創建成功!',
+                        confirm: function(){
+                            location.href = "/Mission/AcceptHelp?id=" + result.MissionId; // shorthand.
+                        }
+                    });
                 }
                 else {
                     // add fail
-                    alert("fail");
+                    //alert("fail");
+                    $.alert('任務創建失敗!');
                 }
             }, "json")
         },
