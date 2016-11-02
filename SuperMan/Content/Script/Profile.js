@@ -1,23 +1,23 @@
 ﻿var ProfileMissionList = Vue.extend({
-    props: ["missions","is_give"],
+    props: ["missions", "is_give", "link_to"],
     template: 
         "<div class='row tab-pane fade in' id='help-tab'>" +
             "<div class ='col-lg-12 profile-list' v-for='(mission,index) in missions'>"+
                 "<div class ='col-lg-2 profile_imgbox'>"+
-                    "<a v-bind:href=\"'/Mission/AcceptHelp?id='+mission.MissionId\" v-bind:title='mission.Title'>" +
+                    "<a v-bind:href=\"link_to+mission.MissionId\" v-bind:title='mission.Title'>" +
                         "<img class ='image-mission' v-bind:src='getMissionImage(mission.MissionType)' />"+
                     "</a>"+
                 "</div>"+
                 "<div class ='col-lg-10'>"+
                     "<div class ='profile-content-detail'>"+
-                        "<a v-bind:href=\"'/Mission/AcceptHelp?id='+mission.MissionId\" v-bind:title='mission.Title' v-text='mission.Title'></a>" +
+                        "<a v-bind:href=\"link_to+mission.MissionId\" v-bind:title='mission.Title' v-text='mission.Title'></a>" +
                         "<span class ='fire_left'>{{mission.InDate | dateTimeFormat}}</span>"+
                         "<p v-text='mission.Description'></p>"+
                     "</div>"+
                     "<div class ='profile-content-info'>"+
                         "<img class ='image-egg-small' src='../Content/Image/egg2.png' />"+
                         "<span>x {{mission.Star}}</span>" +
-                        "<a v-bind:href=\"'/Mission/AcceptHelp?id='+mission.MissionId\">"+
+                        "<a v-bind:href=\"link_to+mission.MissionId\">" +
                             "<button class ='btn btn-super pull-right' v-if='!is_give' >超人來囉 X{{mission.Applicants}}</button>"+
                         "</a>" +
                     "</div>"+
@@ -80,12 +80,12 @@ var pf = new Vue({
           },{
               "Title": "Egg",
               "Description": "蛋蛋淡淡的憂傷",
-              "Image": "egg2.png",
+              "Image": "egg.png",
               "Cost": 10,
               "Pay":"money.jpg"
           },
         ],
-        defaultBannerSrc: "../Content/Image/banner-get-help.png",
+        defaultBannerSrc: "../Content/Image/banner-get-help.jpg",
         defaultImageSrc: "../Content/Image/superman.jpg"
     },
     methods: {
@@ -134,7 +134,22 @@ var pf = new Vue({
         }
     },
     computed: {
-        
+        bannerStyle: function () {
+            if(this.memberInfo.Image=='')
+            {
+                return {
+                    "background-image": "url(" + this.defaultBannerSrc + ")",
+                    "background-size":"cover"
+                }
+            }
+            else
+            {
+                return {
+                    "background-image": "url(" + this.memberInfo.Image + ")",
+                    "background-size": "cover"
+                }
+            }
+        }
     }
 })
 
