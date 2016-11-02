@@ -157,13 +157,14 @@ function RenderSuperManList(superManList, container) {
     $.each(superManList, function (i, v) {
         var memberInfo = v.MemberInfo;
         if (memberInfo != null) {
-            var memberMedalInfo = memberInfo.MemberMedalInfo[0];
 
             var $content = $("<div class=\"well row\"></div>");
 
-            var eva = memberInfo.Good * 100 / (memberInfo.Good + memberInfo.Bad);
-            var $eva_bar = $(String.format("<div class=\"row\"><div class=\"eva-container\" data-toggle=\"tooltip\" title=\"Good / Bad\"><div class=\"evabar\" style=\"width:{0}%\"></div></div></div>", eva));
-            $content.append($eva_bar);
+            if (memberInfo.Good != 0) {
+                var eva = memberInfo.Good * 100 / (memberInfo.Good + memberInfo.Bad);
+                var $eva_bar = $(String.format("<div class=\"row\"><div class=\"eva-container\" data-toggle=\"tooltip\" title=\"Good / Bad\"><div class=\"evabar\" style=\"width:{0}%\"></div></div></div>", eva));
+                $content.append($eva_bar);
+            }
 
             ///////////////////////
             var $name = $("<div class=\"col-lg-3\"></div>");
@@ -173,10 +174,15 @@ function RenderSuperManList(superManList, container) {
             $name.append($name_name);
             ///////////////////////
 
+
             //////////////////////
             var $level = $("<div class=\"col-lg-2\"></div>");
-            var $level_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberMedalInfo.Image), memberMedalInfo.MedalName));
-            $level.append($level_img);
+            if (memberInfo.MemberMedalInfo != null) {
+                var memberMedalInfo = memberInfo.MemberMedalInfo[0];
+                var $level_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberMedalInfo.Image), memberMedalInfo.MedalName));
+                $level.append($level_img);
+            }
+
             /////////////////////
 
             var $contact = $("<div class=\"col-lg-5\"></div>");
