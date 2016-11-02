@@ -35,8 +35,17 @@ var lg = new Vue({
         reset: function () {
             //Object.assign(this.$data, _.clone(default_data));
             _.assign(this.$data,default_data)
+        },
+        showTip: function (e) {
+            $("#tip").fadeIn(1000).css({
+                top: e.clientY + 30 ,
+                left: e.clientX-30 
+            }).on("mouseleave", function () {
+                var timer = setTimeout(function () {
+                    $("#tip").fadeOut(500);
+                }, 100)
+            })
         }
-
     }
 })
 

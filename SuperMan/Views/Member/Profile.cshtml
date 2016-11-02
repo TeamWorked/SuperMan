@@ -1,18 +1,18 @@
 ﻿<link rel="stylesheet" href="@Html.CssUrl("profile.css")" />
-<link rel="stylesheet" href="@Html.CssUrl("jquery.confirm.css")" />
-<script src="@Html.ScriptUrl("jquery.confirm.js")"></script>
+
 <div class="container" id="container">
     <!-- step bar panel -->
     <div class="row">
         <div class="col-lg-12 profile-top">
-            <div class="card hovercard">
+            <div class="card hovercard"
+                 v-bind:style="bannerStyle">
                 <div class="card-background">
-                    <img class="card-bkimg" alt="" v-if="memberInfo.Image==''" v-bind:src="defaultBannerSrc"><!--default-->
-                    <img class="card-bkimg" alt="" v-else v-bind:src="memberInfo.Image">
+                    @*<img class="card-bkimg" alt="" v-if="memberInfo.Image==''" v-bind:src="defaultBannerSrc">*@<!--default-->
+                    <img class="card-bkimg" alt="" v-if="memberInfo.Image!=''" v-bind:src="'../Content/Image/'+memberInfo.Image">
                 </div>
                 <div class="useravatar" v-on:click="showMemberInfo" style="cursor:pointer">
                     <img class="card-bkimg" alt="" v-if="memberInfo.Image=='' " v-bind:src="defaultImageSrc"><!--default-->
-                    <img class="card-bkimg" alt="" v-else v-bind:src="memberInfo.Image">
+                    <img class="card-bkimg" alt="" v-else v-bind:src="'../Content/Image/'+memberInfo.Image">
                 </div>
                 @*<div class="card-info"><span class="card-title">Pamela Anderson</span></div>*@
             </div>
@@ -100,11 +100,11 @@
                     </div>
                     <!--helps-->
                     <div class="row tab-pane fade in" id="help-tab">
-                        <profile-mission-list v-bind:missions="helps"></profile-mission-list>
+                        <profile-mission-list v-bind:missions="helps" v-bind:link_to="'/Mission/AcceptHelp?id='"></profile-mission-list>
                     </div>
                     <!--gives-->
                     <div class="row tab-pane fade in" id="give-tab">
-                        <profile-mission-list v-bind:missions="gives" v-bind:is_give="true"></profile-mission-list>
+                        <profile-mission-list v-bind:missions="gives" v-bind:is_give="true" v-bind:link_to="'/Mission/GiveHelp?id='"></profile-mission-list>
                     </div>
                     <div class="row tab-pane fade in" id="store-tab">
                         <div class="col-lg-12 profile-list" v-for="prop in props">
@@ -174,11 +174,11 @@
                     </div>
                     <!--helps_history-->
                     <div class="row tab-pane fade in" id="history-help-tab">
-                        <profile-mission-list v-bind:missions="helps_history"></profile-mission-list>
+                        <profile-mission-list v-bind:missions="helps_history" v-bind:link_to="'/Mission/AcceptHelp?id='"></profile-mission-list>
                     </div>
                     <!--gives_history-->
                     <div class="row tab-pane fade in" id="history-give-tab">
-                        <profile-mission-list v-bind:missions="gives_history" v-bind:is_give="true"></profile-mission-list>
+                        <profile-mission-list v-bind:missions="gives_history" v-bind:is_give="true" v-bind:link_to="'/Mission/GiveHelp?id='"></profile-mission-list>
                     </div>
                 </div>
             </div>

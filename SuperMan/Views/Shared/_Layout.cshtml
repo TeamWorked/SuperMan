@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="@Html.CssUrl("2-col-portfolio.css")" />
     <link rel="stylesheet" href="@Html.CssUrl("stepbar.css")" />
 
+    <link rel="stylesheet" href="@Html.CssUrl("jquery.confirm.css")" />
+    <script src="@Html.ScriptUrl("jquery.confirm.js")"></script>
+
     @RenderSection("head", required: false)
 
     <style>
@@ -112,7 +115,8 @@
                 MissionAsk: "http://52.198.189.19:2453/api/request/ask",
                 SuperManList: "http://52.198.189.19:2453/api/request/",
                 MissionStart: "http://52.198.189.19:2453/api/mission/start",
-                MissionComplete: "http://52.198.189.19:2453/api/mission/complete"
+                MissionComplete: "http://52.198.189.19:2453/api/mission/complete",
+                ReqeustAnswer: "http://52.198.189.19:2453//api/reqeust/answer"
             }
         }
     </script>
@@ -143,14 +147,14 @@
                     </li>
                     <li>
                         <a href=@Url.Action("Profile", "Member", new { tab = "help-tab" }) data-toggle="tooltip" data-placement="bottom" title="Help">
-                            <i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i>
-                            <span class="mission-count mission-count-jump" v-text="missionCount.Help"></span>
+                            <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
+                            <span class="mission-count mission-count-jump-delay" v-text="missionCount.Give"></span>
                         </a>
                     </li>
                     <li>
                         <a href=@Url.Action("Profile", "Member", new { tab = "give-tab" }) data-toggle="tooltip" data-placement="bottom" title="Give">
-                            <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
-                            <span class="mission-count mission-count-jump-delay" v-text="missionCount.Give"></span>
+                            <i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i>
+                            <span class="mission-count mission-count-jump" v-text="missionCount.Help"></span>
                         </a>
                     </li>
                     <li>
@@ -187,7 +191,7 @@
                         }
                     }
                 })
-                var timer = setInterval(getMissionCount, 3000)
+                var timer = setInterval(function () { getMissionCount(); }, 3000)
                 var getMissionCount = function()
                 {
                     $.getJSON("http://52.198.189.19:2453/api/request/notice/" + head.memberInfo.MemberId, function (r) {

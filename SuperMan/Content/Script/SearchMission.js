@@ -165,8 +165,8 @@ function RenderMissionDetail(data) {
 function AskRequest(btn, missionId) {
     var postData = {
         MemberId: head.memberInfo.MemberId,
-        Title: "",
-        Detail: "",
+        Title: "aaa",
+        Detail: "aaa",
         MissionId: missionId
     }
 

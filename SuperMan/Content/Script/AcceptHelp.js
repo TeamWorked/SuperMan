@@ -141,8 +141,9 @@ function GetSuperManList(missionId, superManId) {
                     RenderSelectedSuperMan(data.MsgReqeustList, superManId);
                 }
             } else {
-                var $wait = $("<div class=\"well\">等待超人救援中...</div>");
-                $("#superman-list").append($wait);
+                var $wait = $("<div class=\"well\" style=\"text-align:center\">等待超人救援中...</div>");
+                $("#superman-wait").html($wait);
+                $("#superman-list").show();
             }
         }
     });
@@ -157,11 +158,14 @@ function RenderSuperManList(superManList, container) {
     $.each(superManList, function (i, v) {
         var memberInfo = v.MemberInfo;
         if (memberInfo != null) {
-            var memberMedalInfo = memberInfo.MemberMedalInfo[0];
 
             var $content = $("<div class=\"well row\"></div>");
-            var $eva_bar = $("<div class=\"row\"><div class=\"eva-container\"><div class=\"evabar\" data-toggle=\"tooltip\" title=\"Good / Bad\" style=\"width:20%\"></div></div></div>");
-            $content.append($eva_bar);
+
+            if (memberInfo.Good != 0) {
+                var eva = memberInfo.Good * 100 / (memberInfo.Good + memberInfo.Bad);
+                var $eva_bar = $(String.format("<div class=\"row\"><div class=\"eva-container\" data-toggle=\"tooltip\" title=\"Good / Bad\"><div class=\"evabar\" style=\"width:{0}%\"></div></div></div>", eva));
+                $content.append($eva_bar);
+            }
 
             ///////////////////////
             var $name = $("<div class=\"col-lg-3\"></div>");
@@ -171,10 +175,15 @@ function RenderSuperManList(superManList, container) {
             $name.append($name_name);
             ///////////////////////
 
+
             //////////////////////
             var $level = $("<div class=\"col-lg-2\"></div>");
-            var $level_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberMedalInfo.Image), memberMedalInfo.MedalName));
-            $level.append($level_img);
+            if (memberInfo.MemberMedalInfo != null) {
+                var memberMedalInfo = memberInfo.MemberMedalInfo[0];
+                var $level_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberMedalInfo.Image), memberMedalInfo.MedalName));
+                $level.append($level_img);
+            }
+
             /////////////////////
 
             var $contact = $("<div class=\"col-lg-5\"></div>");
@@ -200,7 +209,7 @@ function RenderSuperManList(superManList, container) {
             $content.append($confirm);
 
             $(container + " .list-container").append($content);
-
+            $(".eva-container").tooltip();
         }
     });
 }
@@ -211,12 +220,15 @@ function RenderSelectedSuperMan(superManList, superManId) {
     $.each(superManList, function (i, v) {
         if (v.MemberId == superManId) {
             memberInfo = v.MemberInfo;
-            memberMedalInfo = memberInfo.MemberMedalInfo[0];
+            if (memberInfo.MemberMedalInfo != null) {
+                memberMedalInfo = memberInfo.MemberMedalInfo[0];
+            }
+
             return false;
         }
     });
 
-    if (memberInfo == null || memberMedalInfo == null) {
+    if (memberInfo == null) {
         return;
     } else {
         $("#evaluation").show();
@@ -224,8 +236,11 @@ function RenderSelectedSuperMan(superManList, superManId) {
 
     $supeManContainer = $("<div class=\"well row\"></div>");
 
-    var $eva_bar = $("<div class=\"row\"><div class=\"eva-container\"><div class=\"evabar\" style=\"width:20%\"></div></div></div>");
-    $supeManContainer.append($eva_bar);
+    if (memberInfo.Good != 0) {
+        var eva = memberInfo.Good * 100 / (memberInfo.Good + memberInfo.Bad);
+        var $eva_bar = $(String.format("<div class=\"row\"><div class=\"eva-container\" data-toggle=\"tooltip\" title=\"Good / Bad\"><div class=\"evabar\" style=\"width:{0}%\"></div></div></div>", eva));
+        $supeManContainer.append($eva_bar);
+    }
 
     var $name = $("<div class=\"col-lg-3\"></div>");
     var $name_img = $(String.format("<img class=\"img-circle-normal\" src=\"{0}\">", UrlBuilder.ImageUrl("user-shape.svg")));
@@ -235,8 +250,11 @@ function RenderSelectedSuperMan(superManList, superManId) {
     $supeManContainer.append($name);
 
     var $level = $("<div class=\"col-lg-3\"></div>");
-    var $level_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberMedalInfo.Image), memberMedalInfo.MedalName));
-    $level.append($level_img);
+    if (memberMedalInfo != null) {
+        var $level_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberMedalInfo.Image), memberMedalInfo.MedalName));
+        $level.append($level_img);
+    }
+   
     $supeManContainer.append($level);
 
     var $contact = $("<div class=\"col-lg-5\"></div>");
@@ -256,11 +274,32 @@ function RenderSelectedSuperMan(superManList, superManId) {
     $supeManContainer.append($contact);
 
     $("#superman-selected").html($supeManContainer);
-
-
+    $(".eva-container").tooltip();
 }
 
 function AcceptMission(superManId, missionId) {
+    // /api/reqeust/answer
+
+    var anserData = {
+        MemberId: "123",
+        Title: "",
+        Detail: "",
+        MissionId: 100000027,
+        Ref_MsgReqeustId: 10000035,
+        Accept: 1
+    }
+
+    $.ajax({
+        url: Global.Api.ReqeustAnswer,
+        type: "post",
+        dataType: "json",
+        data: postData,
+        success: function (data) {
+            window.location.href = "/mission/AcceptHelp?id=" + missionId;
+        }
+    });
+
+
     var postData = {
         MissionId: missionId,
         MemberId: head.memberInfo.MemberId,
@@ -277,3 +316,35 @@ function AcceptMission(superManId, missionId) {
         }
     });
 }
+
+function SendEvaluation(btn) {
+    var eva_value = $(".eva-choice:checked").val();
+    $(btn).attr("disabled", "disable");
+    $(btn).removeClass("btn-primary").addClass("btn-success");
+    $(btn).text("評價已送出");
+
+    $eva = $(String.format("<p class=\"form-control-static\">{0}</p>", eva_value));
+    $("#eva-choice-container").html($eva);
+    SetMissionState();
+}
+
+function SetMissionState() {
+    $('.progress .circle').removeClass().addClass('circle');
+    $('.progress .bar').removeClass().addClass('bar');
+
+    var index = 4;
+
+    $('.progress .circle:nth-of-type(' + index + ')').addClass('active');
+
+    for (var i = 1; i < index; i++) {
+        $('.progress .circle:nth-of-type(' + i + ')').addClass('done');
+        $('.progress .bar:nth-of-type(' + i + ')').addClass('done');
+        $('.progress .circle:nth-of-type(' + i + ') .label').html('&#10003;');
+    }
+
+    $('.progress .bar:nth-of-type(' + (index - 1) + ')').addClass('active');
+}
+
+$(".eva-choice").on("click", function () {
+    $("#eva-btn").removeAttr("disabled");
+});

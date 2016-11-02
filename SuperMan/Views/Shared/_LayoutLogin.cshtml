@@ -39,7 +39,7 @@
     </script>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container" id="content_head">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -60,16 +60,26 @@
                         <a id="header-user">Hi, 好朋友</a>
                     </li>
                     <li>
-                        <input id="login-email" type="email" placeholder="輸入你的Email" />
+                        <input id="login-email" type="email" placeholder="輸入你的Email" v-on:keyup.enter="getLogin" />
                     </li>
                     <li>
-                        <input id="login-password" type="password" value="" placeholder="輸入您的密碼" /><!--100000248501818-->
+                        <input id="login-password" type="password" value="" placeholder="輸入您的密碼" v-on:keyup.enter="getLogin" /><!--100000248501818-->
                     </li>
                     <li>
-                        <button id="login-btn" class="btn btn-sm btn-super" onclick="GetLogin()">登入</button>
+                        <button id="login-btn" class="btn btn-sm btn-super" v-on:click="getLogin">登入</button>
                     </li>
                 </ul>
             </div>
+            <script>
+                var login_head = new Vue({
+                    el: "#content_head",
+                    methods: {
+                        getLogin: function () {
+                            GetLogin();
+                        }
+                    }
+                })
+            </script>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->

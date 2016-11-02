@@ -2,7 +2,7 @@
 var cm = new Vue({
     el: "#container",
     data: {
-        memberID: 100000248501818,
+        memberID: head.memberInfo.MemberId,
         title: "",
         description: "",
         missionType: 0,
@@ -15,7 +15,7 @@ var cm = new Vue({
         contact: "",
         propIDs: [],
         props: []
-    },
+    }, 
     methods: {
         create: function () {
             //console.log(JSON.stringify({
@@ -47,12 +47,20 @@ var cm = new Vue({
                 console.log(result)
                 if (result.Status.StatusCode == 0) {
                     //add success
-                    alert("success");
-                    location.href = "/Mission/AcceptHelp?id=" + result.MissionId;
+                    //alert("success");
+                    //$.alert('任務創建成功!');
+                    $.alert({
+                        title: '任務',
+                        content: '任務創建成功!',
+                        confirm: function(){
+                            location.href = "/Mission/AcceptHelp?id=" + result.MissionId; // shorthand.
+                        }
+                    });
                 }
                 else {
                     // add fail
-                    alert("fail");
+                    //alert("fail");
+                    $.alert('任務創建失敗!');
                 }
             }, "json")
         },
@@ -231,10 +239,10 @@ function setAddersss(address) {
     cm.lat = $("#missionlat").val();
     cm.lng = $("#missionlng").val();
     cm.zipCode = $("#missionZipCode").val();
-    if (address.length > 14) {
-        address = address.substr(0, 14);
-    }
-    $("#t-position > strong").text(address + " ...");
+    //if (address.length > 14) {
+    //    address = address.substr(0, 14);
+    //}
+    //$("#t-position > strong").text(address + " ...");
 }
 
 function setMissionType(image, title, type) {
