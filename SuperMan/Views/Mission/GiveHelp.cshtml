@@ -25,7 +25,7 @@
         <div class="col-lg-6">
             <div id="memberInfo" class="well row">
                 <div class="row">
-                    <div id="eva" class="eva-container" data-toggle="tooltip" title="Good / Bad"></div>
+                    <div id="eva" class="eva-container" data-toggle="tooltip" title="Good / Bad" style="display:none"></div>
                 </div>
                 <div id="member-name" class="col-lg-3">
                     <img class="img-circle-normal" src="@Html.ImageUrl("user-shape.svg")" />
@@ -33,7 +33,7 @@
                 <div id="member-medal" class="col-lg-2"></div>
                 <div id="member-contact" class="col-lg-5"></div>
             </div>
-            <div id="evaluation" class="well row">
+            <div id="evaluation" class="well row" style="display:none">
                 <h4 style="text-align:center">評價</h4>
 
                 <form class="form-horizontal">
@@ -50,7 +50,7 @@
                             <label class="radio-inline"><input class="eva-choice" type="radio" name="optradio" value="BAD">BAD</label>
                         </div>
                         <div class="col-sm-3">
-                            <button id="eva-btn" type="button" class="btn btn-primary" onclick="SendEvaluation(this)" disabled="disabled">請選擇評價</button>
+                            <button id="eva-btn" type="button" class="btn btn-primary" onclick="SendEvaluation(this)" disabled="disabled">送出評價</button>
                         </div>
                     </div>
                 </form>
