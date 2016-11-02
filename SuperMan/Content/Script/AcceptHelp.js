@@ -141,8 +141,9 @@ function GetSuperManList(missionId, superManId) {
                     RenderSelectedSuperMan(data.MsgReqeustList, superManId);
                 }
             } else {
-                var $wait = $("<div class=\"well\">等待超人救援中...</div>");
+                var $wait = $("<div class=\"well\" style=\"text-align:center\">等待超人救援中...</div>");
                 $("#superman-list").append($wait);
+                $("#superman-list").show();
             }
         }
     });
@@ -324,6 +325,24 @@ function SendEvaluation(btn) {
 
     $eva = $(String.format("<p class=\"form-control-static\">{0}</p>", eva_value));
     $("#eva-choice-container").html($eva);
+    SetMissionState();
+}
+
+function SetMissionState() {
+    $('.progress .circle').removeClass().addClass('circle');
+    $('.progress .bar').removeClass().addClass('bar');
+
+    var index = 4;
+
+    $('.progress .circle:nth-of-type(' + index + ')').addClass('active');
+
+    for (var i = 1; i < index; i++) {
+        $('.progress .circle:nth-of-type(' + i + ')').addClass('done');
+        $('.progress .bar:nth-of-type(' + i + ')').addClass('done');
+        $('.progress .circle:nth-of-type(' + i + ') .label').html('&#10003;');
+    }
+
+    $('.progress .bar:nth-of-type(' + (index - 1) + ')').addClass('active');
 }
 
 $(".eva-choice").on("click", function () {

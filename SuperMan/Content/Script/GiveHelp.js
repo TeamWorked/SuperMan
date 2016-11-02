@@ -51,11 +51,14 @@ function InitGiveHelp(missionId) {
             
             var memberInfo = mission.MemberInfo;
 
-            var eva = memberInfo.Good * 100 / (memberInfo.Good + memberInfo.Bad);
-            var $eva_bar = $(String.format("<div class=\"evabar\" style=\"width:{0}%\"></div>", eva))
-            $("#eva").append($eva_bar);
-            $(".eva-container").tooltip();
-
+            if (memberInfo.Good != 0) {
+                $("#eva").show();
+                var eva = memberInfo.Good * 100 / (memberInfo.Good + memberInfo.Bad);
+                var $eva_bar = $(String.format("<div class=\"evabar\" style=\"width:{0}%\"></div>", eva))
+                $("#eva").append($eva_bar);
+                $(".eva-container").tooltip();
+            }
+            
             $("#member-name").append(String.format("<p>{0}</p>", memberInfo.Name));
 
             if (memberInfo.MemberMedalInfo != null) {
