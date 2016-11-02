@@ -2,7 +2,7 @@
 var cm = new Vue({
     el: "#container",
     data: {
-        memberID: 100000248501818,
+        memberID: head.memberInfo.MemberId,
         title: "",
         description: "",
         missionType: 0,
