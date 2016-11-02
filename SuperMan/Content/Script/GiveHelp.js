@@ -51,6 +51,22 @@ function InitGiveHelp(missionId) {
             
             var memberInfo = mission.MemberInfo;
 
+            var eva = memberInfo.Good * 100 / (memberInfo.Good + memberInfo.Bad);
+            var $eva_bar = $(String.format("<div class=\"evabar\" style=\"width:{0}%\"></div>", eva))
+            $("#eva").append($eva_bar);
+            $(".eva-container").tooltip();
+
+            $("#member-name").append(String.format("<p>{0}</p>", memberInfo.Name));
+
+            if (memberInfo.MemberMedalInfo != null) {
+                var $medal_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberInfo.MemberMedalInfo.Image), memberInfo.MemberMedalInfo.MedalName));
+                $("#member-medal").append($medal_img);
+            }
+
+            $("#member-contact").append(String.format("<p>{0}</p>", memberInfo.Email));
+            $("#member-contact").append(String.format("<p>{0}</p>", memberInfo.Phone));
+            $("#member-contact").append(String.format("<p>{0}</p>", memberInfo.Line));
+
             //setInterval(function () {
             //    GetSuperManList(missionId, mission.SuperManId);
             //}, 5000);
@@ -73,16 +89,16 @@ function MissionStateInit(state) {
     var index = 0;
     switch (state) {
         case 'W':
-            index = 2;
+            index = 1;
             break;
         case 'R':
-            index = 3;
+            index = 2;
             break;
         case 'F':
             index = 4;
             break;
         default:
-            index = 2;
+            index = 1;
     }
 
     $('.progress .circle:nth-of-type(' + index + ')').addClass('active');
@@ -96,6 +112,16 @@ function MissionStateInit(state) {
     $('.progress .bar:nth-of-type(' + (index - 1) + ')').addClass('active');
 }
 
-function GetMemberInfo() {
+function SendEvaluation(btn) {
+    var eva_value = $(".eva-choice:checked").val();
+    $(btn).attr("disabled", "disable");
+    $(btn).removeClass("btn-primary").addClass("btn-success");
+    $(btn).text("評價已送出");
 
+    $eva = $(String.format("<p class=\"form-control-static\">{0}</p>", eva_value));
+    $("#eva-choice-container").html($eva);
 }
+
+$(".eva-choice").on("click", function () {
+    $("#eva-btn").removeAttr("disabled");
+});

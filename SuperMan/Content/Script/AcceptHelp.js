@@ -66,9 +66,9 @@ function InitAcceptHelp(missionId) {
             MissionStateInit(mission.Status);
             GetSuperManList(missionId, mission.SuperManId);
 
-            //setInterval(function () {
-            //    GetSuperManList(missionId, mission.SuperManId);
-            //}, 5000);
+            setInterval(function () {
+                GetSuperManList(missionId, mission.SuperManId);
+            }, 5000);
 
             //if (mission.Status == "W") {
             //    GetSuperManList(id);
@@ -160,7 +160,7 @@ function RenderSuperManList(superManList, container) {
             var memberMedalInfo = memberInfo.MemberMedalInfo[0];
 
             var $content = $("<div class=\"well row\"></div>");
-            var $eva_bar = $("<div class=\"row\"><div class=\"eva-container\"><div class=\"evabar\" style=\"width:20%\"></div></div></div>");
+            var $eva_bar = $("<div class=\"row\"><div class=\"eva-container\"><div class=\"evabar\" data-toggle=\"tooltip\" title=\"Good / Bad\" style=\"width:20%\"></div></div></div>");
             $content.append($eva_bar);
 
             ///////////////////////
@@ -200,6 +200,7 @@ function RenderSuperManList(superManList, container) {
             $content.append($confirm);
 
             $(container + " .list-container").append($content);
+
         }
     });
 }

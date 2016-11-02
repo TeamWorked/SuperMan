@@ -25,22 +25,13 @@
         <div class="col-lg-6">
             <div id="memberInfo" class="well row">
                 <div class="row">
-                    <div class="eva-container">
-                        <div class="evabar" style="width:20%"></div>
-                    </div>
+                    <div id="eva" class="eva-container" data-toggle="tooltip" title="Good / Bad"></div>
                 </div>
-                <div class="col-lg-3">
-                    <img class="img-circle-normal" src="../Content/Image/user-shape.svg" />
-                    <p>童俊傑分身</p>
+                <div id="member-name" class="col-lg-3">
+                    <img class="img-circle-normal" src="@Html.ImageUrl("user-shape.svg")" />
                 </div>
-                <div class="col-lg-2">
-                    <img class="img-square-normal" src="../Content/Image/medal-copper-service.svg" title="專業 / 維修 [銅]" />
-                </div>
-                <div class="col-lg-5">
-                    <p>Email : jt58@newegg.com</p>
-                    <p>Phone : 0911</p>
-                    <p>Line : adfaeww</p>
-                </div>
+                <div id="member-medal" class="col-lg-2"></div>
+                <div id="member-contact" class="col-lg-5"></div>
             </div>
             <div id="evaluation" class="well row">
                 <h4 style="text-align:center">評價</h4>
@@ -54,12 +45,12 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">您給對方:</label>
-                        <div class="col-sm-6">
-                            <label class="radio-inline"><input type="radio" name="optradio">GOOD</label>
-                            <label class="radio-inline"><input type="radio" name="optradio">BAD</label>
+                        <div id="eva-choice-container" class="col-sm-6">
+                            <label class="radio-inline"><input class="eva-choice" type="radio" name="optradio" value="GOOD">GOOD</label>
+                            <label class="radio-inline"><input class="eva-choice" type="radio" name="optradio" value="BAD">BAD</label>
                         </div>
                         <div class="col-sm-3">
-                            <button type="button" class="btn btn-primary">送出評價</button>
+                            <button id="eva-btn" type="button" class="btn btn-primary" onclick="SendEvaluation(this)" disabled="disabled">請選擇評價</button>
                         </div>
                     </div>
                 </form>
