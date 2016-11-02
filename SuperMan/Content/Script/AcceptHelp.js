@@ -235,9 +235,11 @@ function RenderSelectedSuperMan(superManList, superManId) {
 
     $supeManContainer = $("<div class=\"well row\"></div>");
 
-    var eva = memberInfo.Good * 100 / (memberInfo.Good + memberInfo.Bad);
-    var $eva_bar = $(String.format("<div class=\"row\"><div class=\"eva-container\" data-toggle=\"tooltip\" title=\"Good / Bad\"><div class=\"evabar\" style=\"width:{0}%\"></div></div></div>", eva));
-    $supeManContainer.append($eva_bar);
+    if (memberInfo.Good != 0) {
+        var eva = memberInfo.Good * 100 / (memberInfo.Good + memberInfo.Bad);
+        var $eva_bar = $(String.format("<div class=\"row\"><div class=\"eva-container\" data-toggle=\"tooltip\" title=\"Good / Bad\"><div class=\"evabar\" style=\"width:{0}%\"></div></div></div>", eva));
+        $supeManContainer.append($eva_bar);
+    }
 
     var $name = $("<div class=\"col-lg-3\"></div>");
     var $name_img = $(String.format("<img class=\"img-circle-normal\" src=\"{0}\">", UrlBuilder.ImageUrl("user-shape.svg")));
