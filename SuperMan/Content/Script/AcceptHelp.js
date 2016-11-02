@@ -219,12 +219,15 @@ function RenderSelectedSuperMan(superManList, superManId) {
     $.each(superManList, function (i, v) {
         if (v.MemberId == superManId) {
             memberInfo = v.MemberInfo;
-            memberMedalInfo = memberInfo.MemberMedalInfo[0];
+            if (memberInfo.MemberMedalInfo != null) {
+                memberMedalInfo = memberInfo.MemberMedalInfo[0];
+            }
+
             return false;
         }
     });
 
-    if (memberInfo == null || memberMedalInfo == null) {
+    if (memberInfo == null) {
         return;
     } else {
         $("#evaluation").show();
@@ -244,8 +247,11 @@ function RenderSelectedSuperMan(superManList, superManId) {
     $supeManContainer.append($name);
 
     var $level = $("<div class=\"col-lg-3\"></div>");
-    var $level_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberMedalInfo.Image), memberMedalInfo.MedalName));
-    $level.append($level_img);
+    if (memberMedalInfo != null) {
+        var $level_img = $(String.format("<img class=\"img-square-normal\" src=\"{0}\"\ title=\"{1}\">", UrlBuilder.ImageUrl(memberMedalInfo.Image), memberMedalInfo.MedalName));
+        $level.append($level_img);
+    }
+   
     $supeManContainer.append($level);
 
     var $contact = $("<div class=\"col-lg-5\"></div>");
