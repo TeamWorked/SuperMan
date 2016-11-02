@@ -160,7 +160,9 @@ function RenderSuperManList(superManList, container) {
             var memberMedalInfo = memberInfo.MemberMedalInfo[0];
 
             var $content = $("<div class=\"well row\"></div>");
-            var $eva_bar = $("<div class=\"row\"><div class=\"eva-container\"><div class=\"evabar\" data-toggle=\"tooltip\" title=\"Good / Bad\" style=\"width:20%\"></div></div></div>");
+
+            var eva = memberInfo.Good * 100 / (memberInfo.Good + memberInfo.Bad);
+            var $eva_bar = $(String.format("<div class=\"row\"><div class=\"eva-container\" data-toggle=\"tooltip\" title=\"Good / Bad\"><div class=\"evabar\" style=\"width:{0}%\"></div></div></div>", eva));
             $content.append($eva_bar);
 
             ///////////////////////
@@ -200,7 +202,7 @@ function RenderSuperManList(superManList, container) {
             $content.append($confirm);
 
             $(container + " .list-container").append($content);
-
+            $(".eva-container").tooltip();
         }
     });
 }
@@ -224,7 +226,8 @@ function RenderSelectedSuperMan(superManList, superManId) {
 
     $supeManContainer = $("<div class=\"well row\"></div>");
 
-    var $eva_bar = $("<div class=\"row\"><div class=\"eva-container\"><div class=\"evabar\" style=\"width:20%\"></div></div></div>");
+    var eva = memberInfo.Good * 100 / (memberInfo.Good + memberInfo.Bad);
+    var $eva_bar = $(String.format("<div class=\"row\"><div class=\"eva-container\" data-toggle=\"tooltip\" title=\"Good / Bad\"><div class=\"evabar\" style=\"width:{0}%\"></div></div></div>", eva));
     $supeManContainer.append($eva_bar);
 
     var $name = $("<div class=\"col-lg-3\"></div>");
@@ -256,11 +259,32 @@ function RenderSelectedSuperMan(superManList, superManId) {
     $supeManContainer.append($contact);
 
     $("#superman-selected").html($supeManContainer);
-
-
+    $(".eva-container").tooltip();
 }
 
 function AcceptMission(superManId, missionId) {
+    // /api/reqeust/answer
+
+    var anserData = {
+        MemberId: "123",
+        Title: "",
+        Detail: "",
+        MissionId: 100000027,
+        Ref_MsgReqeustId: 10000035,
+        Accept: 1
+    }
+
+    $.ajax({
+        url: Global.Api.ReqeustAnswer,
+        type: "post",
+        dataType: "json",
+        data: postData,
+        success: function (data) {
+            window.location.href = "/mission/AcceptHelp?id=" + missionId;
+        }
+    });
+
+
     var postData = {
         MissionId: missionId,
         MemberId: head.memberInfo.MemberId,
@@ -277,3 +301,17 @@ function AcceptMission(superManId, missionId) {
         }
     });
 }
+
+function SendEvaluation(btn) {
+    var eva_value = $(".eva-choice:checked").val();
+    $(btn).attr("disabled", "disable");
+    $(btn).removeClass("btn-primary").addClass("btn-success");
+    $(btn).text("評價已送出");
+
+    $eva = $(String.format("<p class=\"form-control-static\">{0}</p>", eva_value));
+    $("#eva-choice-container").html($eva);
+}
+
+$(".eva-choice").on("click", function () {
+    $("#eva-btn").removeAttr("disabled");
+});
