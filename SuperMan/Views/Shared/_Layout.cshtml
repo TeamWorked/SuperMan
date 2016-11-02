@@ -110,6 +110,11 @@
                             <span class="mission-count" v-text="missionCount.Give"></span>
                         </a>
                     </li>
+                    <li>
+                        <a href="" data-toggle="tooltip" data-placement="bottom" title="Logout" >
+                            <img v-on:click="logout" src="../Content/Image/logout.png" class="cover" style="width:28px;height:28px" />
+                        </a>
+                    </li>
                 </ul>
             </div>
             
@@ -130,6 +135,12 @@
                             "z-index": "10",
                             "text-shadow": "0px 0px 20px #FF37FD",
                             "animation-duration": "1s"
+                        }
+                    },
+                    methods: {
+                        logout: function () {
+                            delCookie("memberInfo");
+                            checkLogin();
                         }
                     }
                 })
