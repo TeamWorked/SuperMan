@@ -73,7 +73,7 @@ var pf = new Vue({
           },
           {
               "Title": "大七",
-              "Description": "家人守護神器，進入東海商圈後防禦力+150",
+              "Description": "家人守護神器，進入東海商圈後防禦力+150，持有者可開四次霸氣<br>原價8萬，特價只要160萬",
               "Image": "bmw740.jpg",
               "Cost": 160000,
               "Pay": "egg2.png"
@@ -85,7 +85,7 @@ var pf = new Vue({
               "Pay":"money.jpg"
           },
         ],
-        defaultBannerSrc: "../Content/Image/banner-get-help.jpg",
+        defaultBannerSrc: "../Content/Image/banner-get-help.png",
         defaultImageSrc: "../Content/Image/superman.jpg"
     },
     methods: {
